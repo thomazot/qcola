@@ -1,0 +1,55 @@
+<ul class="social-list">
+    {% if settings.facebook %}
+    <li>
+        <a href="https://www.facebook.com/{{ settings.facebook }}" target="_blank">
+            <img src="{{ asset('img/facebook.svg') }}" alt="Facebook" width="20" height="20">
+            Facebook
+        </a>
+    </li>
+    {% endif %}
+
+    {% if settings.twitter %}
+    <li>
+        <a href="https://www.twitter.com/{{ settings.twitter }}" target="_blank">
+            <img src="{{ asset('img/twitter.svg') }}" alt="Twitter" width="20" height="20">
+            Twitter
+        </a>
+    </li>
+    {% endif %}
+
+    {% if settings.whatsapp %}
+    <li>
+        <a href="https://api.whatsapp.com/send?phone=55{{ settings.whatsapp|replace({'(': '', ')': '', '-': '', ' ': ''}) }}" target="_blank" rel="noopener">
+            <img src="{{ asset('img/whatsapp.svg') }}" alt="Whatsapp" width="20" height="20">
+            {{ settings.whatsapp }}
+        </a>
+    </li>
+    {% endif %}
+
+    {% if settings.youtube %}
+    <li>
+        <a href="https://www.youtube.com/{{ settings.youtube }}" target="_blank">
+            <img src="{{ asset('img/youtube.svg') }}" alt="Youtube" width="20" height="20">
+            YouTube
+        </a>
+    </li>
+    {% endif %}
+
+    {% if settings.pinterest %}
+    <li>
+        <a href="https://br.pinterest.com/{{ settings.pinterest }}" target="_blank">
+            <img src="{{ asset('img/pinterest.svg') }}" alt="Pinterest" width="20" height="20">
+            Pinterest
+        </a>
+    </li>
+    {% endif %}
+
+    {% if settings.instagram %}
+    <li>
+        <a href="https://www.instagram.com/{{ settings.instagram }}" target="_blank">
+            <img src="{{ asset('img/instagram.svg') }}" alt="Instagram" width="20" height="20">
+            Instagram
+        </a>
+    </li>
+    {% endif %}
+</ul>

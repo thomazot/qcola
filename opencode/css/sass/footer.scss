@@ -1,0 +1,204 @@
+.foo-content{
+    background: #fff;
+    border-top: 1px solid #e2e2e2;
+    margin-top: 30px;
+    padding: 30px 0;
+    
+    h3{
+        color: #8c8c8c;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        
+        @include typo(1.8rem, 700, $font, 2rem); 
+    }
+    
+    h5{
+        color: #8c8c8c;
+        margin: 5px 0;
+        padding: 0 0 0 5px;
+        text-transform: uppercase;
+        
+        @include typo(1rem, 700, $font, 1.5rem);
+    }
+    
+    .links-list{
+        
+        li{
+            margin-bottom: 10px;
+        }
+        
+        a{
+            color: #8c8c8c;
+            display: inline-block; 
+            
+            @include typo(1.4rem, 300, $font, 1.6rem);
+        }
+    }
+    
+    .social-list{
+        
+        .social-list{
+            
+            li{
+                margin-bottom: 15px;
+            }
+            
+            a{
+                display: block;
+                font-size: 1.6rem;
+                line-height: 20px;
+                
+                &:hover,
+                &:focus{
+                    text-decoration: none;
+                }
+                
+                img{
+                    display: inline-block;
+                    margin-right: 5px;
+                    vertical-align: top;
+                }
+            }
+        }
+    }
+    
+    .payment-gateways{
+        
+        @media (min-width: 768px) and (max-width: 991px){
+            clear: left;
+        }
+        
+        .payment-form{
+            padding: 3px;
+            
+            img{
+                max-height: 27px;
+            }
+        }
+        
+        .row{
+            margin-left: -3px;
+            margin-right: 0;
+        }
+        
+        svg{
+            max-width: 100%;
+        }
+        
+        .security-title{
+            margin-top: 20px;
+        }
+    }
+    
+    @media screen and (max-width: $sm){
+        
+        .container > div{
+            margin-top: 70px;
+            
+            &:first-child{
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+.foo-payment{
+    max-width: 320px;
+}
+
+.foo-contact{
+    
+    @media screen and (min-width: 768px) and (max-width: 992px){
+        margin-bottom: 70px;
+    }
+    
+    i{
+        display: inline-block;
+        font-size: 0;
+        height: 36px;
+        margin-right: 10px;
+        text-align: center;
+        vertical-align: middle;
+        width: 36px;
+        
+        @media (min-width: 992px){
+            display: none;
+        }
+        
+        @media (min-width: 1200px){   
+            display: inline-block;
+        }
+        
+        @media (max-width: 767px){   
+            display: inline-block;
+        }
+            
+        &:before{
+            content: '';
+            display: inline-block;
+            height: 36px;
+            vertical-align: middle;
+            width: 1%;
+        }
+        
+        svg{
+            display: inline-block;
+            fill: #9e9e9e;
+            max-width: 99%;
+            vertical-align: middle;
+        }
+    }
+    
+    p{
+        color: #8c8c8c;
+        display: inline-block;
+        vertical-align: middle;
+        width: 80%;
+        @include typo(1.4rem, 400, $font, 1.8rem);
+    }
+    
+    li{
+        margin-top: 17px;
+        
+        &:first-child{
+            margin-top: 0;
+        }
+    }
+}
+
+.foo-seals{
+    
+    > li{
+        margin-bottom: 10px;
+    }
+    
+    .seal-ebit{
+        margin-right: 10px;
+    }
+    
+    center{
+        text-align: left;
+    }
+    
+    .google-safe{
+        background: #fff;
+        border-radius: 3px;
+        display: inline-block;
+        padding: 3px;
+        width: 115px;
+    }
+}
+
+.foo-message{
+    background: #fff;
+    color: #8c8c8c;
+    margin: 1px 0 15px;
+    padding: 25px 0;
+    text-align: center;
+    
+    @include typo(1.2rem, 400, $font, 1.6rem);
+    
+    .message-footer {
+        color: #8c8c8c;
+    }
+}

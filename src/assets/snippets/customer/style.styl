@@ -1,0 +1,56 @@
+.customer 
+    &__container 
+        display: flex 
+        align-items: center
+        margin: -(gutter/2) 0
+
+    &__main 
+        padding: (gutter/2) 0
+
+    &__icon 
+        font-size: 20px
+
+    &__label
+        a, span, &
+            font-size: 14px
+            font-weight: bold
+
+    &__link 
+        a, & 
+            font-size: 14px
+            font-weight: regular
+
+    &__main 
+        flex: 1 
+        min-width: 0
+
+    &__link 
+        &--icon 
+            display: flex 
+            justify-content: center 
+            align-items: center
+            width: 45px
+            height: 45px 
+            border-radius: 3px
+
+    &--header 
+        .customer
+            &__main 
+                display: none 
+
+    &--navigation  
+        padding: gutter
+        border-bottom: solid 1px rgba(0,0,0,.1)
+
+        .customer 
+            &__header
+                padding-right: (gutter / 2)
+
+@media (min-width: 992px)
+    .customer
+        &--header 
+            .customer
+                &__header 
+                    padding-right: (gutter / 2)
+                &__main
+                    display: block

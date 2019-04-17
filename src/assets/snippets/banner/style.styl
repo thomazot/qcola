@@ -1,0 +1,42 @@
+.banner 
+    &--full 
+        .banner
+            &__list 
+                white-space: nowrap 
+                overflow: hidden 
+                width: 100% 
+                
+            &__item 
+                display: inline-block
+                width: 100%
+                height: 100% 
+
+            &__img 
+                width: 100% 
+                height: 100% 
+                min-height: 400px
+                object-fit: cover 
+
+            &__link 
+                display: block 
+    &--grid 
+        .banner 
+            &__list 
+                display: flex 
+                justify-content: space-between
+                align-items: stretch
+                margin: -(gutter / 2)
+            &__item 
+                padding: (gutter / 2)
+
+                img 
+                    width: 100% 
+                    height: 100% 
+                    object-fit: cover
+
+    &--showcase 
+        margin: 20px 0
+        img 
+            width: 100%
+            height: 100% 
+            object-fit: cover

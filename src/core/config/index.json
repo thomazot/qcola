@@ -1,0 +1,10 @@
+{
+    "viewport": "1300px",
+    "gutter": "30px",
+    "mobile": "screen and (max-width: 991px)",
+    "desktop": "screen and (min-width: 992px)",
+    "light": 300,
+    "regular": 400,
+    "medium": 500,
+    "bold": 700
+}

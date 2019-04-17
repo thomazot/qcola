@@ -1,0 +1,16 @@
+{% if products|length > 0 %}
+    <div class="showcase-catalog clearfix col-sm-12 col-md-12">
+        <ul class="row">
+        {% for product in products %}
+            {% set ranking = product.ranking %}
+            <li class="col-sm-4">
+                {% element 'snippets/product' {"product": product} %}
+            </li>
+            
+            {% if loop.index is divisible by(3) %}
+            </ul><ul class="row">
+            {% endif %}
+        {% endfor %}
+        </ul>
+    </div>
+{% endif %}

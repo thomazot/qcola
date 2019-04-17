@@ -1,0 +1,35 @@
+// breadcrumb
+.breadcrumb-text,
+.breadcrumb-text + .icon-breadcrumb{
+    display: none;
+}
+
+.breadcrumb{
+    margin-bottom: 30px;
+    padding: 0 15px;
+    
+    a, 
+    .icon-breadcrumb{
+        color: #9c9c9c;
+        @include typo(1.2rem, 400, $font, 1.2rem);
+    }
+}
+
+.breadcrumb-item{
+    @include typo(1.2rem, 400, $font, 1.2rem);
+    
+    &:last-child{
+        
+        a{
+            color: #c2a26f;    
+        }
+    }
+}
+
+.icon-breadcrumb{
+    
+    &:before{
+        content: '/';
+        padding: 0 3px;
+    }
+}

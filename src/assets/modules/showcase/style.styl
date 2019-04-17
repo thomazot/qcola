@@ -1,0 +1,30 @@
+.showcase 
+    &__header 
+        padding: 30px 0 20px
+        margin-bottom: 20px 
+        border-bottom: solid 1px rgba(0,0,0,.1)
+
+    &__title 
+        text-align: center 
+        line-height: 1.2
+
+    &__list 
+        display: flex 
+        justify-content: space-between
+        align-items: stretch
+        flex-flow: row wrap
+        min-width: 100%
+
+        margin: -(gutter / 2)
+
+    &__item 
+        flex: 1 1 254px
+        padding: (gutter / 2)
+
+
+@media (min-width: (viewport + 100))
+    .showcase 
+        .slick-prev 
+            left: -50px
+        .slick-next 
+            right: -50px

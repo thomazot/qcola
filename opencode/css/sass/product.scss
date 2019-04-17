@@ -1,0 +1,134 @@
+.product{
+    background: #fff;
+    border: 1px solid #e2e2e2;
+    display: block;
+    margin: 15px 0;
+    padding: 15px;
+
+    a,
+    a:hover
+    a:focus,
+    a:active{
+        outline: none;
+        text-decoration: none;
+    }
+
+    .product-image{
+        position: relative;
+        border-bottom: 1px solid #eee;
+        font-size: 0;
+        height: 200px;
+        margin-bottom: 15px;
+        text-align: center;
+
+        &:before{
+            content: '';
+            display: inline-block;
+            height: 200px;
+            vertical-align: middle;
+            width: 1%;
+        }
+
+        img{
+            display: inline-block;
+            max-height: 100%;
+            max-width: 99%;
+            vertical-align: middle;
+        }
+
+        .discount{
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            color: #fff;
+            opacity: .9;
+        }
+    }
+
+    .product-name{
+        color: #3d4445;
+        display: block;
+        height: 55px;
+        margin-bottom: 15px;
+        overflow: hidden;
+        @include typo(1.5rem, 400, $font, 1.8rem);
+
+        @media screen and (max-width: $sm){
+            margin-bottom: 7px;
+            @include typo(1.2rem, 400, $font, 1.3rem);
+            text-align: center;
+        }
+    }
+
+    .product-price{
+        color: #000;
+        display: block;
+        height: 35px;
+        position: relative;
+        z-index: 1;
+        @include typo(1.5rem, 700, $font, 1.8rem);
+
+        @media screen and (max-width: $sm){
+            @include typo(1.2rem, 700, $font, 1.3rem);
+            text-align: center;
+        }
+
+        .price{
+            color: #000;
+            font-size: 2rem;
+            font-weight: 400;
+            left: 0;
+            position: absolute;
+            text-decoration: line-through;
+            top: -18px;
+        }
+
+        .price-various{
+            display: none;
+        }
+
+        .price-before {
+            font-size: 1.2rem;
+            color: #ccc;
+            font-weight: 400;
+
+            &.strike{ text-decoration: line-through; }
+        }
+    }
+    .pricing{
+        text-align: center;
+        font-size: 15px;
+        padding: 5%;
+        color: #aaa;
+    }
+
+    .product-payment{
+        color: #000;
+        display: block;
+        height: auto;
+        overflow: hidden;
+        @include typo(1.2rem, 400, $font, 1.4rem);
+
+        @media screen and (max-width: $sm){
+            margin-bottom: 7px;
+            text-align: center;
+        }
+
+        > br:first-child{
+            display: none;
+        }
+
+        span,
+        strong{
+            color: #000;
+            @include typo(1.2rem, 400, $font, 1.4rem);
+
+            @media screen and (max-width: $sm){
+                @include typo(1rem, 400, $font, 1rem);
+            }
+        }
+    }
+}

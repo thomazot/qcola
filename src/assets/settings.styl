@@ -1,0 +1,19 @@
+/**
+ *  Settings Global do CSS (Stylus)
+ *  - Essas Configurações são chamados em todos arquivos styles 
+ *  - Não se deve inserir estruturas css, é permitido somente variaves e funções
+ */
+
+// Import Configs
+json('../core/config/index.json')
+
+// mixins
+container(args...) 
+    width: 100%
+    max-width: args 
+    padding: 0 (gutter/2)
+
+icon(args...)
+    content: args
+    font-family: "Font Awesome 5 Free"
+    font-weight: 900

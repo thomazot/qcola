@@ -1,0 +1,104 @@
+@media mobile
+    .menu 
+        width: 100%
+        overflow: hidden
+        &--sub 
+            display: none 
+            background: rgba(0, 0, 0, .05)
+                
+        &--navigation 
+            overflow-y: auto
+
+            .menu 
+                &__link
+                    display: block 
+                    padding: (gutter/2) gutter
+                    line-height: 1.2 
+
+                &__item
+                    &--nv1 
+                        + .menu__item--nv1 
+                            border-top: solid 1px rgba(0,0,0,.1)
+
+                    &--has-child 
+                        display: flex 
+                        justify-content: space-between
+                        align-items: stretch
+                        flex-flow: row wrap 
+
+                        &:after 
+                            icon: "\f105"
+                            order: 2
+                            flex: 0 0 auto
+                            
+                            display: flex 
+                            justify-content: center 
+                            align-items: center
+                            width: 45px 
+                            font-size: 20px
+
+                            transition: all 200ms ease
+
+                        > .menu__link 
+                            flex: 1 
+                            order: 1
+                            min-width: 0
+
+                        > .menu--sub 
+                            order: 3
+                            flex: 0 0 100%
+
+                        &[aria-expanded=true]
+                            &:after 
+                                transform: rotate(90deg)
+
+@media desktop 
+    .menu
+        &__ul
+            &--nv1
+                display: flex 
+                justify-content: space-between
+                flex-flow: row nowrap
+                height: 50px
+
+        &__item 
+            &--hidden 
+                display: none 
+
+            &--has-child
+                &:hover 
+                    .menu--nv2
+                        opacity: 1 
+                        visibility: visible
+
+            &--nv1
+                position: relative
+
+        &__link
+            &--nv1
+                display: inline-block
+                padding: (gutter / 2)
+
+                white-space: nowrap
+
+            &--nv2 
+                display: block
+                padding: 5px (gutter / 2)
+
+        &--sub 
+            padding: 10px 0
+
+        &--nv2
+            position: absolute 
+            left: 0
+
+            min-width: 250px;
+            opacity: 0 
+            visibility: hidden
+
+            background: #fff 
+            box-shadow: 0 0 10px rgba(0,0,0,.1)
+
+        &--rtl 
+            left: auto
+            right: 0

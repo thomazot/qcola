@@ -1,0 +1,64 @@
+<div class="product-price">
+    {% if product.available %}
+        
+        {% if product.stock > 0 or settings.without_stock_sale %} 
+        
+            {% if product.upon_request %}
+                <p>Produto Sob Consulta</p>
+            {% else %}
+            
+                <div class="prices" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                    {% if product.has_variation %}
+                        <span class="price-various">{{ Translation('a_partir_de') }}</span> 
+                    {% endif %} 
+                    
+                    {% if settings.price_before_style == 'strike' or settings.price_before_style == 'strike-depor' %}
+                        {% set priceStyle = 'strike' %}
+    
+                    {% endif %}
+                    
+                    {% if settings.price_before_style == 'depor' or settings.price_before_style == 'strike-depor' %}
+                        {% set priceOld = 'De: ' %}
+                    {% endif %}
+                        
+                    {% if product.price_offer > 0 and product.show_price %}
+                        <div class="price-before {{ priceStyle }}">
+                            {{ priceOld }} <abbr class="currency" title="BRL" itemprop="priceCurrency" content="BRL">{{ settings.currency }}</abbr> 
+                            <span>{{ product.price|currency }}</span>
+                        </div>
+                        
+                        <div class="price-promotion">
+                            <div class="price-off">
+                                {% if product.has_other_prices %}
+                                    {{ Translation('apartir') }} <abbr class="currency" title="BRL" itemprop="priceCurrency" content="BRL">{{ settings.currency }}</abbr>
+                                    <span itemprop="price" content="{{ product.price_offer }}">{{ product.price_offer|currency  }}</span>
+                                {% else %}
+                                    {{ priceOld ? 'Por: ' }} <abbr class="currency" title="BRL" itemprop="priceCurrency" content="BRL">{{ settings.currency }}</abbr> 
+                                    <span itemprop="price" content="{{ product.price_offer }}">{{ product.price_offer|currency  }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <div>
+                            {% if product.has_other_prices %}
+                                {{ Translation('apartir') }} <abbr class="currency" title="BRL" itemprop="priceCurrency" content="BRL">{{ settings.currency }}</abbr>
+                                <span itemprop="price" content="{{ product.price }}">{{ product.price|currency  }}</span>
+                            {% else %}
+                                {{ priceOld ? 'Por: ' }} <abbr class="currency" title="BRL" itemprop="priceCurrency" content="BRL">{{ settings.currency }}</abbr>
+                                <span itemprop="price" content="{{ product.price }}">{{ product.price|currency  }}</span>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+            
+        {% else %} 
+            <p>Esgotado!</p>
+        {% endif %} 
+        
+    {% else %} 
+        <p>Indispon&iacute;vel</p> 
+        
+    {% endif %} 
+    
+</div>

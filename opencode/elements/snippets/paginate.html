@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-sm-6 search-counter">
+        {{ paginate.counter('Encontramos {:count} produto(s) em {:pages} p&aacute;gina(s)') }}
+    </div>
+    
+    <div class="col-sm-6 paginate-links">
+    {% if paginate.params.pageCount > 1 %}
+        {{ paginate.first('<<', {'class': 'page-first page-link'}) }}
+     
+        {% if paginate.hasPrev %}
+            {{ paginate.prev('<', {'class': 'page-prev page-link'}) }}
+        {% endif %}
+     
+        {{ paginate.numbers({
+            'modulus': 5,
+            'separator': '',
+            'class': 'page-link',
+            'currentClass': 'page-current'
+        }) }}
+     
+        {% if paginate.hasNext %}
+            {{ paginate.next('>', {'class': 'page-next page-link'}) }}
+        {% endif %}
+     
+        {{ paginate.last('>>', {'class': 'page-last page-link'}) }}
+    {% endif %}
+    </div>
+</div>

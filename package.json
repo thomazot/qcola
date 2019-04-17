@@ -1,0 +1,62 @@
+{
+  "name": "Tema",
+  "version": "1.0.0",
+  "description": "Tema Tray",
+  "main": "webpack.config.js",
+  "scripts": {
+    "opencode.developer": "cd opencode && opencode open && opencode watch",
+    "opencode.production": "cd opencode && opencode upload",
+    "webpack.developer": "webpack --mode=development --watch --colors --progress",
+    "webpack.production": "webpack --mode=production --colors --progress",
+    "start": "npm-run-all --parallel webpack.developer opencode.developer",
+    "deploy": "npm-run-all webpack.production opencode.production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:thomazot/qcola.git"
+  },
+  "keywords": [
+    "Taita",
+    "Tray"
+  ],
+  "author": "Thomaz Takashi Oda Toyama <thomazot@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.4.4",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^2.1.0",
+    "iconfont-webpack-plugin": "^3.1.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "npm-run-all": "^4.1.5",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-object-fit-images": "^1.1.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-redux": "^6.0.0",
+    "react-resource": "^2.0.7",
+    "redux": "^4.0.1",
+    "redux-resource": "^3.0.4",
+    "redux-thunk": "^2.3.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "svg-sprite-loader": "^4.1.3",
+    "svgo": "^1.2.1",
+    "svgo-loader": "^2.2.0",
+    "uglifyjs-webpack-plugin": "^2.1.1",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.2.0"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "object-fit-images": "^3.2.4",
+    "slick-carousel": "^1.8.1",
+    "stickybits": "^3.6.4"
+  }
+}

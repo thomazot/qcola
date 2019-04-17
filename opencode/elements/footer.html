@@ -1,0 +1,112 @@
+{% set checkout = "checkout" in pages.current ? "true" : "false" %}
+<footer>
+    <div class="news-full visible-xs-block .visible-sm-block">
+        {% element 'snippets/newsletter' %}
+    </div>
+    <div class="foo-content">
+        <div class="container">
+            <div class="col-sm-6 col-md-2 col-xs-12">
+                <h3>{{ Translation('institucional') }}</h3>
+                <ul class="links-list">
+                    {% for custom in pages.custom %}
+                        <li>
+                            <a href="{{ custom.url }}">{{ custom.name }}</a>
+                        </li>
+                    {% endfor %}
+                    <li>
+                        <a href="{{ links.contact }}" data-tray-tst="fale_conosco">{{ Translation('contato') }}</a>
+                    </li>
+                </ul>
+            </div>
+            
+            {%
+                if 
+                Translation('ag_atendimento') != '' or
+                Translation('ag_telefone_1') != '' or 
+                Translation('ag_telefone_2') != '' or 
+                Translation('ag_email_1') != '' or 
+                Translation('ag_email_2') != ''
+            %}
+            <div class="col-sm-6 col-md-4 col-xs-12 foo-contact">
+                <h3>{{ Translation('contato') }}</h3>
+                <ul>
+                    {% if Translation('ag_atendimento') != '' %}
+                    <li class="open-info">
+                        <i>
+                            <svg fill="#4b8cdc" width="25" height="25" version="1.1" style="margin-top: -3px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 358.398 409.602" enable-background="new 0 0 358.398 409.602" xml:space="preserve"><g><path d="M179.199,51.199C80.23,51.199,0,131.43,0,230.397c0,98.974,80.23,179.204,179.199,179.204c98.969,0,179.2-80.23,179.2-179.204C358.398,131.43,278.168,51.199,179.199,51.199L179.199,51.199z M179.199,374.397c-79.527,0-144-64.468-144-144c0-79.526,64.473-144,144-144c79.532,0,144,64.473,144,144C323.199,309.93,258.73,374.397,179.199,374.397L179.199,374.397z M348.313,114.871c6.418-11.223,10.086-24.219,10.086-38.07C358.398,34.383,324.016,0,281.602,0c-24.73,0-46.723,11.687-60.77,29.84C273.586,40.734,318.914,71.918,348.313,114.871L348.313,114.871z M137.566,29.84C123.523,11.687,101.527,0,76.801,0C34.383,0,0,34.383,0,76.801c0,13.851,3.668,26.847,10.086,38.07C39.488,71.918,84.816,40.734,137.566,29.84L137.566,29.84z M153.602,128h25.597v128h-25.597V128z M179.199,230.397H256V256h-76.801V230.397z M179.199,230.397"/></g></svg>
+                        </i>
+                        <p data-tray-tst="horario_atendimento">{{ Translation('ag_atendimento') }}</p>
+                    </li>
+                    {% endif %}
+                    
+                    {% if Translation('ag_telefone_1') != '' or Translation('ag_telefone_2') != '' %}
+                    <li class="store-phones">
+                        <i>
+                            <svg fill="#4b8cdc" width="25" height="30" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 202.592 202.592" style="enable-background:new 0 0 202.592 202.592;" xml:space="preserve"><g><g><path d="M198.048,160.105l-31.286-31.29c-6.231-6.206-16.552-6.016-23.001,0.433l-15.761,15.761    c-0.995-0.551-2.026-1.124-3.11-1.732c-9.953-5.515-23.577-13.074-37.914-27.421C72.599,101.48,65.03,87.834,59.5,77.874    c-0.587-1.056-1.145-2.072-1.696-3.038l10.579-10.565l5.2-5.207c6.46-6.46,6.639-16.778,0.419-23.001L42.715,4.769    c-6.216-6.216-16.541-6.027-23.001,0.433l-8.818,8.868l0.243,0.24c-2.956,3.772-5.429,8.124-7.265,12.816    c-1.696,4.466-2.752,8.729-3.235,12.998c-4.13,34.25,11.52,65.55,53.994,108.028c58.711,58.707,106.027,54.273,108.067,54.055    c4.449-0.53,8.707-1.593,13.038-3.275c4.652-1.818,9.001-4.284,12.769-7.233l0.193,0.168l8.933-8.747    C204.079,176.661,204.265,166.343,198.048,160.105z M190.683,176.164l-3.937,3.93l-1.568,1.507    c-2.469,2.387-6.743,5.74-12.984,8.181c-3.543,1.364-7.036,2.24-10.59,2.663c-0.447,0.043-44.95,3.84-100.029-51.235    C14.743,94.38,7.238,67.395,10.384,41.259c0.394-3.464,1.263-6.95,2.652-10.593c2.462-6.277,5.812-10.547,8.181-13.02l5.443-5.497    c2.623-2.63,6.714-2.831,9.112-0.433l31.286,31.286c2.394,2.401,2.205,6.492-0.422,9.13L45.507,73.24l1.95,3.282    c1.084,1.829,2.23,3.879,3.454,6.106c5.812,10.482,13.764,24.83,29.121,40.173c15.317,15.325,29.644,23.27,40.094,29.067    c2.258,1.249,4.32,2.398,6.17,3.5l3.289,1.95l21.115-21.122c2.634-2.623,6.739-2.817,9.137-0.426l31.272,31.279    C193.5,169.446,193.31,173.537,190.683,176.164z" /></g></svg>
+                        </i>
+                        <p data-tray-tst="contato_telefone">
+                            {{ Translation('ag_telefone_1') }}
+                            <br>
+                            {{ Translation('ag_telefone_2') }}
+                        </p>
+                    </li>
+                    {% endif %}
+                    
+                    {% if Translation('ag_email_1') != '' or Translation('ag_email_2') != '' %}
+                    <li class="store-email">
+                        <i>
+                            <svg fill="#4b8cdc" width="25" height="30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 489.66 343.793" enable-background="new 0 0 489.66 343.793" xml:space="preserve"><g><path d="M489.66,32.781v-1.906c0-7.078-3.215-15.406-8.984-21.176l-0.652-0.656c0,0-0.656,0-0.656-0.652c-1.309-1.313-2.559-1.907-3.867-3.215c-0.652,0-0.652-0.653-1.309-0.653c-1.309-0.656-3.211-1.312-4.52-1.906c-0.656,0-0.656-0.652-1.309-0.652c-1.906-0.656-3.867-1.309-5.773-1.309h-1.309c-1.902,0-4.52-0.656-7.078-0.656H34.742c-2.558,0-5.117,0-7.734,0.656c-0.653,0-1.309,0-1.903,0.653c-1.906,0.656-3.867,0.656-5.117,1.308c-0.656,0-0.656,0.656-1.308,0.656c-1.309,0.653-3.215,1.309-4.524,1.903l-0.652,0.656c-1.309,0.652-2.559,1.902-3.867,2.559L7.73,10.293C3.211,15.41,0.656,21.238,0,27.664v288.524c1.309,8.983,5.77,16.718,12.195,21.179c5.77,3.867,12.848,6.426,21.18,6.426h422.793c1.902,0,4.52,0,6.422-0.655h1.309c1.906-0.653,3.867-0.653,5.117-1.31h0.656c14.156-5.117,19.926-17.371,19.926-28.91V33.375C489.66,33.434,489.66,33.434,489.66,32.781L489.66,32.781z M448.551,23.797L246.168,221.004l-46.281-44.973L41.168,23.738h407.383V23.797z M23.855,307.146V39.859l149.676,143.907L23.855,307.146z M239.742,320.59H45.035l145.867-119.512l46.879,45.629c1.903,1.902,3.867,2.56,5.77,3.211h3.926c1.902-0.651,4.52-1.309,5.77-3.211l44.32-43.069l146.465,116.956H239.742V320.59z M465.863,307.742L315.535,186.324L465.863,39.859V307.742z M465.863,307.742"/></g></svg>
+                        </i>
+                        <p data-tray-tst="contato_email">
+                            {{ Translation('ag_email_1') }}
+                            <br>
+                            {{ Translation('ag_email_2') }}
+                        </p>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+            {% endif %}
+            
+            {% if settings.facebook or 
+                  settings.twitter or 
+                  settings.whatsapp or
+                  settings.pinterest or 
+                  settings.youtube or 
+                  settings.instagram
+            %}
+            <div class="col-sm-6 col-md-3 col-xs-12 social-list">
+                <h3 class="social-title">{{ Translation('redes_sociais') }}</h3>
+                {% element 'snippets/social-list' %}
+            </div>
+            {% endif %}
+            
+            <div class="col-sm-6 col-md-3 col-xs-12 payment-gateways">
+                <h3>{{ Translation('pagamento') }}</h3>
+                {% element 'snippets/payment-list' %}
+                
+                {% if seals.ebit or seals.hackersafe %}
+                    <h3 class="security-title">{{ Translation('seguranca') }}</h3>
+                    <ul class="foo-seals">
+                        {% if seals.ebit %}
+                        <li class="seal-ebit pull-left">{{ seals.ebit }}</li>
+                        {% endif %}
+                        {% if seals.hackersafe %}
+                        <li>{{ seals.hackersafe }}</li>
+                        {% endif %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    {% if Translation('ag_mensagem_rodape') != '' %}
+    <div class="foo-message">
+        <div class="container">
+            <span class="message-footer">
+                {{ Translation('ag_mensagem_rodape') }}
+            </span>
+        </div>
+    </div>
+    {% endif %}
+</footer>

@@ -1,0 +1,84 @@
+/**
+ * Showcase
+ */
+
+.showcase{
+    
+    > h2{
+        margin: 0;
+        text-transform: uppercase;
+        
+        @media screen and (max-width: $sm){
+            padding: 0;
+        }
+        
+        strong{
+            color: #000;
+            display: block;
+            @include typo(2.5rem, 400, $font, 2.5rem);
+        }
+    }
+    
+    .slick-slide{
+        @media screen and (max-width: $sm){
+            padding: 0;
+        }
+    }
+    
+    .slick-arrow{
+        background: none;
+        border: 1px solid #a0a0a0;
+        font-size: 0;
+        height: 38px;
+        position: absolute;
+        right: 30px;
+        text-align: center;
+        top: -77px;
+        width: 38px;
+        z-index: 10;
+        
+        &.slick-next{
+            right: 0;
+            
+            &:before{
+                content: '';
+                border-left: 10px solid #a0a0a0;
+                border-top: 6px solid rgba(0, 0, 0, 0);
+                border-bottom: 6px solid rgba(0, 0, 0, 0);
+            }
+        }
+        
+        &.slick-prev{
+            right: 45px;
+            
+            &:before{
+                content: '';
+                border-right: 10px solid #a0a0a0;
+                border-top: 6px solid rgba(0, 0, 0, 0);
+                border-bottom: 6px solid rgba(0, 0, 0, 0);
+            }
+        }
+    }
+    
+    .slick-dots{
+        padding: 30px 0;
+        overflow: hidden;
+        text-align: center;
+        
+        li{
+            background: #a0a0a0;
+            display: inline-block;
+            height: 15px;
+            margin: 0 10px 10px;
+            width: 15px;
+            
+            &.slick-active{
+                background: #000;
+            }
+        }
+        
+        button{
+            display: none;
+        }
+    }
+}
