@@ -3,16 +3,16 @@ import 'slick-carousel/slick/slick.css';
 
 define(['jquery', 'slick-carousel'], function($) {
     $('.banner--full .banner__list').slick({
-        prevArrow: `<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>`,
-        nextArrow: `<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>`
+        prevArrow: `<button type="button" class="slick-prev"><svg class="icon icon--carousel-prev" width="15" height="24"><use xlink:href="#carousel-prev" /></svg></button>`,
+        nextArrow: `<button type="button" class="slick-next"><svg class="icon icon--carousel-next" width="15" height="24"><use xlink:href="#carousel-next" /></svg></button>`
     });
 
     $('.banner--grid .banner__list').slick({
         mobileFirst: true,
         slidesToShow: 1,
         slidesToScroll: 1,
-        prevArrow: `<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>`,
-        nextArrow: `<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>`,
+        prevArrow: `<button type="button" class="slick-prev"><svg class="icon icon--carousel-prev" width="15" height="24"><use xlink:href="#carousel-prev" /></svg></button>`,
+        nextArrow: `<button type="button" class="slick-next"><svg class="icon icon--carousel-next" width="15" height="24"><use xlink:href="#carousel-next" /></svg></button>`,
         responsive: [
             {
                 breakpoint: 424,

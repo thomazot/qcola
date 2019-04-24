@@ -5,8 +5,13 @@ import './reset.styl';
 import './forms.styl';
 
 /** Snippets */
+import 'Snippets/icon';
 import 'Snippets/slick';
+import 'Snippets/fake-select';
 import 'Snippets/title';
+import 'Snippets/button';
+import 'Snippets/prices';
+import 'Snippets/breadcrumb';
 import 'Snippets/logo';
 import 'Snippets/search';
 import 'Snippets/customer';
@@ -18,6 +23,16 @@ import 'Snippets/newsletter';
 import 'Snippets/rulers';
 import 'Snippets/socials';
 import 'Snippets/thumbs';
+import 'Snippets/rating-short';
+import 'Snippets/share';
+import 'Snippets/toolbar';
+import 'Snippets/paginate';
+import 'Snippets/service-center';
+import 'Snippets/head-top';
+import 'Snippets/payments';
+import 'Snippets/filter-home';
+import 'Snippets/instagram';
+
 
 /** Modules */
 import 'Modules/header';
@@ -27,7 +42,10 @@ import 'Modules/showcase';
 import 'Modules/footer';
 import 'Modules/copyright';
 import 'Modules/partners';
+import 'Modules/filter';
 
 /** Page */
-import 'Pages/product';
+import 'Pages/page-product';
+import 'Pages/page-catalog';
+
 

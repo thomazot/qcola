@@ -1,0 +1,54 @@
+<div class="service-center {% if header == 'show' %} service-center--show {% endif %}">
+    <div class="service-center__container">
+        {% if header == 'show' %} 
+            <div class="service-center__header">
+                {% element 'snippets/icon' { 'name': 'phone', 'width': '28', 'height': '28'} %}
+                <span class="service-center__title">Central de Atendimento</span>
+            </div>
+        {% endif %}
+        <div class="service-center__main">
+            <div class="service-center__item service-center__item--whatsapp">
+                <div class="service-center__icon">
+                    {% element 'snippets/icon' { 'name': 'whatsapp', 'width': '27', 'height': '27' } %}
+                </div>
+                <div class="service-center__content">
+                    <div class="service-center__label">Whatsapp</div>
+                    <div class="service-center__text">(11) 9 4490-7716</div>
+                </div>
+            </div>
+            <div class="service-center__item service-center__item--phone">
+                <div class="service-center__icon">
+                    {% element 'snippets/icon' { 'name': 'phone', 'width': '33', 'height': '33' } %}
+                </div>
+                <div class="service-center__content">
+                    <div class="service-center__label">Telefone</div>
+                    <div class="service-center__text">(11) 2043-5408</div>
+                </div>
+            </div>
+            <div class="service-center__item service-center__item--email">
+                <div class="service-center__icon">
+                    {% element 'snippets/icon' { 'name': 'email', 'width': '27', 'height': '21' } %}
+                </div>
+                <div class="service-center__content">
+                    <div class="service-center__label">E-mail</div>
+                    <div class="service-center__text">sac@qcola.com.br</div>
+                </div>
+            </div>
+            <div class="service-center__item service-center__item--office-hours">
+                <div class="service-center__content">
+                    <div class="service-center__label">Horário de Atendimento</div>
+                    <div class="service-center__text">Seg à Sexta das 08 às 17 horas</div>
+                </div>
+            </div>
+            <div class="service-center__item service-center__item--help">
+                <div class="service-center__icon">
+                    {% element 'snippets/icon' { 'name': 'help', 'width': '30', 'height': '25' } %}
+                </div>
+                <div class="service-center__content">
+                    <div class="service-center__label">Ainda ficou com alguma dúvida?</div>
+                    <div class="service-center__text">ENTRE EM CONTATO</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,49 +1,37 @@
-<header>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-3 col-xs-12">
-            {% if pages.current == 'home' %}
-                <h1 class="site-logo" alt="{{ store.name }}">
-                    <a href="{{ links.home }}" data-tray-tst="logotipo_loja">{{ Image('logo') }}</a>
-                </h1>
-            {% else %}
-                <a href="{{ links.home }}" class="site-logo" data-tray-tst="logotipo_loja">{{ Image('logo') }}</a>
-            {% endif %}
-            </div>
-            
-            <div class="col-sm-9 col-xs-12">
-                {% element 'snippets/customer' %}
-                <div class="row">
-                    {% if settings.structure == 1 %}
-                    <div class="col-md-9 col-sm-8 hidden-xs">
-                    {% elseif settings.structure == 2 %}
-                    <div class="col-md-8 col-sm-8 hidden-xs">
-                    {% endif %}    
-                        {% element 'snippets/search' %}
-                    </div>
-                    
-                    {% if settings.structure == 1 %}
-                    <div class="col-md-3 col-sm-4 hidden-xs">
-                    {% elseif settings.structure == 2 %}
-                    <div class="col-md-4 col-sm-4 hidden-xs">
-                    {% endif %} 
-                        {% element 'snippets/cart' %}
-                    </div>
-                </div>
-            </div>
-            <div class="wrapper-nav clearfix visible-xs-block">
-                <div class="col-xs-2">
-                    <button class="trigger-menu">
-                        <img src="{{ asset('img/menu.svg') }}" alt="Menu">
-                    </button>
-                </div>
-                <div class="col-xs-8">
-                    {% element 'snippets/search' %}
-                </div>
-                <div class="col-xs-2 wrapp-cart">
-                    {% element 'snippets/cart' %}
-                </div>
-            </div>
+<header id="header" class="header">
+    <div class="header__container">
+        <div class="header__menu">
+            <button aria-controls="navigation" type="button" class="button button__menu">
+                {% element 'snippets/icon' { 'name': 'menu', 'width': '24', 'height': '20' } %}
+            </button>
+        </div>
+
+        <div class="header__logo">
+            {% element 'snippets/logo' %}
+        </div>
+
+        <div id="search-header" class="header__search">
+            {% element 'snippets/search' %}
+            <button aria-controls="search-header" type="button" class="button button__mask button__mask--search"></button>
+        </div>
+
+        <div class="header__service-center">
+            {% element 'snippets/service-center' { 'header': 'show' } %}
+        </div>
+
+        <div class="header__customer">
+            {% element 'snippets/customer' { modifier: 'header' } %}
+        </div>
+
+        <div class="header__button-search">
+            <button aria-controls="search-header" class="button button__search">
+                {% element 'snippets/icon' { 'name': 'search', 'width': '27', 'height': '27' } %}
+            </button>
+        </div>
+
+        <div class="header__minicart">
+            {% element 'snippets/cart' %}
         </div>
     </div>
+    {% element 'navigation' %}
 </header>

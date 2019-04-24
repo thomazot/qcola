@@ -1,37 +1,22 @@
-{% if settings.structure == 1 %}
-<aside class="sidebar col-sm-3">
-{% elseif settings.structure == 2%}
-<aside class="sidebar col-sm-3 pull-right">
-{% endif %}
-    
-    {% element 'smartfilter' %}
-    {% element 'snippets/menu' %}
-    
-    <div class="news-full hidden-xs">
-        {% element 'snippets/newsletter' %}
+<div id="filter" class="page-catalog__left">
+    <div class="page-catalog__filters">
+        <button aria-controls="filter" type="button" class="button button__close button__close--filter">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="page-catalog__filters-scroll">
+            {% if settings.compare %}
+                <a href="/loja/comparador.php?loja={{store.id}}&IdDep={{category.id}}" class="button-compare">{{ Translation("comparar_produto") }}</a>
+            {% endif %}
+            {% element 'filter' {
+                'brands': category.brands
+            } %}
+        </div>
     </div>
-    
-    {% if banner.side %}
-    <div class="banner banner-sidebar hidden-xs">
-        {{ banner.side }}
-    </div>
-    {% endif %}
-    
-    {% if settings.store_rating %}
-    <div class="store-rating hidden-xs">
-        <h4>As melhores</h4>
-        <h3>{{ Translation('avaliacoes') }}</h3>
-        {% element 'CustomerReview.reviews' %}
-    </div>
-    {% endif %}
-    
-    {% if settings.hottags_position == 1 %}
-    <div class="tagcloud hidden-xs">
-        <h4>As palavras</h4>
-        <h3>{{ Translation('tags_mais_buscadas') }}</h3>    
-        {% for tag in tags %}
-          <a href="{{ tag.url }}" style="font-size: {{ tag.font_size }}%">{{ tag.word }}</a>
-        {% endfor %}     
-    </div>
-    {% endif %}
-</aside>
+    <button aria-controls="filter" type="button" class="button button__mask button__mask--filter"></button>
+</div>
+
+<button aria-controls="filter" type="button" class="button button__filter">
+    <i class="fas fa-sliders-h"></i>
+</button>
+
+

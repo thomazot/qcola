@@ -1,14 +1,40 @@
 .search 
+    border: solid 2px #F1F1F1
+    border-radius: 45px 
+    background: #fff
+
     &__form 
         display: flex 
 
     &__input 
         flex: 1 
+        display: flex 
+        justify-content: flex-start 
+        align-items: center
         min-width: 0 
+        border: 0
+        background: none 
+        height: 40px
+        font-size: 12px
+        letter-spacing: 1px
+        color: #606062
+
+        &:focus::placeholder 
+            color: transparent
 
     &__button 
         flex: 0 0 auto
         min-width: 45px
+        height: 40px
+        background: none
+        display: flex 
+        justify-content: center 
+        align-items: center
+        box-shadow: none 
+        border: 0
+
+        &:hover 
+            background: none 
 
         &-icon 
             font-size: 20px

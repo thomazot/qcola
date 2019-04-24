@@ -1,60 +1,66 @@
-<div class="catalog-header">
-
-    {% if banner.title %}
-    <div class="banner banner-title {% if not settings.enable_banner_default %}mobile-off{% endif %}">
+{% if banner.title %}
+    <div class="banner banner--page-category">
         {{ banner.title }}
     </div>
-    {% endif %}	
+{% endif %}
 
-    {% if search.word %}
-        <h2 class="catalog-name">Exibindo resultados para: {{ search.word }}</h2>
-    {% else %}
-        <h2 class="catalog-name">Exibindo todos os produtos</h2>
-    {% endif %}
+{% if breadcrumb %}
+    {% element 'snippets/breadcrumb' %}
+{% endif %}
+
+<div class="page-catalog__main">
+
+    <h1 class="page-catalog__title title title--big">{{ category.name }}</h1>
+
+    {% if category.small_description %}
+    <div class="page-catalog__description">
+        {{ category.small_description }}
+    </div>
+    {% endif %}    
     
-    <h2 class="catalog-name">{{ category.name }}</h2>
-    
-    {% if products|length > 0 %}
-    
-        {% if breadcrumb %}
-            {% element 'snippets/breadcrumb' %}
+
+    <div class="page-catalog__container">
+        {% if products|length > 0 %}
+            {% element 'sidebar-left' %}
+        {% endif %} 
+
+        {% if products|length > 0 %}
+            <div class="page-catalog__content">
+
+                <div class="page-catalog__toolbar page-catalog__toolbar--top">
+                    {% element 'snippets/toolbar' {
+                        'brands': category.brands,
+                        'position': 'top'
+                    } %}
+                </div>
+
+
+                <div class="page-catalog__list">
+                    {% element 'showcase' {
+                        "products": products,
+                        "carousel": "false"
+                    } %}
+                </div>
+
+                <div class="page-catalog__toolbar page-catalog__toolbar--bottom">
+                    {% element 'snippets/toolbar' {
+                        'brands': category.brands,
+                        'position': 'bottom'
+                    } %}
+                </div>
+            </div>
+        {% else %}
+            
+            <div class="page-catalog__main page-catalog__main--empty">
+                <img src="{{ asset('img/page-catalog-empty.svg') }}" alt="Sem produtos" width="150" height="150">
+                <p>{{ Translation('nenhum_resultado') }}</p>
+            </div>
+
         {% endif %}
-        
-        <div class="system-filter">
-            {% element 'snippets/filter' {
-                'brands': category.brands
-            } %}
+    </div>
+    {% if banner.bottom %}
+        <div class="banner banner--bottom ">
+            {{ banner.bottom }}
         </div>
-    
-        <div class="pagination">
-            {% element 'snippets/paginate' %}
-        </div>
-        
     {% endif %}
-    
 </div>
-
-
-{% if products|length > 0 %}
-
-    <div class="catalog-content row">
-        {% element 'showcase-catalog' {
-            "products": products
-        } %}
-    </div>
-
-    <div class="catalog-footer pagination">
-        {% element 'snippets/paginate' %}
-    </div>
-
-{% else %}
-
-    <p>Nenhum produto encontrado nessa categoria.</p>
-
-{% endif %}
-
-{% if banner.bottom %}
-    <div class="banner banner-bottom {% if not settings.enable_banner_default %}mobile-off{% endif %}">
-        {{ banner.bottom }}
-    </div>
-{% endif %}

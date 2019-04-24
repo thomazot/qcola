@@ -1,21 +1,21 @@
 {% if products|length > 0 %}
-    <div class="showcase clearfix" data-tray-tst="vitrine_home">
-        <h2>
-            <small>{{ Translation('confira_tambem') }}</small>
-            <strong>{{ showcaseTitle }}</strong>
-        </h2>
-        <ul class="row">
+    <div class="showcase">
+        {% if showcaseTitle %}
+        <div class="showcase__header">
+            <h2 class="showcase__title title">{{ showcaseTitle }}</h2>
+        </div>
+        {% endif %}
+        <div class="showcase__list" data-carousel="{{ carousel }}">
         {% for product in products %}
             {% set ranking = product.ranking %}
-            <li class="col-sm-4" data-tray-tst="vitrine_produto">
+            <div class="showcase__item" data-tray-tst="vitrine_produto">
                 {% element 'snippets/product' {"product": product} %}
-            </li>
-            
-            {% if loop.index is divisible by(3) %}
-                </ul><ul class="row">
-            {% endif %}
-            
+            </div>
         {% endfor %}
-        </ul>
+            <div class="showcase__item showcase__item--empty"></div>
+            <div class="showcase__item showcase__item--empty"></div>
+            <div class="showcase__item showcase__item--empty"></div>
+            <div class="showcase__item showcase__item--empty"></div>
+        </div>
     </div>
 {% endif %}

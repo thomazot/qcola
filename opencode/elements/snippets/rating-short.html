@@ -1,0 +1,16 @@
+{% if product.ranking %}
+<div class="rating-short" data-stars-count="{{ product.ranking.rating }}" >
+    <div class="rating-short__container">
+        {% for i in 1..5 %}
+            {% if i <= product.ranking.rating %}
+                <span class="rating-short__star rating-short__star--actived"><i class="fas fa-star"></i></span>
+            {% else %}
+                <span class="rating-short__star"><i class="fas fa-star"></i></span>
+            {% endif %}
+        {% endfor %}
+        <span class="rating-short__votes">
+            ( {{ product.ranking.count }} )
+        </span>
+    </div>
+</div>
+{% endif %}

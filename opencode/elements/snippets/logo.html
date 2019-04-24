@@ -1,0 +1,23 @@
+<div class="logo">
+    {% if settings.logo %}
+    <a class="logo__link" href="{{ links.home }}" data-tray-tst="logotipo_loja" title="{{ store.name }}">
+        <img class="logo__img" src="{{ settings.logo }}" alt="{{ store.name }}" title="{{ store.name }}">
+    </a>
+    {% else %}
+    <a class="logo__link" href="{{ links.home }}" data-tray-tst="logotipo_loja" title="{{ store.name }}">
+        {{ Image('logo') }}
+    </a>
+    {% endif %}
+    {% if pages.current == 'home' %}
+    <h1 class="logo__name" >
+        <a href="{{ links.home }}" data-tray-tst="logotipo_loja" title="{{ store.name }}">{{ store.name }}</a>
+    </h1>
+    {% else %}
+    <span class="logo__name" >
+        <a href="{{ links.home }}" data-tray-tst="logotipo_loja" title="{{ store.name }}">{{ store.name }}</a>
+    </span>
+    {% endif %}
+    {% if settings.description %}
+    <span class="logo__description">{{ settings.description }}</span>
+    {% endif %}
+</div>

@@ -6,12 +6,13 @@ module.exports = (env, argv) => {
     const UglifyJsPlugin          = require("uglifyjs-webpack-plugin");
     const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
     const development             = argv.mode;
-    const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
+    const SpriteLoaderPlugin      = require('svg-sprite-loader/plugin');
+    const Opencode                = require('./opencode');
 
     // IN and OUT
     const config = {
         entry: {
-            custom: './src/index.js'
+            qcola: './src/index.js'
         },
         output: {
             path: path.resolve(__dirname, './opencode/js'),
@@ -47,6 +48,9 @@ module.exports = (env, argv) => {
             $: "jquery",
             jQuery: "jquery",
             Zepto: "jquery"
+        }),
+        new Opencode({
+            message: "Hello world from the config"
         })
     ];
 
@@ -94,7 +98,9 @@ module.exports = (env, argv) => {
                                     browsers: ['last 2 versions'],
                                     grid: true
                                 }),
-                                require('postcss-object-fit-images')
+                                require('postcss-object-fit-images'),
+                                require('postcss-inline-svg'),
+                                require('postcss-svgo')
                             ]
                         }
                     },

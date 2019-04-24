@@ -1,0 +1,47 @@
+<nav class="navigation" id="navigation">
+    <button aria-controls="navigation" type="button" class="navigation__bg"></button>
+    <div class="navigation__container">
+        <button aria-controls="navigation" type="button" class="button button__close button__close--navigation">
+            <i class="navigation__icon-close">
+                {% element 'snippets/icon' { 'name': 'close', 'width': '17', 'height': '17' } %}
+            </i>
+        </button>
+        <div class="navigation__header">
+            {% element 'snippets/customer' { modifier: 'navigation' } %}
+        </div>
+        <div class="navigation__main">
+            <div class="navigation__all-categories">
+                <div class="navigation__all-categories-header">
+                    <div class="navigation__all-categories-icon">
+                        {% element 'snippets/icon' { 'name': 'categories', 'width': '25', 'height': '25' } %}
+                    </div>
+                    <h3 class="navigation__all-categories-title">Todos os Departamentos</h3>
+                </div>
+                {% element 'snippets/menu' { modifier: 'categories-all'} %}
+            </div>
+            {% element 'snippets/menu' { modifier: 'navigation'} %}
+
+            {# outlet category #}
+            {% set outlet = '' %}
+            {% for category in categories %}
+                {% if 'Outlet' in category.name   %}
+                    {% set outlet = category %}
+                {% endif %}
+            {% endfor %}
+
+            {% if outlet %}
+            <div class="navigation__outlet">
+                <a href="{{ category.link }}" class="navigation__outlet-link">
+                    <span class="navigation__outlet-icon">
+                        {% element 'snippets/icon' { 'name': 'outlet', 'width': '25', 'height': '25'} %}
+                    </span>
+                    <span class="navigation__outlet-label">{{ outlet.name }}</span>
+                </a>
+            </div>
+            {% endif %}
+        </div>
+        <div class="navigation__footer">
+            {% element 'snippets/service-center' %}
+        </div>
+    </div>
+</nav>

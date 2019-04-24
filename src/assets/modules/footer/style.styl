@@ -1,8 +1,24 @@
 .footer 
+    background: #3F3F3F
+    color: #fff 
+
+    &__copyright
+        container: 1120px
+        margin: 10px auto 20px
+        font-size: 14px
+        font-weight: regular 
+        color: #8C8C8C
+        text-align: center 
+        border-top: solid 1px rgba(0,0,0,.1)
+        padding-top: 20px
+
+    .service-center__container
+        padding: 0
+
     &__container 
         container: viewport 
         margin: 0 auto
-        padding: 50px (gutter / 2)
+        padding: 20px (gutter / 2)
 
     &__row 
         display: flex 
@@ -10,12 +26,25 @@
         flex-flow: row wrap
         margin: -(gutter / 2)
 
+        &--news-socials
+            border-bottom: solid 1px rgba(0,0,0,.1)
+            margin-bottom: 20px 
+
     &__box 
         flex: 0 1 240px
         padding: (gutter / 2)
 
-    &__title 
-        padding-bottom: 16px
+        &--socials 
+            flex: 1
+            min-width: 0
+
+            .socials__list 
+                justify-content: center 
+
+    .footer 
+        &__title 
+            padding-bottom: 16px
+            color: #fff
 
     &__contact 
         &-icon 
@@ -23,5 +52,95 @@
             vertical-align: middle
             margin-right: 5px
             font-size: 20px
+
+    &__custom-link
+        display: block
+        font-size: 14px
+        font-weight: regular
+        color: #8C8C8C
+        padding: 5px 0
+
+        &:hover 
+            text-decoration: none 
             
-            
+    &__security
+        margin-top: 30px 
+
+        &-content
+            display: flex 
+            align-items: center 
+            justify-content: flex-start 
+            flex-wrap: wrap
+            margin: -2px
+
+            li 
+                padding: 2px 
+                flex: 0 0 50%
+
+
+@media mobile 
+    .footer 
+        .socials 
+            margin: 20px 0
+
+        &__row 
+            margin: 0
+
+            + .footer__row 
+                .footer__box
+                    padding: 0
+
+        &__box 
+            flex: 0 0 100% 
+            padding-top: 0
+            padding-bottom: 0
+
+        &__content 
+            overflow: hidden 
+            max-height: 0
+            transition: all .2s ease
+
+            .on &
+                max-height: 100vh
+
+        &__security
+            margin-top: 0
+
+        .footer 
+            &__title 
+                display: flex 
+                justify-content: flex-start 
+                align-items: center 
+                padding-bottom: 0
+                height: 45px 
+                position: relative 
+                cursor: pointer
+                &:after 
+                    content : ''
+                    position: absolute 
+                    top: 0 
+                    right: 0
+                    width: 45px 
+                    height: 45px
+                    background-image: svg-load('./svg/down.svg')
+                    background-repeat: no-repeat 
+                    background-position: center center 
+                    transition: all .2s ease
+
+        .on .footer__title:after
+            transform: rotate(-90deg)
+
+@media desktop 
+    .footer
+        &__row--news-socials
+            display: flex 
+            justify-content: space-between
+            align-items: center
+            flex-wrap: nowrap
+
+            .newsletter 
+                margin: 20px 0
+
+        &__box 
+            &--socials 
+                flex: 0 0 250px

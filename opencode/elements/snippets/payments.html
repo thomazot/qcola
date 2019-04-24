@@ -1,0 +1,17 @@
+<div class="payments">
+    <div class="payments__container">
+        <ul class="payments__list">
+            {% for payment in paymentMethods.order %}
+                <li class="payments__item payments__item--order">
+                    <img class="payments__img" src="{{ payment.thumbnail.url }}" alt="{{ payment.display_name }}">
+                </li>
+            {% endfor %}
+            {% for payment in paymentMethods.credit %}
+                <li class="payments__item payments__item--credit">
+                    <img class="payments__img" src="{{ payment.thumbnail.url }}" alt="{{ payment.display_name }}">
+                </li>
+            {% endfor %} 
+        </ul> 
+    </div>
+
+</div>

@@ -1,32 +1,24 @@
-// Efeitos de Transição 
-@keyframes open
-    0% 
-        transform: translate3d(-100%, 0, 0)
-    50% 
-        transform: translate3d(0, 0, 0)
 
-@keyframes openButton 
-    0%, 50%
-        opacity: 0 
-    100% 
-        opacity: 1
 
-@keyframes close
-    0%, 50% 
-        transform: translate3d(0, 0, 0)
-    100% 
-        transform: translate3d(-100%, 0, 0)
-
-@keyframes closeButton 
-    0%
-        opacity: 1
-    50%, 100%
-        opacity: 0
 
 @media mobile
     .navigation
         .preload &
             visibility: hidden 
+
+        &__outlet 
+            border-top: solid 1px rgba(0,0,0,0.1)
+
+            &-link 
+                display: block 
+                padding: (gutter / 2)
+                color: #F8C506
+
+            &-icon 
+                display: none 
+
+        &__all-categories
+            display: none
 
         // Fundo do menu Transparente
         &__bg 
@@ -41,23 +33,9 @@
             visibility: hidden
 
         // Botão de Fechar
-        &__button-close 
-            position: fixed 
-            top: 0
-            left: 100%
-            z-index 500
-
-            width: 45px
-            height: 45px
-
-            font-size: 25px
-
-            background: none 
-            color: #fff
-
+        .button__close 
             // Efeitos
             opacity: 0
-            transition: all 500ms ease
 
         // Conteudo do Menu (estrutura)
         &__container 
@@ -70,8 +48,8 @@
             width: 300px
             height: 100%
             max-height: 100%
-            max-width: calc(100% - 45px) 
-            background: #fff
+            max-width: calc(100% - 65px) 
+            background: #eee
 
             transform: translate3d(-100%, 0, 0)
 
@@ -79,33 +57,41 @@
             flex: 1 
             min-height: 0
             overflow-y: auto
+            background: #fff 
+            border-radius: 0 0 4px 4px 
+            padding: 0 10px
+            
+        &__footer 
+            background: #fff 
+            border-radius: 4px 4px 0 0
+            margin-top: 10px
 
         // Transição para fechar o menu
         &[aria-hidden=true]
             .navigation 
                 &__container
                     transform: translate3d(-100%, 0, 0)
-                    animation: close 500ms 1 ease
+                    animation: slideClose 500ms 1 ease
 
-                &__button-close 
-                    opacity: 0
-                    animation: closeButton 500ms 1 ease
+            .button__close
+                opacity: 0
+                animation: slideCloseButton 500ms 1 ease
 
         // Transição para abrir o menu
         &[aria-hidden=false]
             .navigation 
                 &__container 
                     transform: translate3d(0, 0, 0)
-                    animation: open 500ms 1 ease
-
-                &__button-close 
-                    opacity: 1
-                    animation: openButton 500ms 1 ease
+                    animation: slideOpen 500ms 1 ease
 
                 &__bg 
                     opacity: 1
                     visibility: visible
 
+            .button__close
+                opacity: 1
+                animation: slideOpenButton 500ms 1 ease
+                
 @media desktop 
     .navigation
         position: absolute
@@ -115,11 +101,101 @@
         width: 100% 
         transition: all .2s ease-in-out
 
-        &__bg, &__button-close, &__header 
+        &__bg, &__header, .button__close, &__footer
             display: none 
+
         &__main 
             container: viewport
             margin: 0 auto
+            display: flex 
+            .menu--navigation 
+                flex: 1 
+                min-width: 0
+
+        &__all-categories
+            
+            height: 100px 
+            padding: 15px 0
+
+            &-header
+                position: relative    
+                height: 100%
+                display: flex 
+                flex-flow: column nowrap
+                justify-content: flex-end 
+                align-items: center 
+                cursor: pointer 
+                border-right: solid 1px rgba(0,0,0,.05)
+
+                &:before 
+                    content: ''
+                    position: absolute 
+                    bottom: -23px
+                    left: 50% 
+                    width: 16px
+                    height: 16px 
+                    border-radius: 3px
+                    transform: translateX(-50%) rotate(45deg)
+                    background: #fff
+                    opacity: 0
+
+            &-icon 
+                height: 30px 
+                margin-bottom: 5px 
+                .icon 
+                    fill: #fff
+
+            &-title
+                max-width: 130px
+                text-align: center 
+                text-transform: uppercase 
+                line-height: 1
+                font-size: 12px
+                font-weight: regular
+                color: #fff 
+
+            .menu--categories-all 
+                opacity: 0 
+                visibility: hidden 
+                transition: all .2s ease-in-out
+
+            &:hover 
+                background: rgba(255,255,255, .1)
+                
+                .menu--categories-all 
+                    opacity: 1 
+                    visibility: visible
+                .navigation__all-categories-header:before 
+                    opacity: 1
+
+        &__outlet 
+            height: 100px
+            padding: (gutter / 2) 0
+
+            &-icon 
+                display: block 
+                height: 30px 
+                margin-bottom: 5px
+
+                .icon 
+                    fill: #F8C506
+
+            &-link 
+                display: flex 
+                justify-content: flex-end 
+                align-items: center 
+                flex-flow: column nowrap
+                width: 80px
+                height: 100% 
+                color: #F8C506
+                font-size: 12px 
+                font-weight: medium 
+                text-transform: uppercase 
+                border-left: solid 1px rgba(0, 0, 0, .05)
+
+                &:hover 
+                    color: #F8C506
+                    text-decoration: none
 
         [data-scrolling-mode=down] &
-            transform: translate3d(0, -50px, 0)
+            transform: translate3d(0, -100px, 0)

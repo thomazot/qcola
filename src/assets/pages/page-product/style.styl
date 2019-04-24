@@ -1,0 +1,146 @@
+#visualAbas, #visualBlock #add, .bonus_produto:empty
+    display: none 
+
+#col3D, #colFotos, #colVideo, #foto_p, #preco
+    background: none 
+    border: 0
+    
+#preco
+    border: 0 
+    padding: 0
+
+#bloco-add-lista 
+    margin: 0
+    border: 0
+    a
+        display: flex 
+        justify-content: center 
+        align-items: center
+        height: 30px
+        padding: 5px
+        border: solid 1px rgba(0,0,0,.1)
+        font-size: 10px
+        font-weight: regular
+        text-transform: uppercase
+
+#cepbox
+    position: relative
+    display: flex 
+    justify-content: flex-start 
+    align-items: center
+    flex-flow: row wrap
+    border: 0 
+    padding: 0
+    margin: 40px 0 0
+    border: solid 1px rgba(0,0,0,.2)
+
+    input 
+        border: 0
+
+    label 
+        font-size: 14px
+        padding-right: 10px 
+
+    .botao-commerce
+        height: 45px
+        display: inline-block 
+        vertical-align: middle
+
+.cepbox-text
+    flex: 0 0 100%
+    position: absolute 
+    display: flex 
+    justify-content: flex-start 
+    align-items: center
+    height: 30px 
+    bottom: 100% 
+    left: 0
+    font-size: 16px
+    padding: 0
+
+.botao-comprar 
+    width: 100% 
+
+    .botao-commerce-img
+        background: none 
+        width: 100% 
+        height: 45px 
+        padding: 0
+
+.page-product 
+    &__details 
+        #info 
+            display: none 
+
+    &__image 
+        position: relative 
+        z-index: 10
+
+        // Ajuste Zoom
+
+        #wrap
+            display: inline-block 
+            position: relative
+
+        #cloud-zoom-big 
+            z-index: 100!important
+            min-width: 100% 
+            min-height: 100%
+            left: 0 !important
+            margin-left: 0 !important
+            background-color: #fff
+
+    &__name 
+        font-size: 32px
+        font-weight: bold
+        line-height: 1.2
+        padding-bottom: 15px
+
+    &__head 
+        display: flex 
+        justify-content: space-between
+        font-size: 14px
+        padding: 10px 0
+
+    &__links 
+        display: flex 
+        flex-flow: row wrap
+        margin: 10px -5px
+
+        &-item
+            flex: 1 1 50%
+            padding: 5px
+
+            a 
+                display: flex 
+                justify-content: center 
+                align-items: center
+                height: 30px
+                padding: 5px
+                border: solid 1px rgba(0,0,0,.1)
+                font-size: 10px
+                text-transform: uppercase
+
+            &--compare 
+                input 
+                    display: none 
+
+    &__actions 
+        .passo1
+            display: flex 
+
+            #quantidade 
+                font-size: 0 
+                padding: 0 
+                margin: 0 (gutter / 2) 0 0
+                border: 0
+                width: 100px
+
+            #quant
+                width: 100% 
+                font-size: 14px
+                text-align: center
+
+            #bt_comprar
+                flex: 1
+                min-width: 0

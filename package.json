@@ -56,6 +56,8 @@
   "dependencies": {
     "jquery": "^3.3.1",
     "object-fit-images": "^3.2.4",
+    "postcss-inline-svg": "^3.1.1",
+    "postcss-svgo": "^4.0.2",
     "slick-carousel": "^1.8.1",
     "stickybits": "^3.6.4"
   }

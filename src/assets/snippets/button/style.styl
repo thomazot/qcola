@@ -1,0 +1,85 @@
+$button 
+    display: flex 
+    justify-content: center 
+    align-items: center
+    min-width: 45px
+    height: 45px 
+    border: 0 
+
+    font-size: 14px
+    line-height: 1.2
+    background: rgba(0,0,0,.5)
+
+button, .button 
+    @extends $button
+
+.button 
+    &__icon 
+        font-size: 20px
+
+.button 
+    &__filter
+        position: fixed 
+        bottom: 20px
+        left: 20px 
+        z-index: 50
+        border-radius: 50%
+        transition: all .2s ease-in-out
+        opacity: 1 
+        visibility: visible
+
+    &__mask 
+        position: fixed 
+        top: 0 
+        left: 0 
+        z-index: 200
+        width: 100% 
+        height: 100% 
+        background: rgba(0,0,0,.5)
+
+    &__close
+        position: fixed 
+        left: calc(100% + 10px)
+        top: 10px
+        width: 45px
+        height: 45px
+
+        font-size: 25px
+
+        background: none 
+        color: #fff
+
+        &--navigation 
+            background: #F99625
+            border-radius: 50%
+
+    &__menu 
+        display: flex 
+        justify-content: center 
+        align-items: center
+        width: 45px
+        height: 45px 
+        padding: 0 
+        background: none 
+
+    &__search
+        display: flex 
+        justify-content: center 
+        align-items: center
+        width: 45px
+        height: 45px 
+        padding: 0 
+        background: none 
+
+@media desktop 
+    .button
+        cursor          : pointer
+        cursor          : hand
+
+        &--filter 
+            visibility: hidden 
+            opacity: 0
+
+        &__mask--search
+            visibility: hidden 
+            opacity: 0

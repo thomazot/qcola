@@ -1,12 +1,60 @@
 .product
+    &__actions 
+        display: none 
+
     &__header 
         margin-bottom: 20px 
         
     &__link 
         display: block 
 
+        &:hover
+            text-decoration: none
+
     &__image 
         display: block 
         width: 100% 
-        height: 340px
+        height: 230px
         object-fit: contain
+
+    &__review-small
+        margin-bottom: 15px
+        .rating-short__votes
+            display: none 
+
+    &__name 
+        .product__link
+            display: block 
+            height: 44px
+            overflow: hidden
+            font-size: 15px
+            font-weight: bold 
+            line-height: 1.5
+            color: #6A6F7B
+            text-transform: uppercase 
+            margin-bottom: 15px 
+
+@media desktop 
+    .product
+        position: relative  
+
+        &:before 
+            content: ''
+            position: absolute 
+            right: -15px
+            top: -15px
+            left: -15px
+            bottom: -15px
+
+            background: #fff 
+            box-shadow: 0 0 20px rgba(0,0,0,.2)
+            opacity: 0
+            transition: all .2s ease-in-out
+
+        &__header, &__main, &__action
+            position: relative 
+            z-index: 2
+
+        &:hover 
+            &:before 
+                opacity: 1

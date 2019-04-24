@@ -1,13 +1,21 @@
 <div class="breadcrumb">
-  <span class="breadcrumb-item"><a href="/">{{ Translation('pagina_inicial') }}</a></span>
-  <span class="icon-breadcrumb">/</span>
-  {% if breadcrumb %}
-    {% for item in breadcrumb %}
-      <span class="breadcrumb-item">
-        <a href="{{ item.link}}" title="{{ item.name }}">{{ item.name }}</a>
-      </span>
-      <span class="icon-breadcrumb">/</span>
-    {% endfor %}
-    <span class="breadcrumb-item">{{ pages.current == 'product' ? product.name : category.name }}</span>
-  {% endif %}
+    <div class="breadcrumb__container">
+        <span class="breadcrumb__item">
+            <a class="breadcrumb__label" href="/">{{ Translation('pagina_inicial') }}</a>
+        </span>
+        {% if breadcrumb %}
+            <span class="breadcrumb__sep">/</span>
+            {% for item in breadcrumb %}
+                <span class="breadcrumb__item">
+                    <a class="breadcrumb__label" href="{{ item.link}}" title="{{ item.name }}">{{ item.name }}</a>
+                </span>
+                <span class="breadcrumb__sep">/</span>
+            {% endfor %}
+            <span class="breadcrumb__item">
+                <span class="breadcrumb__label">
+                    {{ pages.current == 'product' ? product.name : category.name }}
+                </span>
+            </span>
+        {% endif %}
+    </div>
 </div>

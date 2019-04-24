@@ -5,10 +5,10 @@ define(['jquery', 'slick-carousel'], ($) => {
         $(this).find('.showcase__item--empty').remove();
         $(this).slick({
             mobileFirst: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            prevArrow: `<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>`,
-            nextArrow: `<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>`,
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            prevArrow: `<button type="button" class="slick-prev"><svg class="icon icon--carousel-prev" width="15" height="24"><use xlink:href="#carousel-prev" /></svg></button>`,
+            nextArrow: `<button type="button" class="slick-next"><svg class="icon icon--carousel-next" width="15" height="24"><use xlink:href="#carousel-next" /></svg></button>`,
             responsive: [
                 {
                     breakpoint: 424,

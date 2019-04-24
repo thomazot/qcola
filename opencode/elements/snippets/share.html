@@ -1,0 +1,52 @@
+{% set url = store.secure_url ~ '/' ~ product.slug %}
+{% set title = product.name %}
+{% set description = product.description_small %}
+{% set image = product.images ? product.images[0].full : ''  %}
+
+<div class="share">
+    <ul class="share__list">
+        <li class="share__item share_item--fb">
+            <a href="javascript:void(0)" title="Compartilhar" 
+                onclick="window.open('//www.facebook.com/sharer.php?s=100&u={{ url }}','{{ title }}','toolbar=0,status=0,width=626,height=436');" rel="nofollow">
+                <span class="share__icon"><i class="fab fa-facebook"></i></span>
+                <span class="share__label">Facebook</span>
+            </a>
+        </li>
+        <li class="share__item share_item--tt">
+            <a href="javascript:void(0)" title="Twitar" onclick="window.open('//twitter.com/share?url={{ url }}&text={{ description }}','{{ title }}','toolbar=0,status=0,width=626,height=436');" rel="nofollow">
+                <span class="share__icon"><i class="fab fa-twitter"></i></span>
+                <span class="share__label">Twitter</span>
+            </a>
+        </li>
+        <li class="share__item share_item--pt">
+            <a href="javascript:void(0)" title="Pin it!" onclick="window.open('//www.pinterest.com/pin/create/button/?url={{ title }}&media={{ image }}&description={{ description }}','{{ title }}','toolbar=0,status=0,width=626,height=436');" rel="nofollow">
+                <span class="share__icon"><i class="fab fa-pinterest"></i></span>
+                <span class="share__label">Pinterest</span>
+            </a>
+        </li>
+        <li class="share__item share_item--tb">
+            <a href="javascript:void(0)" title="Tumblr" onclick="window.open('//www.tumblr.com/share/photo?source=\'{{ image }}\'&caption=\'{{ title }}\'&click_thru=\'{{ title }}\'','{{ title }}','toolbar=0,status=0,width=626,height=436');" rel="nofollow">
+                <span class="share__icon"><i class="fab fa-tumblr-square"></i></span>
+                <span class="share__label">Tumblr</span>
+            </a>
+        </li>
+        <li class="share__item share_item--lk">
+            <a href="javascript:void(0)" title="Compartilhar" onclick="window.open('//www.linkedin.com/shareArticle?mini=true&url={{ title }}&title={{ title }}&summary={{ description }}%20me&source=Visão Padrão','{{ title }}','toolbar=0,status=0,width=626,height=436')" rel="nofollow">
+                <span class="share__icon"><i class="fab fa-linkedin-in"></i></span>
+                <span class="share__label">LinkedIn</span>
+            </a>
+        </li>
+    </ul>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            var list = jQuery('.share ul.share__list'),
+            wa = '<li class="share__item share_item--wa"><a href="whatsapp://send?text={{ title }}%20{{ title }}" data-text="{{ title }}" data-href="{{ title }}" target="_top" rel="nofollow"><span class="share__icon"><i class="fab fa-whatsapp"></i></span><span class="share__label">WhatsApp</span></a></li>',
+            tt = '<a href="//mobile.twitter.com/home?status={{ title }}" target="_blank" title="Twitar" rel="nofollow"><span class="share__icon"><i class="fab fa-twitter"></i></span><span class="share__label">Twitter</span></a>';
+
+            if(window.innerWidth < 992){
+                list.find('.share_item--tt').html(tt);
+                list.find('share_item--lk').after(wa);
+            }
+        });
+    </script>
+</div>

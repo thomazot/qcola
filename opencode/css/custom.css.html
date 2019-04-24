@@ -1,209 +1,206 @@
-/*
-Theme Name: Yart Default
-Theme URI:
-Author: Lincon Keiti Kusunoki
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-*/
+/**
+ *  Theme Name: Taita
+ *  Theme URI:
+ *  Author: Auaha Developers
+ *  License: GNU General Public License v2 or later
+ *  License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ */
 
-/* color buy button on page product */
-.page-product .product-buy-button,
-html .remove-bg .botao-comprar,
-html .remove-bg .botao-comprar:hover,
-.page-checkout_cart .caixa-botoes .botao-commerce.botao-prosseguir-compra,
-.page-register .botao-prosseguir-cadastro,
-.page-register .botao-prosseguir-cadastro:hover{
-    background: {{ settings.color_buybutton }};
+/**
+ *  Variaveis Padrões
+ */
+{% set color_one = settings.color_one %}
+{% set color_two = settings.color_two %}
+
+{% set button_bg = color_one %}
+{% set button_color = "#fff" %}
+{% set button_bg_hover = color_two %}
+{% set button_color_hover = "#fff" %}
+
+{% set calltoaction_bg = settings.button_call-to-action_bg %}
+{% set calltoaction_color = settings.button_call-to-action_color %}
+
+/**
+ *  Scrollbar e Selection
+ */
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
 }
 
-/* general buttons */
-.trigger-menu,
-.menu-mobile,
-.search .search-button,
-.cart .cart-icon,
-.newsletter form button,
-.store-rating .dep_link a,
-.foo-rating .dep_link a,
-.box_skitter .info_slide .image_number_select,
-.box_skitter .info_slide .image_number_select:hover,
-.page-register #CadastroAbas .aberta a,
-.page-catalog .button-compare,
-.page-search .button-compare,
-.page-product #cepbox .botao-simular-frete,
-.page-product .products-visited .myNavigation,
-.page-product .products-visited .clearVisiteds,
-.page-product .products-visited .paginacao_ajax_prod #linksPag .pageON,
-.page-product .product-gallery .slider-nav .slick-arrow,
-.page-product .product-cross-sell .fotosCompreJunto .plus:after,
-.page-product .product-cross-sell .fotosCompreJunto .plus:before,
-.page-product .product-quantity > div > span,
-.page-product #bloco-add-lista a,
-.page-product .product-tabs #ProdAbas li,
-html .botao-commerce,
-html .botao-commerce:hover,
-html .botao-commerce:link,
-.page-catalog .filter-button,
-.page-search .filter-button{
-    background: {{ settings.color_primary }};
+::-webkit-scrollbar-track {
+    background: {{ color_one }}
 }
 
-.smartfilter-button svg{
-    fill: {{ settings.color_primary }}
+::-webkit-scrollbar-thumb {
+    background-color: {{ color_two }};
 }
 
-.page-product .products-visited .ValoresLista .precoAvista{
-    color: {{ settings.color_primary }};
+::selection{
+    background          : {{ color_one }};
+    color               : #fff;
 }
 
-/* header */
-.customer,
-.customer a,
-.customer .orders a,
-.page-checkout_cart .caixa-total h3,
-.page-checkout_cart .caixa-total h3 div,
-.page-checkout_cart .caixa-total h3:before,
-.showcase > h2 strong,
-.showcase > h2 small{
-    color: {{ settings.color_font_header }};
+/**
+ * Buttons, Inputs, Title, Prices
+ */
+button {
+    background: {{ button_bg }};
+    color: {{ button_color }};
+}
+.button--menu {
+    color: {{ button_bg }};
 }
 
-.customer .orders a{
-    border-color: {{ settings.color_font_footer }};
+.title, .prices__special {
+    color: {{ color_one }}
 }
 
-/* footer */
-.foo-content,
-.foo-message{
-    background: {{ settings.color_footer }};
+/**
+ *  Links 
+ */
+a {
+    color: {{ color_two }};
+}
+.head-top__welcome a,
+a:hover {
+    color: {{ color_one }};
 }
 
-.foo-content h3,
-.foo-content h5,
-.foo-content .links-list a,
-.foo-contact p,
-.foo-message,
-.foo-message .message-footer,
-.foo-content .social-list .social-list a{
-    color: {{ settings.color_font_footer }};
+/**
+ * Cart, Customer
+ */
+.customer--navigation {
+    background: {{ color_one }};
+    color: #fff;
 }
 
-.foo-contact i{
-    border-color: {{ settings.color_font_footer }};
+.customer--navigation .customer__links a {
+    color: #fff;
 }
 
-.foo-contact i svg{
-    fill: {{ settings.color_font_footer }};
+.customer--navigation .customer__icon svg {
+    fill: #fff;
 }
 
-/* background color */
-.application{
-    background-color: {{ settings.color_background }};
-    background-attachment: {{ settings.bg_attachment }};
-    background-position-x: {{ settings.bg_position_x }};
-    background-position-y: {{ settings.bg_position_y }};
-    background-repeat: {{ settings.bg_repeat }};
+.customer--header .customer__icon svg {
+    fill: {{ color_one }};
 }
 
-.product .product-image .discount{
-    background-color: {{ settings.color_primary }};
+/**
+ * Service Center
+ */
+.service-center__header .icon,
+.service-center__icon .icon {
+    fill: {{ color_one }};
+}
+.service-center__text {
+    color: {{ color_one }};
 }
 
-/* MENU */
-
-/* Level 1 */
-.sidebar .main-menu{
-    background: {{ settings.color_bg_menu_1 }};
+/**
+ * Head Top
+ */
+.head-top__welcome svg {
+    fill: {{ color_one }};
 }
-
-.sidebar .main-menu .link-level1{
-    color: {{ settings.color_menu_font_1 }};
-}
-
-.sidebar .main-menu .item-level1:hover{
-    background: {{ settings.color_menu_bg_hover_1 }};
-}
-
-.sidebar .main-menu .item-level1:hover > .link-level1{
-    color: {{ settings.color_menu_font_hover_1 }};
-}
-
-/* Level 2 */
-.sidebar .main-menu .level2{
-    background: {{ settings.color_bg_menu_2 }};
-}
-
-.sidebar .main-menu .link-level2{
-    color: {{ settings.color_menu_font_2 }};
-}
-
-.sidebar .main-menu .item-level2:hover{
-    background: {{ settings.color_menu_bg_hover_2 }};
-}
-
-.sidebar .main-menu .item-level2:hover > .link-level2{
-    color: {{ settings.color_menu_font_hover_2 }};
-}
-
-/* Level 3 */
-.sidebar .main-menu .level3{
-    background: {{ settings.color_bg_menu_3 }};
-}
-
-.sidebar .main-menu .link-level3{
-    color: {{ settings.color_menu_font_3 }};
-}
-
-.sidebar .main-menu .item-level3:hover{
-    background: {{ settings.color_menu_bg_hover_3 }};
-}
-
-.sidebar .main-menu .item-level3:hover > .link-level3{
-    color: {{ settings.color_menu_font_hover_3 }};
-}
-
-/* Banner home */
-.banner-home .slick-arrow{
-    fill: {{ settings.color_slick_arrow }};
-}
-
-.banner-home .slick-arrow:hover{
-    fill: {{ settings.color_slick_arrow_hover }};
-}
-
-.banner-home .slick-dots button{
-    background: {{ settings.color_slick_dot }};
-}
-
-.banner-home .slick-dots .slick-active button{
-    background: {{ settings.color_slick_dot_active }};
+.head-top .socials__icon {
+    color: {{ color_one }};
 }
 
 
-{# menu Mobile #}
-
-.menu-mobile{
-    background: {{ settings.color_bg_menu_1 }};
+/**
+ * Newsletter
+ */
+.newsletter--custom {
+    background: {{ color_one }};
 }
 
-.menu-mobile .link-level1{
-    color: {{ settings.color_menu_font_1 }}; 
+.newsletter--custom .newsletter__button {
+    color: {{ color_one }};
 }
 
-.menu-mobile .level1-check:checked ~ .link-level1{
-    background: {{ settings.color_menu_bg_hover_1 }};
-    color: {{ settings.color_menu_font_hover_1 }};
+
+/**
+ * Instagram
+ */
+
+.instagram__title {
+    color: {{ color_one }};
 }
 
-.menu-mobile .level1-check:checked ~ .level2{
-    background : {{ settings.color_bg_menu_2 }};
+/**
+ * Header
+ */
+
+[data-scrolling-mode=down] .header {
+    border-color: {{ color_one }};
 }
 
-.menu-mobile .link-level2{
-    color: {{ settings.color_menu_font_2 }};
+/**
+ * Footer 
+ */
+
+.footer .socials__icon {
+    color: {{ color_one }};
 }
 
-.menu-mobile .item-level3{
-    background: {{ settings.color_bg_menu_3 }};
-    color: {{ settings.color_menu_font_3 }};
+/**
+ * Button
+ */
+.search__button svg,
+.button__search svg,
+.button__menu svg{
+    fill: {{ color_one }};
 }
 
+/**
+ * Desktop maior que 992px
+ */ 
+@media (min-width: 992px) {
+
+    /**
+    * Buttons e Inputs
+    */
+    button:hover {
+        background: {{ button_bg_hover }};
+        color: {{ button_color_hover }};
+    }
+
+    .button--menu:hover {
+        color: {{ button_bg_hover }};
+        background: none 
+    }
+
+    .customer__link--icon {
+        background: none;
+        color: {{ color_one }};
+    }
+
+    /**
+     *  Menu Navigation
+     */
+    .navigation {
+        background: {{ color_one }};
+    }
+
+    .menu--navigation .menu__item--nv1:hover .menu__link--nv1 {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .menu__link--nv2:hover {
+        box-shadow: inset 6px 0 0 {{ color_one }};
+    }
+
+    .menu--categories-all .menu__link--nv1 {
+        color: {{ color_one }};
+    }
+
+    /**
+     * Color background Home
+     */
+    .page-home body {
+        box-shadow: inset 0 600px 0 {{ color_one }};
+    }
+}

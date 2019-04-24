@@ -1,37 +1,35 @@
-<div class="main-menu hidden-xs">
-    {% if settings.show_menu_title %}
-        <h4>{{ Translation('ver_todos') }}</h4>
-        <h3>{{ Translation('categorias') }}</h3>
-    {% endif %}
-    <ul class="level1">
-        {% for level1 in categories %}
-            <li class="item-level1">
-                <a href="{{ level1.link }}" class="link-level1" data-tray-tst="categoria_lvl_1">{{ level1.name }}</a>
-                {% if level1.children %}
-                    <div class="level2">
-                        <ul>
-                            {% for level2 in level1.children %}
-                                <li class="item-level2">
-                                    <a href="{{ level2.link }}" class="link-level2" data-tray-tst="categoria_lvl_2">{{ level2.name }}</a>
-                                    {% if level2.children %}
-                                        <div class="level3">
-                                            <ul>
-                                                {% for level3 in level2.children %}
-                                                    <li class="item-level3">
-                                                        <a href="{{ level3.link }}" class="link-level3" data-tray-tst="categoria_lvl_3">{{ level3.name }}</a>
-                                                        {% if level3.children %}
-                                                        {% endif %}
-                                                    </li>
-                                                {% endfor %}
-                                            </ul>
-                                        </div>
-                                    {% endif %}
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                {% endif %}
-            </li>
+{# Configuração do limite de Nivel #}
+{% if not settings.nivelLimit %}
+    {% set nivelLimit = 2 %}
+{% else %}
+    {% set nivelLimit = settings.nivelLimit %}
+{% endif %}
+
+{# Configuração de primeiro nivel #}
+{% if not nivel %}{% set nivel = 1 %}{% endif %}
+{% if not menu %}{% set menu = categories %}{% endif %}
+
+{% set class = '' %}
+{% if modifier %}{% set class =  ' menu--' ~ modifier %}{% endif %}
+
+<div class="menu menu--nv{{ nivel }}{{ class }}{{ nivel > 1 ? ' menu--sub' : '' }}">
+    <ul class="menu__ul menu__ul--nv{{ nivel }}">
+        {% for category in menu %}
+            {% set hasChild = '' %}
+            {% if category.name != 'Outlet' %}
+                {% if category.children and nivel < nivelLimit %} {% set hasChild = ' menu__item--has-child' %}{% endif %}
+                <li class="menu__item menu__item--nv{{ nivel }}{{ hasChild }}">
+                    <a href="{{ category.link }}" class="menu__link menu__link--nv{{ nivel }}" data-tray-tst="categoria_lvl_{{ nivel }}">
+                        {% if category.images %}
+                        <span class="menu__icon"><img src="{{ category.images[0] }}" alt="{{ category.name }}"></span>
+                        {% endif  %}
+                        <span class="menu__label">{{ category.name }}</span>
+                    </a>
+                    {% if category.children and nivel < nivelLimit %}                
+                        {% element 'snippets/menu' { menu: category.children, nivel: (nivel + 1) } %}
+                    {% endif %}
+                </li>
+            {% endif %}
         {% endfor %}
     </ul>
 </div>

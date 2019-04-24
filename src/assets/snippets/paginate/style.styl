@@ -1,0 +1,61 @@
+.paginate 
+    text-align: center 
+
+    &__pages
+        display: inline-flex 
+        flex-flow: row wrap 
+        margin: 5px -5px
+
+    &__link a, &__link--current 
+        flex: 0 0 auto
+        display: flex 
+        justify-content: center 
+        align-items: center 
+        padding: 5px 15px
+        margin: 5px 
+        background: rgba(0,0,0,.2)
+
+        &:hover 
+            text-decoration: none 
+            background: rgba(0,0,0,.8)
+            color: #fff
+
+
+    &__link 
+        &--number:not(.paginate__link--current)
+            display: none 
+
+        &--first, &--prev, &--next, &--last 
+            a 
+                font-size: 0 
+                &:before 
+                    font-size: 14px 
+
+        &--first a:before 
+            icon: '\f100'
+
+        &--prev a:before 
+            icon: '\f104'
+
+        &--next a:before 
+            icon: '\f105'
+
+        &--last a:before 
+            icon: '\f101'
+
+@media desktop 
+    .paginate 
+        padding-right: 20px
+        text-align: left
+
+        &__container 
+            display: flex 
+            justify-content: flex-start 
+            align-items: center 
+
+        &__pages 
+            flex: 0 0 auto 
+
+        &__count 
+            flex: 1 
+            min-width: 0 

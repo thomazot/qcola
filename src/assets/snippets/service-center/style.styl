@@ -1,0 +1,91 @@
+.service-center 
+    &__container 
+        padding: (gutter / 2)
+
+    &__icon 
+        flex: 0 0 40px 
+
+    &__label 
+        font-size: 11px 
+        font-weight: regular 
+        color: #8C8C8C
+
+    &__text
+        font-size: 12px 
+        font-size: regular
+        letter-spacing: 2px
+
+    &__item 
+        display: flex 
+        justify-content: flex-start 
+        align-items: center 
+
+        + .service-center__item 
+            padding-top: 16px
+
+        &--office-hours
+            .service-center__text
+                letter-spacing: 0
+
+    &__header 
+        display: flex 
+        justify-content: flex-start 
+        align-items: center 
+        height: 45px 
+        font-size: 12px
+        font-weight: regular
+        color: #606062
+        letter-spacing: 1px
+
+        cursor: pointer
+
+        .icon 
+            margin-right: 10px
+
+    &--show 
+        position: relative
+        .service-center 
+            &__main 
+                position: absolute 
+                top: 100%
+                left: 50% 
+                background: #fff 
+                width: 250px 
+                border-radius: 6px 
+                padding: 20px 0 0
+
+                box-shadow: 0 0 40px rgba(0,0,0,.2)
+                transform: translate3d(-50%, 0, 0)
+
+                transition: all .2s ease-in-out 
+                opacity: 0
+                visibility: hidden
+
+                &:before 
+                    content: ''
+                    position: absolute 
+                    top: -6px
+                    left: 50% 
+                    width: 15px
+                    height: 15px
+                    background: #fff 
+
+                    transform: translateX(-50%) rotate(45deg)
+                    
+
+
+            &__item 
+                padding-left: 20px 
+                padding-right: 20px
+
+                &--help 
+                    margin-top: 20px
+                    padding-bottom: 20px
+                    background: #F3F3F3
+                    border-radius: 0 0 6px 6px
+
+        &:hover 
+            .service-center
+                &__main 
+                    opacity: 1 
+                    visibility: visible

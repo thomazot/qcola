@@ -1,24 +1,34 @@
-<div class="customer">
-    <div class="row">
-        <div class="col-sm-7 col-md-6 login" data-tray-tst="saudacao">
-            <span class="tray-hide" data-logged-user="true">
-                {{ Translation('bem_vindo_central') }} <span data-customer="name"></span>,
-                <a href="{{ links.logout }}">{{ Translation('sair') }}</a></li>
-            </span>
-            <span class="tray-hide" data-logged-user="false">
-                {{ Translation('bem_vindo_central') }}, <a href="{{ links.login }}" data-tray-tst="login" class="{{ utils.is_https ? 'modal-login' }}">{{ Translation('login') }}</a> {{ Translation('ou') }} <a href="{{ links.register }}" data-tray-tst="cadastro">{{ Translation('cadastre_se') }}</a>
-            </span>
+{% set class = '' %}
+{% if modifier %}{% set class = " customer--" ~ modifier %}{% endif %}
+<div class="customer{{ class }}">
+    <div class="customer__container">
+        <div class="customer__header">
+            <a class="customer__link customer__link--icon" href="{{ links.central }}" data-tray-tst="meu_cadastro">
+                <i class="customer__icon">
+                    {% element 'snippets/icon' { 'name': 'user', 'width': '21', 'height': '28' } %}
+                </i>
+            </a>
         </div>
-        <div class="col-sm-5 col-md-6 orders">
-            <span class="tray-hide" data-logged-user="true">
-                <a href="{{ links.logout }}">{{ Translation('sair') }}</a>
-            </span>
-            <span class="tray-hide" data-logged-user="false">
-                <a href="{{ links.login }}" class="{{ utils.is_https ? 'modal-login' }}">{{ Translation('login') }}</a>
-            </span>
-            <a href="{{ links.orders }}" data-tray-tst="meus_pedidos">{{ Translation('meus_pedidos') }}</a>
-            <a href="{{ links.central }}" data-tray-tst="meu_cadastro">{{ Translation('acessar_conta') }}</a>
-
+        <div class="customer__main">
+            <div class="tray-hide" data-logged-user="true">
+                <div class="customer__label">
+                    <span data-customer="name"></span>
+                </div>
+                <div class="customer__links">
+                    <a href="{{ links.orders }}" data-tray-tst="meus_pedidos">{{ Translation('meus_pedidos') }}</a>
+                    / <a href="{{ links.logout }}" data-tray-tst="logout">{{ Translation('sair') }}</a>
+                </div>
+            </div>
+            <div class="tray-hide" data-logged-user="false">
+                <div class="customer__links">
+                    <a href="{{ links.orders }}" data-tray-tst="meus_pedidos">
+                        {{ Translation('meus_pedidos') }}
+                        <i class="customer__icon">
+                            {% element 'snippets/icon' { 'name': 'next', 'width': '5', 'height': '10' } %}
+                        </i>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

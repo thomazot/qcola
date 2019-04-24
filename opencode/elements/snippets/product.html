@@ -1,47 +1,53 @@
-<div itemscope itemtype="http://schema.org/Product" class="product{{ product.has_other_prices ? ' has-other-prices' }}">
-    {% element 'schema/product' {'product': product} %}
-    <a href="{{ settings.buy_to_cart ? links.cart_add ~ product.id : product.link }}" data-tray-tst="vitrine_produto_link_imagem">
-        <div class="product-image">
-            {% if product.images %}
-                {% if utils.is_mobile %}
-                <img src="{{ product.images[0].large }}" alt="{{ product.name }}" title="{{ product.name }}">
-                {% else %}
-                <img data-original="{{ product.images[0].large }}" class="lazy" src="{{ asset('img/loading.svg') }}" alt="{{ product.name }}" title="{{ product.name }}">
-                {% endif %}
-            {% else %}
-                <img src="{{ asset('img/no-image.svg') }}" alt="Nenhuma imagem foi cadastrada" width="100" title="{{ product.name }}">
-            {% endif %}
-            
-            {% if settings.discount %}
-                {% set porcentagemDesconto = 100 - ( product.price_offer / product.price ) * 100 %}
-                {% if porcentagemDesconto < 100 %}
-                  <span class="discount"> {{ porcentagemDesconto|number_format }}% de desconto </span>
-                {% endif %}  
-            {% endif %}             
-        </div>
+<article class="product">
     
-        <div class="product-name" itemprop="name">{{ product.name }}</div>
-    
+    <div class="product__header">
+        <figure class="product__figure">
+        {% if product.images %}
+            <a class="product__link" href="{{ settings.buy_to_cart ? links.cart_add ~ product.id : product.link }}" data-tray-tst="vitrine_produto_link_imagem">
+                <img class="product__image" src="{{ product.images[0].large }}" alt="{{ product.name }}" title="{{ product.name }}">
+            </a>
+        {% else %}
+            <a class="product__link" href="{{ settings.buy_to_cart ? links.cart_add ~ product.id : product.link }}" data-tray-tst="vitrine_produto_link_imagem">
+                <img class="product__image" src="{{ asset('img/no-image.svg') }}" alt="Nenhuma imagem foi cadastrada" width="100" title="{{ product.name }}">
+            </a>
+        {% endif %}
+        </figure>
+        
+        {% if settings.discount %}
+            {% set porcentagemDesconto = 100 - ( product.price_offer / product.price ) * 100 %}
+            {% if porcentagemDesconto < 100 %}
+                <span class="discount"> {{ porcentagemDesconto|number_format }}% de desconto </span>
+            {% endif %}  
+        {% endif %}             
+    </div>
+
+    <div class="product__main">
+        <h1 class="product__name"><a class="product__link" href="{{ settings.buy_to_cart ? links.cart_add ~ product.id : product.link }}" data-tray-tst="vitrine_produto_link_imagem">{{ product.name }}</a></h1>
+
+        <div class="product__review-small">{% element 'snippets/rating-short' { 'product': product } %}</div>
+
         <div data-module="pricing" data-snippet="snippets/product-payment" data-product-id="{{ product.id }}">
             <div class="pricing">
                 Carregando...
             </div>
         </div>
-    </a>
-    
-    {% if pages.current == 'catalog' and settings.compare %}
-    <div class="compare-buttons">
-        {% set compareCSS = 'compare-hidden' %}
-
-        <a data-compare="remove" href="{{ links.compare_delete ~ product.id }}" class="{{ not product.compare ? compareCSS }}">
-            <span class="filter-checkbox checked"></span>
-            {{ Translation("remover_comparar") }}
-        </a>
-        
-        <a data-compare="add" href="{{ links.compare_add  ~ product.id }}" class="{{ product.compare ? compareCSS }}">
-            <span class="filter-checkbox"></span>
-            {{ Translation("comparar_produto") }}
-        </a>
     </div>
-    {% endif %}
-</div>
+
+    <div class="product__actions">
+        <div class="product__compare">
+            {% set compareCSS = 'compare-hidden' %}
+
+            <a data-compare="remove" href="{{ links.compare_delete ~ product.id }}" class="{{ not product.compare ? compareCSS }}">
+                <span class="filter-checkbox checked"></span>
+                {{ Translation("remover_comparar") }}
+            </a>
+        
+            <a data-compare="add" href="{{ links.compare_add  ~ product.id }}" class="{{ product.compare ? compareCSS }}">
+                <span class="filter-checkbox"></span>
+                {{ Translation("comparar_produto") }}
+            </a>
+        </div>
+    </div>
+    
+</article>
+

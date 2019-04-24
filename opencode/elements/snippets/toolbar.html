@@ -1,0 +1,9 @@
+<div class="toolbar">
+    <div class="toolbar__container">
+        {% if position != 'bottom' %}
+            <div class="toolbar__filter">{% element 'snippets/filter' { brands: brands } %}</div>
+        {% endif %}
+
+        <div class="toolbar__paginate">{% element 'snippets/paginate' %}</div>
+    </div>
+</div>

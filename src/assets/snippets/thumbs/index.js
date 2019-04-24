@@ -1,6 +1,6 @@
 import './style.styl';
 
-const $ = $tray; console.log('teste');
+const $ = $tray;
 if( typeof $ == 'function') {
     $(document).ready(function(){
         $(window).ajaxComplete(function( event, xhr, settings ){

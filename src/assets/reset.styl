@@ -7,7 +7,7 @@
 *
     box-sizing      : border-box
     &:focus
-        outline     : none
+        outline     : none !important
 
 html, body
     display         : block
@@ -23,6 +23,7 @@ html
 body
     -webkit-font-smoothing     : antialiased
     -moz-osx-font-smoothing    : grayscale
+    font-family: 'Roboto', sans-serif
 
 div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section
     margin            : 0
@@ -45,7 +46,6 @@ caption, th, td
     text-align     : left
     font-weight    : normal
     float          : none !important
-
 
 table, th, td
     vertical-align: middle
@@ -85,15 +85,9 @@ input, textarea, button, select
 .banner-js
     margin: 0
 
-@media (max-width: 992px)
-    button
-        cursor          : pointer
-        cursor          : hand
-
 main, footer 
     max-width: 100% 
     overflow: hidden
-
 
 /**
  *  Reset Tray CSS
@@ -121,3 +115,12 @@ main, footer
 .fixed 
     height: 100% 
     overflow: hidden
+
+
+.blocoAlerta, .message
+    border: solid 1px #f00 
+    background: #fff 
+    font-size: 12px 
+    text-transform: uppercase
+    color: #f00
+    margin: (gutter / 2) 0

@@ -1,0 +1,14 @@
+<div class="head-top">
+    <div class="head-top__container">
+        <div class="head-top__welcome">
+            {% element 'snippets/icon' { 'name': 'user', 'width': '10', 'height': '13' } %}
+            <div class="tray-hide" data-logged-user="true">
+                Olá <span data-customer="name"></span>, <a href="{{ links.logout }}" data-tray-tst="logout">{{ Translation('sair') }}</a>
+            </div>
+            <div class="tray-hide" data-logged-user="false">
+                Olá Visitante, Já é Cadastrado ? <a href="{{ links.login }}" data-tray-tst="login">Acesse Aqui</a>
+            </div>
+        </div>
+        {% element 'snippets/socials' %}
+    </div>
+</div>
