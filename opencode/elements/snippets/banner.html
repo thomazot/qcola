@@ -5,7 +5,7 @@
                 {% for slide in banners.home.slides %}
                 <div class="banner__item">
                     <a class="banner__link" href="{{ slide.link }}" target="{{ slide.target }}">
-                        <img class="banner__img" src="{{ slide.image }}" alt="{{ slide.label }}">
+                        <amp-img class="banner__img" src="{{ slide.image }}"  width="{{ slide.width }}" height="{{ slide.height }}" layout="responsive" alt="{{ slide.label }}"></amp-img>
                     </a>
                 </div>
                 {% endfor %}

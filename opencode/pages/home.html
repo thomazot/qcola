@@ -4,13 +4,16 @@
     {% set limitProducts = 12 %}
 {% endif %}
 
+{% set showAvailable = settings.show_available_products ? 'available' %}
+
 <!-- {% element 'snippets/rulers' %} -->
 
 {% set products = Products({
-    'filter': 'available',
+    'filter': showAvailable,
     'limit': limitProducts,
-    'order': {'quantity_sold': 'desc'}
-}) %}
+    'order': {'price': 'asc'},
+    'categories': [309]
+}) %}   
 {% element 'showcase' {
     "products": products,
     "showcaseTitle": "Outlet",
@@ -20,8 +23,9 @@
 {% set products = Products({
     'filter': showAvailable,
     'limit': limitProducts,
-    'order': {'quantity_sold': 'desc'}
-}) %}
+    'order': {'price': 'asc'},
+    'categories': [3]
+}) %} 
 {% element 'showcase' {
     "products": products,
     "showcaseTitle": "Produtos Mais Amados",
@@ -49,7 +53,7 @@
     'filter': showAvailable,
     'limit': limitProducts,
     'order': {'quantity_sold': 'desc'}
-}) %}
+}) %} 
 {% element 'showcase' {
     "products": products,
     "showcaseTitle": "Novos Produtos",

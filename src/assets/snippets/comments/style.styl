@@ -1,0 +1,169 @@
+.comments 
+    &__button 
+        min-width: 100px 
+
+    .line
+        display: none 
+
+    h2 
+        font-size: 14px
+        font-weight: bold 
+        text-transform: uppercase 
+
+    a[data-logged-user]
+        display: inline-block 
+        padding: 10px 20px
+        border: 0
+        font-size: 14px
+        font-weight: regular 
+        background: rgba(0,0,0, .5)
+        color: #ffffff
+
+        &:hover 
+            text-decoration: none 
+
+    .ranking
+        border: 0
+
+    .hreview-comentarios
+        display: flex 
+        justify-content: space-between
+        align-items: center 
+        flex-flow: row wrap 
+        padding: 10px 0
+
+
+        .reviewer
+            font-size: 12px
+            font-weight: bold 
+            padding-right: 5px
+
+        .item 
+            display: none 
+
+        .ranking
+            flex: 1 
+            min-width: 0
+            display: flex 
+            justify-content: flex-end 
+            font-size: 12px 
+
+        > h4 
+            &:before 
+                content: ' ( '
+            &:after 
+                content: ' ) ' 
+
+        > p 
+            position: relative 
+            flex: 0 0 100% 
+            padding: 15px 
+            margin: 10px 0 0
+            border-radius: 3px 
+            background: #eaeaea
+
+            &:before 
+                content: ''
+                position: absolute 
+                top: -6px
+                left: 20px 
+                width: 15px
+                height: 15px
+                border-radius: 2px 
+                background: #eaeaea
+                transform: rotate(45deg)
+
+
+#bt-submit-comments
+    display: none 
+
+#form-comments 
+    font-size: 14px 
+
+    .rateBlock
+        border: 0
+        padding: 0
+
+        .stars 
+            margin: -5px 
+
+        .starn 
+            padding: 5px 
+
+    label 
+        input 
+            display: inline-block 
+            vertical-align: middle
+
+.starn
+    background: none 
+    font-size: 23px 
+    color: rgba(0,0,0,.2)
+    width: auto 
+    height: auto
+
+    transition: all .2s ease
+
+    &:before 
+        icon: '\f005'
+
+.star-on
+    color: rgba(0,0,0,1)
+    transform: rotate(145deg)
+
+.star0, .star1, .star2, .star3, .star4, .star5
+    float: none 
+    background: none 
+    width: auto 
+
+    &:before, &:after 
+        font-size: 14px
+        letter-spacing: 2px 
+
+    &:before 
+        color: rgba(0,0,0,1)
+
+    &:after
+        color: rgba(0,0,0,.2)
+
+.star0
+    &:before 
+        icon: ''
+        
+    &:after 
+        icon: '\f005\f005\f005\f005\f005'
+
+.star1
+    &:before 
+        icon: '\f005'
+
+    &:after 
+        icon: '\f005\f005\f005\f005'
+
+.star2
+    &:before 
+        icon: '\f005\f005'
+
+    &:after 
+        icon: '\f005\f005\f005'
+
+.star3
+    &:before 
+        icon: '\f005\f005\f005'
+
+    &:after 
+        icon: '\f005\f005'
+
+.star4
+    &:before 
+        icon: '\f005\f005\f005\f005'
+
+    &:after 
+        icon: '\f005'
+
+.star5
+    &:before 
+        icon: '\f005\f005\f005\f005\f005'
+
+    &:after 
+        icon: ''

@@ -1,0 +1,87 @@
+{% set description = productTabs['description'] %}
+{% set included = productTabs['included_items'] %}
+{% set warranty = productTabs['warranty'] %}
+{% set payments = productTabs['payment_methods'] %}
+{% set comments = productTabs['comments'] %}
+
+<section class="product-tabs product-tabs--line">
+    {# Description #}
+    {% if description %}
+        {% set descriptionContent = product.description ? product.description : product.description_-medium %}
+        {% if descriptionContent %}
+        <div aria-controls="tab-description" class="product-tabs__tab">
+            <h3 class="product-tabs__title title title--medium">{{ description['description'] }}</h3>
+        </div>
+        <div data-fixed="false" aria-hidden="true" id="tab-description" class="product-tabs__content">
+            <div class="board">{{ descriptionContent }}</div>
+        </div>
+        {% endif %}
+    {% endif %}        
+
+    {# Included Items #}
+    {% if included %}
+        {% if product.included_items %}
+            <div aria-controls="tab-included" class="product-tabs__tab">
+                <h3 class="product-tabs__title title title--medium">{{ included['description'] }}</h3>
+            </div>
+            <div data-fixed="false" aria-hidden="true" id="tab-included" class="product-tabs__content">
+                <div class="board">{{ product.included_items }}</div>
+            </div>
+        {% endif %}    
+    {% endif %}        
+
+    {# payment_methods #}
+    {% if warranty %}
+        <div aria-controls="tab-warranty" class="product-tabs__tab">
+            <h3 class="product-tabs__title title title--medium">{{ warranty['description'] }}</h3>
+        </div>
+        <div data-fixed="false" aria-hidden="true" id="tab-warranty" class="product-tabs__content" data-url="{{ warranty['url'] }}" ></div>
+    {% endif %}      
+
+    {# Payment Methods #}
+    {% if payments %}
+        <div aria-controls="tab-payments" class="product-tabs__tab">
+            <h3 class="product-tabs__title title title--medium">{{ payments['description'] }}</h3>
+        </div>
+        <div data-fixed="false" aria-hidden="true" id="tab-payments" class="product-tabs__content" data-url="{{ payments['url'] }}" ></div>
+    {% endif %}      
+    
+    {# Comments #}
+    {% if comments %}
+        <div aria-controls="tab-comments" class="product-tabs__tab">
+            <h3 class="product-tabs__title title title--medium">{{ comments['description'] }}</h3>
+        </div>
+        <div data-fixed="false" aria-hidden="true" id="tab-comments" class="product-tabs__content">
+            <div class="board">
+                <div class="comments">{% element 'product/comments' %}</div>
+            </div>
+        </div>
+    {% endif %}        
+</section>
+
+{% set customTabs = [] %}
+{% for key, tab in productTabs %}
+    {% if 'AdditionalTab' in key %} 
+        {% set customTabs = customTabs|merge([tab]) %} 
+    {% endif %}
+{% endfor %}
+
+{% if customTabs|length %}
+<section class="product-tabs product-tabs--custom">
+    <div class="product-tabs__tabs">
+        {% for tab in customTabs %}
+            <div class="product-tabs__tab">
+                <h3 class="product-tabs__title title title--medium">
+                    <a aria-controls="content-tabs" href="{{ tab['container_id'] }}" class="product-tabs__link">{{ tab['description'] }}</a>
+                </h3>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div id="content-tabs" data-fixed="false" class="product-tabs__contents" aria-hidden="true" >
+        {{ productTabs['custom']['content'] }}
+        <button aria-controls="content-tabs" class="product-tabs__contents-mask" type="button"></button>
+    </div>
+</section>
+{% endif %}
+

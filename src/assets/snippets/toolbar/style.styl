@@ -1,25 +1,62 @@
 .filtros
-    display: block
+    display: none 
     margin: (gutter / 2) 0
     padding: 5px 
     float: none
-    font-size: 12px
+    font-size: 14px
     font-weight: bold 
-    text-transform: uppercase
+
+.filtro-ordem
+    display: flex
+    justify-content: flex-start 
+    align-items: center
+    font-size: 0 
+
+    &:before 
+        content: 'Organizar por: '
+        font-size: 14px
+
+    .select 
+        margin-left: 15px
+        width: 160px
 
 .toolbar 
+    font-size: 13px
+    font-weight: bold 
+    
     &__filter 
         form 
             margin: -5px
+
+    &__button-filter
+        width: 100%
+        height: 35px
+
+        border-radius: 4px
+        font-size: 17px
+        font-weight: bold 
+        color: #fff
+        margin-bottom: 15px
+
+        .icon 
+            width: 20px
+            height: 15px
+            fill: #fff
+            margin-right: 15px
 
 @media desktop
     .filtros 
         margin: 0
         
     .toolbar 
+        font-size: 15px 
+        
+        &__button-filter
+            display: none 
+
         &__container 
             display: flex 
-            align-items: flex-end
+            align-items: center
 
         &__paginate 
             order: -1

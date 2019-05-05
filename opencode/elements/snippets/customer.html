@@ -10,16 +10,7 @@
             </a>
         </div>
         <div class="customer__main">
-            <div class="tray-hide" data-logged-user="true">
-                <div class="customer__label">
-                    <span data-customer="name"></span>
-                </div>
-                <div class="customer__links">
-                    <a href="{{ links.orders }}" data-tray-tst="meus_pedidos">{{ Translation('meus_pedidos') }}</a>
-                    / <a href="{{ links.logout }}" data-tray-tst="logout">{{ Translation('sair') }}</a>
-                </div>
-            </div>
-            <div class="tray-hide" data-logged-user="false">
+            <div>
                 <div class="customer__links">
                     <a href="{{ links.orders }}" data-tray-tst="meus_pedidos">
                         {{ Translation('meus_pedidos') }}

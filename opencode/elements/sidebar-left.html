@@ -1,7 +1,7 @@
-<div id="filter" class="page-catalog__left">
+<div id="filter" class="page-catalog__left" aria-hidden="true">
     <div class="page-catalog__filters">
         <button aria-controls="filter" type="button" class="button button__close button__close--filter">
-            <i class="fas fa-times"></i>
+            {% element 'snippets/icon' { 'name': 'close', 'width': '17', 'height': '17' } %}
         </button>
         <div class="page-catalog__filters-scroll">
             {% if settings.compare %}
@@ -18,5 +18,3 @@
 <button aria-controls="filter" type="button" class="button button__filter">
     <i class="fas fa-sliders-h"></i>
 </button>
-
-

@@ -1,0 +1,59 @@
+#ProdBlockCompreJunto
+    .leftCorner2, .bottom
+        display: none 
+
+    .prodBox
+        display: block
+
+#ProdAbas
+    background: none
+
+    .leftCorner2
+        display: none 
+
+    .aberta
+        float: none 
+        background: none 
+
+        a 
+            background: none 
+            padding: 10px 0
+            font-size: 18px
+            font-weight: bold 
+            text-align: center
+            color: #000
+
+.compreJunto li div.produto span.fake-select__label
+    height: auto
+    text-align: left
+    padding-right: 45px
+    margin: 0
+    width: 100% 
+
+.compreJunto form 
+    display: flex 
+    flex-flow: column nowrap
+
+.fotosCompreJunto, .precoCompreJunto
+    width: auto
+    float: none 
+
+.fotosCompreJunto
+    display: flex 
+    justify-content: space-between
+    align-items: flex-start 
+
+.compreJunto > li
+    border-bottom: solid 1px rgba(0,0,0,.05)
+    padding: 20px 0
+
+@media desktop 
+    .fotosCompreJunto
+        flex: 1 
+        min-width: 0
+
+    .compreJunto form 
+        flex-flow: row nowrap
+
+    
+    

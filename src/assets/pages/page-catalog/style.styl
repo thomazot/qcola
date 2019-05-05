@@ -1,4 +1,18 @@
 .page-catalog 
+    .button__filter 
+        display: none 
+        
+    &__title 
+        font-size: 28px
+        font-weight: bold 
+        text-transform: uppercase 
+        letter-spacing: 2px
+
+    &__description 
+        font-size: 14px
+        font-weight: regular 
+        color: #6A6F7B
+
     &__container 
         display: flex 
         margin: '0 %s' % -(gutter / 2)
@@ -6,10 +20,11 @@
     &__toolbar
         padding: 20px 0
         &--top 
-            border-bottom: solid 1px rgba(0,0,0,.1)
+            border-top: solid 1px rgba(0,0,0,.05)
+            .paginate__pages 
+                display: none 
 
         &--bottom 
-            border-top: solid 1px rgba(0,0,0,.1)
             text-align: right
 
     &__content 
@@ -41,6 +56,7 @@
                 .button__close 
                     opacity: 0 
                     animation: slideCloseButton 500ms 1 ease
+                    visibility: hidden
 
             &[aria-hidden=false]
                 .button__mask
@@ -58,7 +74,7 @@
             width: 300px
             height: 100% 
 
-            max-width: calc(100% - 45px)
+            max-width: calc(100% - 65px)
             min-height: 100%
 
             background: #fff
@@ -85,16 +101,20 @@
         &__left 
             padding: 0 (gutter / 2)
 
-            .button__mask 
+            .button__mask
                 display: none 
 
         &__filters 
             position: static
 
+        &__container
+            .button__filter 
+                display: none 
+
         &__toolbar
             &--top 
                 position: relative 
-                margin-bottom: 60px 
+                margin-bottom: 0
                 .paginate__pages
                     position: absolute 
                     right: 0 

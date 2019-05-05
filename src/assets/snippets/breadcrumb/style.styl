@@ -4,12 +4,17 @@
 
     &__label, &__sep 
         display: inline-block 
-        font-size: 14px
+        font-size: 12px
         font-weight: reuglar 
-        color: #000
+        color: #606062
         padding: 5px
+        text-transform: uppercase
 
     &__item
         &:last-child 
             .breadcrumb__label 
                 font-weight: 700
+
+@media mobile 
+    .breadcrumb 
+        display: none 

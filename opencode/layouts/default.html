@@ -1,12 +1,14 @@
 {% spaceless %}
 <!doctype html>
-<html data-theme="{{ settings.extension_id }}" data-store="{{ store.id }}" class="page-{{ pages.current }}">
+<html data-theme="{{ settings.extension_id }}" data-store="{{ store.id }}" class="page-{{ pages.current }}" amp>
 <head>
 
     <!-- tray charset -->
-    {{ html.charset() }}
+    <!-- {{ html.charset() }} -->
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
 
     <!-- tray meta tags -->
     {{ tray.meta }}
@@ -15,6 +17,16 @@
     {{ tray.styles }}
 
     <!-- theme styles -->
+    {%  element 'trustvox-style' %}
+    <style amp-custom>
+        /* any custom style goes here */
+        body {
+            background-color: white;
+        }
+        amp-img {
+            background-color: gray;
+        }
+    </style>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/bootstrap/bootstrap.min.css') }}" type="text/css">
@@ -36,6 +48,9 @@
     {{ googleTagManager.top(pages.current, tagManagerData) }}
     {% element 'sprite' %}
     {% element 'snippets/messages' %}
+    {% if pages.current == 'product' %}
+        {%  element 'trustvox-widget' %}
+    {% endif %}
 
     <div class="wrapper">
         <div class="wrapper__container">
@@ -113,6 +128,12 @@
     {{ store.chat }}
 
     <!-- theme scripts-->
+    {%  element 'trustvox-stars' %}
+    {% if pages.current == 'product' %}
+        <script type="text/javascript" src="{{ asset('js/flipclock.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/flipclock.min.js') }}"></script>
+        <link rel="stylesheet" href="{{ asset('js/flipclock.css') }}" type="text/css">
+    {% endif %}
     <script src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" data-auto-replace-svg="nest"></script>
     <script type="text/javascript" src="{{ asset('js/qcola.js') }}"></script>
 

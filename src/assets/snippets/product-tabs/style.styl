@@ -1,0 +1,177 @@
+.prodBox
+    display: none 
+
+    
+@media mobile 
+    .product-tabs 
+        &__content 
+            overflow: hidden 
+            max-height: 0
+            
+            overflow-y: auto
+            transition: all .2s ease
+
+            &[aria-hidden=false]
+                max-height: 100vh
+
+        &__contents 
+            position: fixed 
+            top: 0 
+            left: 0 
+            z-index: 400
+            width: 100% 
+            height: 100% 
+
+            opacity: 0 
+            visibility: hidden
+
+            &-mask 
+                position: fixed 
+                top: 0 
+                left: 0 
+                width: 100% 
+                height: 100% 
+                background: rgba(0,0,0,.5)
+                opacity: 0 
+                visibility: hidden 
+                transition: all .2s ease-in-out
+
+            .prodBox
+                position: fixed 
+                top: 50%
+                left: 50% 
+                z-index: 10
+                max-width: 90% 
+                max-height: 80%
+                background: #fff 
+
+                transform: translateX(-50%) translateY(-50%)
+
+                padding: gutter
+
+            &[aria-hidden=false]
+                opacity: 1
+                visibility: visible
+
+                .product-tabs__contents-mask
+                    opacity: 1 
+                    visibility: visible
+
+
+        &__title 
+            display: flex 
+            justify-content: flex-start 
+            align-items: center 
+            min-height: 45px
+            padding: 10px 0
+            font-size: 15px
+            font-weight: bold 
+            text-transform: none 
+            letter-spacing: 0
+            padding-left: 15px
+            color: #606062 !important
+
+            .icon 
+                fill: #858587
+                margin-right: 10px
+
+        &__tab
+            position: relative
+            background: #DEDEDE
+            padding-right: 45px
+            border-radius: 4px
+            margin-bottom: 15px
+            transition: all .2s ease-in-out
+
+            &:after 
+                icon: '\f054'
+                position: absolute 
+                right: 0
+                top: 0
+                display: flex 
+                justify-content: center 
+                align-items: center
+                width: 45px
+                height: 45px 
+                transform: rotate(90deg)
+                transition: all .2s ease-in-out
+                color: #858587
+
+            &[aria-expanded=true]
+                background: #50A7B0
+                &:after 
+                    transform: rotate(-90deg)
+                    color: #fff
+
+                .product-tabs__title 
+                    color: #fff !important 
+                    .icon 
+                        fill: #fff
+
+
+@media desktop 
+    .product-tabs
+        &--line 
+            .product-tabs
+                &__title 
+                    text-align: center 
+                    padding: 20px 0
+                    border-bottom: solid 1px rgba(0,0,0,.1)
+                    margin-bottom: 20px 
+
+        &__contents-mask
+            display: none 
+
+        &__title 
+            .icon 
+                display: none 
+
+        &__content 
+            margin-bottom: 40px
+
+        &--custom 
+            margin: 40px 0
+            .prodBox 
+                display: block
+
+            .product-tabs
+                &__tabs 
+                    display: flex 
+                    margin-left: -1px
+
+                &__link 
+                    display: inline-block
+                    padding: 10px 
+                    font-size: 14px
+                    font-weight: bold 
+                    text-transform: uppercase 
+                    border: solid 1px rgba(0,0,0,.05)
+                    border-bottom-color: #fff
+                    background: #fff
+
+                    &:hover
+                        text-decoration: none 
+
+                    &.on
+                        position: relative
+                        z-index: 20
+                        bottom: -1px
+                    
+                &__tab 
+                    padding-right: 10px
+
+                    &:hover 
+                        .product-tabs__link 
+                            background: #fff
+
+                &__contents 
+                    position: relative 
+                    z-index: 10
+                    background: #fff
+                    box-shadow: 0 0 0 1px rgba(0,0,0,.05)
+                    padding: gutter
+                    
+
+
+
+                

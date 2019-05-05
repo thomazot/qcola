@@ -1,0 +1,14 @@
+<!-- Trustvox -->
+<script type="text/javascript">
+    window._trustvox =  [];
+    _trustvox.push(['_storeId', '78731']);
+
+    _trustvox.push(['_productId',  '{{ product.id }}']);
+    _trustvox.push(['_productName', '{{ product.name }}']);
+    
+    {% if product.images %} 
+        _trustvox.push(['_productPhotos', '{{ product.images[0].full }}']); 
+    {% endif %}
+</script>
+<script async="true" type="text/javascript" src="//static.trustvox.com.br/assets/widget.js"></script>
+<!-- /Trustvox -->

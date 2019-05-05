@@ -13,10 +13,10 @@
             {% endif %}
         
             {{ paginate.numbers({
-                'modulus': 5,
+                'modulus': 3,
                 'separator': '',
-                'class': 'paginate__link paginate__link--number',
-                'currentClass': 'paginate__link--current'
+                'class': 'paginate__link paginate__link--number bd-color-one',
+                'currentClass': 'paginate__link--current bd-color-one bg-color-one'
             }) }}
         
             {% if paginate.hasNext %}

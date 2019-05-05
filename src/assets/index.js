@@ -32,7 +32,8 @@ import 'Snippets/head-top';
 import 'Snippets/payments';
 import 'Snippets/filter-home';
 import 'Snippets/instagram';
-
+import 'Snippets/product-tabs';
+import 'Snippets/comments';
 
 /** Modules */
 import 'Modules/header';
@@ -43,9 +44,13 @@ import 'Modules/footer';
 import 'Modules/copyright';
 import 'Modules/partners';
 import 'Modules/filter';
+import 'Modules/buy-together';
+import 'Modules/products-visited';
 
 /** Page */
 import 'Pages/page-product';
 import 'Pages/page-catalog';
+import 'Pages/page-depoimentos';
+import 'Pages/page-noticias';
 
 

@@ -23,7 +23,6 @@ html
 body
     -webkit-font-smoothing     : antialiased
     -moz-osx-font-smoothing    : grayscale
-    font-family: 'Roboto', sans-serif
 
 div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section
     margin            : 0
@@ -75,9 +74,6 @@ input, textarea, button, select
     outline: none
     box-shadow: none
 
-#ah-utils
-    display             : none
-
 &::placeholder
     &::focus
         color           : transparent
@@ -124,3 +120,255 @@ main, footer
     text-transform: uppercase
     color: #f00
     margin: (gutter / 2) 0
+
+.bottom, .bLeft, .bRight
+    background: none 
+
+.central-breadcrumb
+    margin-top: 20px 
+
+.Mapa.central-mapa
+    text-align: right
+    &:before 
+        content: 'Mapa do site'
+        font-size: 11px
+    img 
+        display: none 
+.obriga
+    border-left: solid 4px #f00
+
+.multienderecos  
+    fieldset 
+        .active 
+            padding-left: 15px
+        label 
+            display: inline-block !important
+
+#frm2 
+    label[for=endereco_cobranca_diferente]
+        display: inline-block
+.board
+    margin: 0
+    padding: 10px 0
+    font-size: 15px
+    font-weight: regular 
+    letter-spacing: 1px
+    color: #6A6F7B
+
+    h1, h2
+        padding: 15px 0 
+        font-size: 26px
+        font-weight: bold 
+        text-align: center 
+        text-transform: uppercase
+        border-bottom: solid 1px rgba(0,0,0,.05)
+
+// Table Page
+.tablePage 
+    font-size: 13px
+    th
+        background: #fff
+        font-size: 11px
+        font-weight: bold 
+        text-transform: uppercase 
+
+    td 
+        font-size: 13px 
+
+        &:first-child 
+            border-left: solid 1px #ccc
+
+#Page 
+    font-size: 13px 
+    
+    fieldset
+        padding: 0 
+        border: 0 
+        background: none 
+
+    .text
+        height: 45px 
+        line-height: 45px
+        background: none 
+
+#recommend-form
+    #send_link button 
+        padding: 0 15px
+
+        &:before 
+            content: 'Cadastrar'
+        img 
+            display: none 
+
+.container3
+    background: none 
+    border: 0 
+
+.container2
+    background: none 
+
+    .bottom
+        display: none 
+
+.container
+    width: 100% 
+    background: none 
+    padding: 30px 0
+
+.caixa-login .bt-efetua-login
+    padding: 0 15px
+    &:before 
+        content: 'Efetuar login'
+
+    img 
+        display: none 
+
+.caixa-cadastro .bt-efetua-login
+    padding: 0 15px
+    &:before 
+        content: 'Cadastrar'
+
+    img 
+        display: none 
+
+.tray-close
+    min-width: 0
+
+// Cadastro 
+#CadastroAbas
+    background: none 
+    border: 0
+    margin-bottom: 20px 
+
+    ul 
+        padding: 0
+        display: flex 
+        justify-content: flex-start 
+        align-items: center 
+
+    a, li
+        background: none 
+
+    a 
+        display: inline-flex 
+        justify-content: center 
+        align-items: center 
+        padding: 10px 20px 
+
+    li 
+        margin: 0 10px 0 0
+        padding: 0
+        float: none 
+
+        &.aberta a
+            background: rgba(0,0,0,.5)
+            color: #fff
+            font-size: 14px
+            font-weight: regular 
+            padding: 10px 20px 
+
+#frm2
+    .topBorder
+        display: none 
+
+    input 
+        display: inline-block 
+        vertical-align: middle
+        
+    label 
+        padding: 10px 0
+        display: block 
+        font-size: 13px
+        font-weight: bold 
+
+
+#nao_disp a,    
+.botao-commerce,
+.botao-nao_indisponivel
+    @extend $button
+
+#nao_disp a 
+    &:before 
+        content: 'OK'
+    img 
+        display: none 
+
+#produto_nao_disp
+    font-size: 14px 
+
+abbr[title]
+    border: 0
+
+#botoes
+    float: none 
+    width: auto
+    max-height: none
+    padding: 0
+    text-align: left
+
+    .botao-commerce
+        margin: 10px 
+
+.botao-destaque, .botao-frete, .botao-indisponivel, .botao-lancamento
+    &:before, &:after
+        display:none
+
+.botao-commerce-bullet-esq, .botao-commerce-bullet-dir
+    display: none 
+
+.botao-compre-junto .botao-commerce-img, .botao-compre-negociar .botao-commerce-img, .botao-escolher .botao-commerce-img, .botao-negociar .botao-commerce-img, .botao-ok-negociar .botao-commerce-img
+    background: none 
+    padding: 0
+
+hr 
+    visibility:  hidden
+
+#produto_comprar
+    > a 
+        display: inline-block 
+        padding: 10px 15px 
+        font-size: 14px
+        font-weight: regular 
+        text-transform: uppercase 
+        background: rgba(0,0,0,.5)
+        color: #fff
+        &:before 
+            content: 'Comprar '
+        img  
+            display: none 
+
+#listaNoticiaProdutos
+    margin: 0
+
+    li
+        border-bottom: solid 1px rgba(0,0,0,.05)
+
+
+.Forma1 
+    li
+        background: none 
+        border-top: solid 1px rgba(0,0,0,.05)
+        margin-top: 15px
+
+.tablePags
+    border: solid 1px rgba(0,0,0,.05)
+
+#col3D, #colFotos, #colVideo
+    padding: 0
+
+.botao-commerce, .botao-comprar
+    border: 0 !important
+    font-size: 16px
+    font-weight: regular
+    text-transform: uppercase
+    letter-spacing: 1px
+
+    .botao-commerce-img
+        line-height: 1 
+        font-weight: regular
+        font-size: 16px
+
+@media mobile 
+    .tablePags
+        br 
+            display: none 

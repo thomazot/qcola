@@ -18,6 +18,22 @@ button, .button
         font-size: 20px
 
 .button 
+    &__calculator
+        padding: 10px 
+        height: 40px
+        width: 100% 
+        max-width: 375px
+        margin: 0 auto
+        background: #F99625
+        color: #fff
+        font-size: 14px 
+        border-radius: 4px
+        .icon 
+            margin-right: 10px
+
+        &:hover 
+            background: darken(#F99625, 20%)
+
     &__filter
         position: fixed 
         bottom: 20px
@@ -49,9 +65,11 @@ button, .button
         background: none 
         color: #fff
 
-        &--navigation 
+        &--navigation, &--filter 
             background: #F99625
             border-radius: 50%
+            .icon 
+                fill: #fff
 
     &__menu 
         display: flex 

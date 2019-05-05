@@ -1,9 +1,12 @@
 <div class="toolbar">
     <div class="toolbar__container">
         {% if position != 'bottom' %}
-            <div class="toolbar__filter">{% element 'snippets/filter' { brands: brands } %}</div>
+            <div class="toolbar__filter color-one">{% element 'snippets/filter' { brands: brands } %}</div>
         {% endif %}
-
-        <div class="toolbar__paginate">{% element 'snippets/paginate' %}</div>
+        <button aria-controls="filter" type="button" class="toolbar__button-filter">
+            {% element 'snippets/icon' { name: 'icon-filter', width: '20', height: '15' } %}
+            <span>Filtrar por:</span>
+        </button>
+        <div class="toolbar__paginate color-two">{% element 'snippets/paginate' %}</div>
     </div>
 </div>

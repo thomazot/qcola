@@ -1,0 +1,33 @@
+<section class="calculator">
+    <button aria-controls="light-calculator" type="button" class="calculator__close">
+        {% element 'snippets/icon' { name: 'close', width: '17', height: '17' } %}
+    </button>
+    <div class="calculator__container">
+        <div class="calculator__header">
+            <h3 class="calculator__title">CALCULAR QUANTIDADE DE ROLOS <span>(MEDIDA EM METROS)</span></h3>
+        </div>
+        <form id="calculator" action="" class="calculator__form" aria-hidden="false">
+            <div class="calculator__main">
+                <div class="calculator__item">
+                    <label for="calculator__width" class="calculator__label">LARGURA <span>(METROS)</span></label>
+                    <input type="text" class="calculator__input" id="calculator__width">
+                
+                </div>
+                <div class="calculator__item calculator__item--div">
+                    x
+                </div>
+                <div class="calculator__item">
+                    <label for="calculator__height" class="calculator__label">ALTURA <span>(METROS)</span></label>
+                    <input type="text" class="calculator__input" id="calculator__height">
+                </div>
+                <div class="calculator__action">
+                    <button type="submit" class="calculator__button">Calcular</button>
+                </div>
+            </div>
+        </form>
+        <div class="calculator__result" aria-hidden="true">
+            <div id="calculator__result"></div>
+            <button type="button" class="calculator__back"> Calcular outro rolos </button>
+        </div>
+    </div>
+</section>

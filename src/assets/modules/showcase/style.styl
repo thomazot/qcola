@@ -29,8 +29,13 @@
         margin: -(gutter / 2)
 
     &__item 
-        flex: 1 1 254px
+        flex: 1 1 160px //254px
         padding: (gutter / 2)
+
+@media desktop 
+    .showcase 
+        &__item 
+            flex: 1 1 254px
 
 
 @media (min-width: (viewport + 100))

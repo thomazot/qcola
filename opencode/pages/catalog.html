@@ -5,18 +5,10 @@
 {% endif %}
 
 {% if breadcrumb %}
-    {% element 'snippets/breadcrumb' %}
+    {% element 'snippets/breadcrumb' { "class": 'breadcrumb'} %}
 {% endif %}
 
 <div class="page-catalog__main">
-
-    <h1 class="page-catalog__title title title--big">{{ category.name }}</h1>
-
-    {% if category.small_description %}
-    <div class="page-catalog__description">
-        {{ category.small_description }}
-    </div>
-    {% endif %}    
     
 
     <div class="page-catalog__container">
@@ -26,6 +18,13 @@
 
         {% if products|length > 0 %}
             <div class="page-catalog__content">
+                <h1 class="page-catalog__title title title--big">{{ category.name }}</h1>
+
+                {% if category.small_description %}
+                <div class="page-catalog__description">
+                    {{ category.small_description }}
+                </div>
+                {% endif %}    
 
                 <div class="page-catalog__toolbar page-catalog__toolbar--top">
                     {% element 'snippets/toolbar' {

@@ -1,13 +1,38 @@
 #visualAbas, #visualBlock #add, .bonus_produto:empty
     display: none 
 
-#col3D, #colFotos, #colVideo, #foto_p, #preco
+#col3D, #colFotos, #colVideo, #foto_p, #preco, .prodBox, .onVar, .onVar:hover
     background: none 
+    border: 0
+
+.varTit
+    padding: 5px 0
+
+    &, &:hover
+        font-size: 14px
+        font-weight: reuglar 
+        color: #333
+        background: none 
+
+.precoCompreJunto
+    border: 0
+
+.varCont
+    padding: 5px 0
     border: 0
     
 #preco
     border: 0 
     padding: 0
+
+#linkPagParcelado
+    display: inline-block 
+    padding: 10px 20px
+    border: 0
+    font-size: 14px
+    font-weight: regular 
+    background: rgba(0,0,0, .5)
+    color: #ffffff
 
 #bloco-add-lista 
     margin: 0
@@ -24,39 +49,45 @@
         text-transform: uppercase
 
 #cepbox
-    position: relative
-    display: flex 
-    justify-content: flex-start 
-    align-items: center
-    flex-flow: row wrap
-    border: 0 
-    padding: 0
-    margin: 40px 0 0
-    border: solid 1px rgba(0,0,0,.2)
-
+    margin: 0
+    padding: 10px 0 20px
+    border: 0
+    text-align: center
+    
     input 
-        border: 0
-
-    label 
-        font-size: 14px
-        padding-right: 10px 
-
-    .botao-commerce
-        height: 45px
         display: inline-block 
         vertical-align: middle
 
-.cepbox-text
-    flex: 0 0 100%
-    position: absolute 
-    display: flex 
-    justify-content: flex-start 
-    align-items: center
-    height: 30px 
-    bottom: 100% 
-    left: 0
-    font-size: 16px
-    padding: 0
+    label 
+        display: none 
+
+    .cepbox-text
+        font-size: 14px
+        text-transform: uppercase 
+        padding: 10px 0
+
+    .botao-simular-frete
+        display: inline-flex 
+        justify-content: center 
+        align-items: center 
+        vertical-align: middle
+        width: 80px
+        height: 45px
+        margin-top: -2px
+        margin-left: 10px   
+        background: rgba(0,0,0,.5)
+        font-size: 0 
+        color: #fff 
+        border: 0
+        border-radius: 4px
+        text-align: center 
+        padding: 15px 0
+        &:before 
+            display: block
+            content: 'Calcular'
+            font-size: 12px
+            text-align: center
+            margin-left: 8px
 
 .botao-comprar 
     width: 100% 
@@ -67,16 +98,134 @@
         height: 45px 
         padding: 0
 
+#nao_disp
+    padding: (gutter / 2)
+    border: solid 1px rgba(0,0,0,.05)
+
+    h5 
+        margin: 20px 0 0 
+        font-size: 14px
+        font-weight: bold 
+        text-transform: uppercase 
+
+// Buttom buy more less
+.quantity-more-less
+    display: flex 
+    justify-content: space-between
+    border: solid 1px rgba(112,112,112,0.2)
+    border-radius: 4px
+
+    #quant
+        flex: 1 
+        min-width: 0
+        padding: 0 
+        text-align: center
+        border: 0
+        color: #6A6F7B
+
+    .button 
+        padding: 0 
+        min-width: 30px
+        background: none 
+        font-size: 20px
+        font-weight: bold 
+        color: #6A6F7B
+
+        &:hover 
+            background: none 
+            color: #6A6F7B
+
 .page-product 
+    &__essential
+        margin-bottom: 30px
+
+    &__labels 
+        display: none 
+        padding: 10px 0
+
+        #botoes 
+            margin: -10px
+
+    &__short-review
+        padding-bottom: 15px
+        margin-bottom: 15px
+        border-bottom: solid 1px rgba(0,0,0,.05)
+
+    &__prices 
+        padding: 15px 0
+        margin: 15px 0
+        border-top: solid 1px rgba(0,0,0,.05)
+        border-bottom: solid 1px rgba(0,0,0,.05)
+
+    &__button-shipping 
+        height: auto
+        padding: 20px 0 0
+        background: none 
+        font-size: 14px
+        font-weight: regular 
+        letter-spacing: 1px
+        color: #6A6F7B
+        text-align: left
+        text-decoration: underline 
+        margin: 0 auto
+
+        .icon 
+            margin-right: 5px
+
+        &:hover 
+            text-decoration: underline 
+            background: none 
+            color: #6A6F7B
+
+    &__shipping 
+        padding-bottom: 20px
+        [aria-hidden=true]
+            max-height: 0
+            overflow: hidden
+
     &__details 
-        #info 
+        #info, #preco br,  #preco div[style*=clear], #form_comprar div[style*=clear]
             display: none 
+
+        .produto-economize, .precoAvista, .txt-avista, .txt-com-desconto, .txt-forma-pagamento
+            display: none 
+
+        #info_preco
+            display: block
+            font-size: 16px
+            font-weight: regular 
+            color: #606062
+
+            .preco-parc2 .color, .txt-cadaparcelas
+                font-weight: bold 
+                color: #50A7B0
+
+            .operadora
+                text-transform: lowercase
+
+        .precode
+            font-size: 16px
+            font-weight: medium 
+            color: #606062
+
+        .color-tone-2
+            font-size: 26px
+            font-weight: bold 
+            color: #50A7B0
 
     &__image 
         position: relative 
         z-index: 10
+        min-height: 405px
 
         // Ajuste Zoom
+        .produto-zoom-detalhe
+            display: none 
+
+        #foto_p 
+            overflow: hidden
+            img
+                max-width: 100% !important
 
         #wrap
             display: inline-block 
@@ -91,19 +240,21 @@
             background-color: #fff
 
     &__name 
-        font-size: 32px
+        font-size: 24px
         font-weight: bold
-        line-height: 1.2
+        line-height: 1
+        text-transform: uppercase 
+        letter-spacing: 2px
         padding-bottom: 15px
 
     &__head 
-        display: flex 
+        display: none 
         justify-content: space-between
         font-size: 14px
         padding: 10px 0
 
     &__links 
-        display: flex 
+        display: none 
         flex-flow: row wrap
         margin: 10px -5px
 
@@ -126,21 +277,224 @@
                     display: none 
 
     &__actions 
-        .passo1
+        .passo1, #product-form-box
             display: flex 
 
-            #quantidade 
-                font-size: 0 
-                padding: 0 
-                margin: 0 (gutter / 2) 0 0
-                border: 0
-                width: 100px
+        #product-form-box
+            width: 100% 
 
-            #quant
-                width: 100% 
-                font-size: 14px
+        #quantidade 
+            font-size: 0 
+            padding: 0 
+            margin: 0 (gutter / 2) 0 0
+            border: 0
+            max-width: 100px
+            flex: 0 0 auto
+
+        #quant
+            font-size: 14px
+            text-align: center
+
+        #bt_comprar
+            flex: 1
+            min-width: 0
+
+    &__calculator
+        position: fixed 
+        top: 0 
+        left: 0
+        z-index: 300
+        display: flex 
+        justify-content: center 
+        align-items: center 
+        width: 100% 
+        height: 100%
+
+        opacity: 0
+        visibility: hidden
+
+        transition: all .2s ease-in-out
+
+        &[aria-hidden=false]
+            opacity: 1
+            visibility: visible
+
+        .button--mask 
+            position: fixed 
+            top: 0
+            left: 0
+            z-index: 1
+            width: 100%
+            height: 100%
+            background: rgba(0,0,0,.5)
+
+.calculator
+    position: relative 
+    z-index: 2
+    background: #F8F8F8 
+    padding: 20px 
+    margin: 20px
+
+    &__close 
+        position: absolute 
+        top: -23px
+        right: -23px
+        width: 45px 
+        height: 45px 
+        border-radius: 50%
+        background: #F99625
+        .icon 
+            fill: #fff
+
+    &__title 
+        font-size: 20px
+        font-weight: bold 
+        text-transform: uppercase
+        letter-spacing: 1px
+        color: #6A6F7B
+        margin-bottom: 15px
+        span 
+            font-weight: regular 
+
+    &__main 
+        margin: -10px
+
+    &__item 
+        padding: 10px 
+
+        &--div 
+            display: none 
+            justify-content: center 
+            align-items: center 
+            height: 65px
+            width: 45px
+            font-size: 14px
+            font-weight: bold 
+            color: #6A6F7B
+
+
+    &__action 
+        padding: 10px
+        
+    &__button 
+        width: 100%
+        background: #F99625
+        color: #fff 
+        font-size: 14px
+        font-weight: medium
+        text-transform: uppercase
+        border-radius: 4px
+    
+    &__label 
+        font-size: 14px
+        font-weight: bold 
+        color: #6A6F7B
+        padding-bottom: 5px
+
+        span 
+            font-weight: regular 
+
+    input 
+        width: 100%
+        border-radius: 4px
+
+    &__result 
+        display: none 
+
+        font-size: 24px
+        font-weight: bold 
+        text-transform: uppercase 
+        text-align: center 
+
+        .err
+            color: #f00
+
+        button 
+            text-transform: uppercase
+            width: 100% 
+            margin-top: 20px
+
+        &[aria-hidden=false]
+            display: block
+
+
+
+    &__form 
+        &[aria-hidden=true]
+            display: none 
+
+
+.texto_variacao
+    padding: 0 
+    h2, span
+        display: inline
+        vertical-align: middle
+        float: none 
+        width: auto
+        margin-right: 5px
+        font-size: 14px 
+        text-transform: uppercase 
+        color: #6A6F7B
+
+    h2
+        font-weight: bold 
+
+        &:after 
+            content: ': '
+
+    
+
+.lista_cor_variacao
+    padding: 10px 0 
+
+.lista_cor_variacao, .lista_cor_variacao2 
+    li div
+        border: solid 1px rgba(#707070, 20%)
+        border-radius: 4px
+    
+.products-related
+    text-align: center 
+    margin-top: 50px
+    margin-bottom: 50px 
+
+    .title 
+        margin-bottom: 20px 
+
+@media desktop 
+    #product-form-box
+        padding-left: 20px 
+        padding-right: 20px
+    .page-product 
+        &__essential 
+            display: grid
+            grid-template-areas: "image header" "image details"
+            grid-template-columns: 50% 1fr
+            grid-template-rows: auto 1fr
+
+        &__image 
+            grid-area: image 
+
+            #colFotos
+                display: flex 
+
+        &__header 
+            grid-area: header
+            margin-left: 50px 
+            text-align: center 
+            
+        &__details 
+            grid-area: details
+            margin-left: 50px
+            text-align: center 
+
+            #preco, #menuVars
                 text-align: center
 
-            #bt_comprar
-                flex: 1
-                min-width: 0
+    .calculator
+        &__main 
+            display: flex 
+            align-items: flex-end
+
+        &__item
+            &--div 
+                display: flex

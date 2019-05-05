@@ -6,11 +6,29 @@
 
 {% element 'snippets/breadcrumb' { "class": 'breadcrumb'} %}
 
-<section id="page-product" class="page-product" itemscope itemtype="http://schema.org/Product">
-    {% element 'schema/product' {'product': product} %}
+<section class="page-product__essential" itemscope itemtype="http://schema.org/Product">
+    
+
+    <div class="page-product__image">
+
+        {% if product.images %}
+            <div id="visualBlock" class="page-product__gallery {{ product.images|length  <= 1 and not product.video ? 'hide-carousel' }}">
+                {{ productHelper.gallery() }}
+            </div>
+        {% else %}
+            <div class="product-product__gallery page-product__gallery--no-image">
+                <img src="{{ asset('img/no-image.svg') }}" alt="Nenhuma imagem foi cadastrada">
+            </div>
+        {% endif %}
+
+        <div class="page-product__labels">
+            {{ productHelper.labels() }}
+        </div>
+
+    </div>
 
     <div class="page-product__header">
-        <h1 class="page-product__name" itemprop="name">{{ product.name }}</h1>
+        <h1 class="page-product__name color-two" itemprop="name">{{ product.name }}</h1>
 
         <div class="page-product__short-review">
             {% element 'snippets/rating-short' { 'product': product } %}
@@ -31,36 +49,30 @@
     
     </div>
 
-    <div class="page-product__image">
-
-        {% if product.images %}
-            <div id="visualBlock" class="page-product__gallery {{ product.images|length  <= 1 and not product.video ? 'hide-carousel' }}">
-                {{ productHelper.gallery() }}
-            </div>
-        {% else %}
-            <div class="product-product__gallery page-product__gallery--no-image">
-                <img src="{{ asset('img/no-image.svg') }}" alt="Nenhuma imagem foi cadastrada">
-            </div>
-        {% endif %}
-
-        <div class="page-product__labels">
-            {{ productHelper.labels() }}
-        </div>
-
-    </div>
-
     <div class="page-product__details">
         {% if productHelper.banner() %}{{ productHelper.banner() }}{% endif %}
 
         {{ productHelper.bonus() }}
 
         <form id="form_comprar" method="post" data-app="product.buy-form" action="{{ links.cart_add ~ product.id }}">
-            <div data-module="pricing" data-snippet="snippets/pricing" data-product-id="{{ product.id }}">
-                <div class="pricing">
-                    Carregando...
+            
+            {% if product.available != 0 %}
+            {{ productHelper.variants() }}
+            {% endif %}
+
+            <button aria-controls="light-calculator" type="button" class="button button__calculator">
+                {% element 'snippets/icon' { name: 'icon-calculator', width: '17', height: '22' } %}
+                <span>CALCULAR QUANTIDADE DE ROLOS</span>    
+            </button>
+
+            <div class="page-product__prices">
+                <div data-module="pricing" data-snippet="snippets/pricing" data-product-id="{{ product.id }}">
+                    <div class="pricing">
+                        Carregando...
+                    </div>
                 </div>
             </div>
-            {{ productHelper.variants() }}
+
             {{ productHelper.gifts() }}
             {{ product.additional_information }}
             <div class="page-product__actions">
@@ -68,7 +80,14 @@
             </div>
             {{ productHelper.kit() }}
             
-            {{ productHelper.shipping() }}
+            <div class="page-product__shipping">
+                <button aria-controls="product-shipping" type="button" class="page-product__button-shipping">
+                    {% element 'snippets/icon' { name: 'icon-shipping', width: '29', height: '18' } %}
+                    <span>Calcule o valor do frete e o prazo de entrega</span>
+                </button>
+                <div id="product-shipping" data-fixed="false" aria-hidden="true" >{{ productHelper.shipping() }}</div>
+            </div>
+            
 
             {% if product.additional_message %}
             <div class="additional-message">
@@ -105,79 +124,143 @@
             {% endif %}
         </ul>
 
-        {% if settings.social_position == 0 %}
-            <div class="page-product__share">
-                {% element 'snippets/share' { "product": product } %}
-            </div>
-        {% endif %}
+
+        <div class="page-product__share">
+            {{ productHelper.social() }}
+        </div>
+
 
     </div>
 </section>
 
-
-<section id="ProdBlock" class="product-tabs">
-    <a name="formaPagto"></a>
-    <div id="ProdAbas" class="abasProduto tab-panel">
-        <ul class="clearfix">
-            {% for key, tab in productTabs %}
-                {% if tab.container_id %}
-                <li id="{{ tab.id }}" {% if key=='description' %}class="aberta" {% endif %}>
-                    <a href="#" data-tab-container-id="{{ tab.container_id }}" data-tab-url="{{ tab.url }}">{{ tab.description }}</a>
-                </li>
+<div class="page-product__descriptions">
+    <!-- INICIO Descrição -->
+                
+    {% for category in categories %}
+        {% if category.name == 'Papel de Parede' %}
+            {% for child in category.children %}
+                {% if child.id == product.category_id %}
+                    <div aria-controls="tab-description" class="product-tabs__tab" aria-expanded="false">
+                        <h3 class="product-tabs__title title title--medium">
+                            {% element 'snippets/icon' { name: 'icon-product-tabs-description' , width: "25", height: "25" } %}
+                            Descrição do Produto
+                        </h3>
+                    </div>
+                    <div data-fixed="false" aria-hidden="true" id="tab-description" class="product-tabs__content">
                 {% endif %}
             {% endfor %}
-        </ul>
-    </div>
+        {% endif %}
+    {% endfor %}
 
-    <div id="descricao" class="prodBox">
-        <div class="board">
-            <div class="board_htm description">
-                {{ product.description ? product.description : product.description_small }}
-            </div>
-        </div>
-    </div>
+    <div class="board">{{ product.description ? product.description : product.description_small }}</div>
 
-    <div id="itensInclusos" class="prodBox">
-        <div class="board">
-            {{ product.included_items }}
-        </div>
-    </div>
+    {% for category in categories %}
+        {% if category.name == 'Papel de Parede' %}
+            {% for child in category.children %}
+                {% if child.id == product.category_id %}
+                    </div>
+                    
+                    <div aria-controls="tab-observacoes" class="product-tabs__tab" aria-expanded="false">
+                        <h3 class="product-tabs__title title title--medium">
+                            {% element 'snippets/icon' { name: 'icon-product-tabs-observacoes' , width: "25", height: "25" } %}
+                            <span>Observações</span>
+                        </h3>
+                    </div>
+                    <div data-fixed="false" aria-hidden="true" id="tab-observacoes" class="product-tabs__content">
+                        <div class="board">
+                            É de extrema importância que o cliente saiba a metragem do local (largura x altura) antes de adquirir o material, o cálculo deve considerar vãos, portas e janelas. <br />
+                            Rolos de diferentes tamanhos pode não dar encaixe na estampa, por esse motivo recomendamos comprar rolos do mesmo tamanho para aplicação na mesma parede.<br />
+                            <strong>As cores do produto real podem apresentar diferença das cores visualizadas em seu monitor.</strong><br />As cores do Papel de Parede podem variar de acordo com o lote de fabricação devido à vários fatores, por esse motivo compre a quantidade correta, pois não será possível produzir lotes diferentes na mesma tonalidade de cores.<br />
+                            <img alt="Observações" src="https://static3.tcdn.com.br/img/editor/up/580806/Tarja_atencao.jpg" class="img_observacoes" />
+                        </div>
+                    </div>
 
-    <div id="coments" class="prodBox">
-        <div class="board">
-            {% element 'product/comments' %}
-        </div>
-    </div>
+                    <div aria-controls="tab-aplicar" class="product-tabs__tab" aria-expanded="false">
+                        <h3 class="product-tabs__title title title--medium">
+                            {% element 'snippets/icon' { name: 'icon-product-tabs-aplicar' , width: "25", height: "25" } %}
+                            <span>Como Aplicar</span>
+                        </h3>
+                    </div>
+                    <div data-fixed="false" aria-hidden="true" id="tab-aplicar" class="product-tabs__content">
+                        <div class="board">
+                            Antes de aplicar os papeis de parede é necessário fazer a limpeza do local com um pano úmido, o ambiente tem que estar totalmente limpo.<br />
+                            <p class="desc_video"><iframe src="https://www.youtube.com/embed/AU_oaOSYT7U?rel=0" frameborder="0" allowfullscreen></iframe></p>
+                        </div>
+                    </div>
 
-    <div id="caracteristicas" class="prodBox">
-        <div class='board'>
-            {% element 'product/properties' %}
-        </div>
-    </div>
+                    <div aria-controls="tab-onde" class="product-tabs__tab" aria-expanded="false">
+                        <h3 class="product-tabs__title title title--medium">
+                            {% element 'snippets/icon' { name: 'icon-product-tabs-onde' , width: "25", height: "25" } %}
+                            <span>Onde Aplicar</span>
+                        </h3>
+                    </div>
+                    <div data-fixed="false" aria-hidden="true" id="tab-onde" class="product-tabs__content">
+                        <div class="board">
+                            Dê mais vida aos ambientes, como quartos, sala, hall, corredor, banheiro, cozinha e etc.<br />
+                            Nosso Papel de Parede pode ser aplicado em qualquer superfície lisa, como: paredes (sempre pintadas), portas, espelhos, vidros, móveis, mármore e etc. Sempre em locais limpos e livres de poeira ou qualquer tipo de sedimento.<br />
+                            Nunca aplicar em locais úmidos, com infiltração, textura, ou imperfeições. Em caso de tinta fresca espere no mínimo 2 semanas após a pintura para aplicação do Papel de Parede.
+                        </div>
+                    </div>
 
-    {{ productTabs.custom.content }}
-    {{ productTabs.downloads.content }}
+                    <div aria-controls="tab-tecnicas" class="product-tabs__tab" aria-expanded="false">
+                        <h3 class="product-tabs__title title title--medium">
+                            {% element 'snippets/icon' { name: 'icon-product-tabs-tecnica' , width: "25", height: "25" } %}
+                            <span>Informações Técnicas</span>
+                        </h3>
+                    </div>
+                    <div data-fixed="false" aria-hidden="true" id="tab-tecnicas" class="product-tabs__content">
+                        <div class="board">
+                            <strong>Tamanhos:</strong><br />
+                            - 0,60m de largura x 1,50m de altura.<br />
+                            - 0,60m de largura x 2,50m de altura.<br />
+                            - 0,60m de largura x 3,00m de altura.<br /><br />
+                            <strong>Área de Cobertura:</strong><br />
+                            - 0,60 x 1,50 cobre até 0,9m²<br />
+                            - 0,60 x 2,50 cobre até 1.5 m²<br />
+                            - 0,60 x 3,00 cobre até 1.8 m²<br /><br />
+                            <strong>Espessura:</strong><br />
+                            0,10 mm<br /><br />
+                            <strong>Material:</strong><br />
+                            Vinil auto colante fosco<br />
+                            Adesivo <span style="color:#FF0000;"><strong>3M</strong></span><br /><br />
+                            <strong>Textura:</strong><br />Sem textura, liso fosco<br /><br />
+                            <strong>Aplicação:</strong><br />
+                            Adesivo autocolante, não necessita de cola<br /><br />
+                            <strong>Prazo de Produção:</strong><br />
+                            2 à 4 dias úteis
+                        </div>
+                    </div>
 
-    <div id="garantia" class="prodBox">
-        <img class="loader" src="{{ tray.paths.system_image }}/big-loading.svg"  />
-    </div>
-    <div data-app="product.payment-methods" id="formasPagto" class="prodBox"  ></div>
-</section>
+                    <div aria-controls="tab-garantia" class="product-tabs__tab" aria-expanded="false">
+                        <h3 class="product-tabs__title title title--medium">
+                            {% element 'snippets/icon' { name: 'icon-product-tabs-garantia' , width: "25", height: "25" } %}
+                            <span>Garantias</span>
+                        </h3>
+                    </div>
+                    <div data-fixed="false" aria-hidden="true" id="tab-garantia" class="product-tabs__content">
+                        <div class="board">
+                            Damos garantia total em caso de defeito de fabricação.<br />
+                            Antes de aplicar os papéis de parede, abra um dos rolos para ver a qualidade de impressão e cor.<br />
+                            Caso compre mais de 1 rolo, abra todos para verificação (conferindo se a tonalidade de cor entre os rolos estão iguais e verificando se as emendas encaixam).<br />
+                            Após a verificação, posicione um rolo na parede e prenda com fita crepe, dê uma distância de 2 metros para ver se está de seu agrado e só comece a aplicar se estiver tudo ok.<br />
+                            Não damos garantia se o produto já estiver todo aplicado na parede e se não foi feito a sobreposição nas emendas, verifique atentamente todos os rolos antes de aplicar.<br />
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
 
-{% if productHelper.bundle() %}
-<section class="product-cross-sell">
-    <h4>{{ Translation('confira_tambem') }}</h4>
-    <h3>{{ Translation('compre_junto') }}</h3>
-    {{ productHelper.bundle() }}
-</section>
-{% endif %}
+<!-- FIM Descrição -->
+</div>
+
+{% element 'buy-together' %}
 
 
 {% if product.related_products %}
 <div id="prognoos_lsi"></div>
 <section class="products-related">
-    <h4>{{ Translation('confira_tambem') }}</h4>
-    <h3 class="related-title">{{ Translation('produtos_relacionados') }}</h3>
+    <h3 class="related-title title title--big">{{ Translation('produtos_relacionados') }}</h3>
     <div class="row">
         {% for related in product.related_products %}
             <div class="col-sm-3">
@@ -206,3 +289,8 @@
         {{ banner.bottom }}
     </div>
 {% endif %}
+
+<div id="light-calculator" class="page-product__calculator" aria-hidden="true" >
+    {% element 'snippets/calculator' %}
+    <button aria-controls="light-calculator" class="button button--mask"></button>
+</div>

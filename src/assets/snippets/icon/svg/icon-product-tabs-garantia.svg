@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 25 25">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Retângulo_169" data-name="Retângulo 169" width="25" height="25" transform="translate(30 1845)"  stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Grupo_de_máscara_48" data-name="Grupo de máscara 48" transform="translate(-30 -1845)" clip-path="url(#clip-path)">
+    <g id="guarantee" transform="translate(30.147 1845)">
+      <path id="Caminho_8640" data-name="Caminho 8640" d="M20.768,15.59a10.068,10.068,0,1,0-16.83,0L0,21.334l4.506-.84L5.347,25l3.714-5.417a10.071,10.071,0,0,0,6.585,0L19.36,25l.84-4.506,4.506.84ZM6.143,21.233l-.458-2.458-2.458.459,1.659-2.419a10.134,10.134,0,0,0,2.8,2.172ZM3.758,10.068a8.595,8.595,0,1,1,8.595,8.6,8.6,8.6,0,0,1-8.595-8.6Zm15.263,8.706-.458,2.458-1.541-2.247a10.134,10.134,0,0,0,2.8-2.172l1.659,2.419Zm0,0"  stroke-width="0.2"/>
+      <path id="Caminho_8641" data-name="Caminho 8641" d="M10.558,12.279l-2.4-2.4L7.121,10.926l3.437,3.437,7.027-7.027L16.544,6.294Zm0,0"  stroke-width="0.2"/>
+    </g>
+  </g>
+</svg>

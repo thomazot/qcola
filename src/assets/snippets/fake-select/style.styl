@@ -1,19 +1,24 @@
 .fake-select 
     position: relative 
+    overflow: hidden
+    border-radius: 10px
+    background: #F6F6F7
+
+    &.select 
+        border: 0
 
     &__label
         display: block 
-        height: 45px 
+        height: 35px 
         padding: '0 0 0 %s' % (gutter / 2)
         margin-right: 45px
 
-        font-size: 14px
+        font-size: 13px
         font-weight: regular 
-        line-height: 45px
-        text-transform: uppercase
+        line-height: 35px
         white-space: nowrap
         text-overflow: ellipsis
-        overflow: hidden
+        color: #82858D
 
         &:after 
             icon: '\f078'

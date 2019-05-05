@@ -17,4 +17,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Add Class After load
     body.classList.remove('preload');
 
+    // events 
+    $tray(document).ajaxComplete((evet, xhr, settings) => {
+        if(settings.url.indexOf('/product/variant_form/') !== -1) { 
+            $(document).trigger('TRAY:VARIANT_FORM');
+        }
+    })
+
 }, false);

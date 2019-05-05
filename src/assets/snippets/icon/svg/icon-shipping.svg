@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="29" height="18.404" viewBox="0 0 29 18.404">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="bg" width="29" height="18.404" stroke-width="0.4" fill="#50a7b0" stroke="#50a7b0" transform="translate(441 580)"/>
+    </clipPath>
+  </defs>
+  <g id="Grupo_de_máscara_8" data-name="Grupo de máscara 8" transform="translate(-441 -580)" clip-path="url(#clip-path)">
+    <g id="truck" transform="translate(446.198 581.11)">
+      <path id="Caminho_367" data-name="Caminho 367" d="M22.337,10.5a4.217,4.217,0,0,0-3.148-1.317H15.947V7.364a.6.6,0,0,0-.594-.594H.594A.6.6,0,0,0,0,7.364V20.426a.6.6,0,0,0,.594.594H2.96a2.336,2.336,0,0,0,4.6,0h9.092a2.336,2.336,0,0,0,4.6,0H23.03a.6.6,0,0,0,.594-.594V14.288A5.468,5.468,0,0,0,22.337,10.5ZM1.188,7.958H14.759V19.837h-7.3a2.333,2.333,0,0,0-4.4,0H1.188ZM5.261,21.767a1.148,1.148,0,1,1,1.148-1.148A1.149,1.149,0,0,1,5.261,21.767Zm13.7,0A1.148,1.148,0,1,1,20.1,20.619,1.149,1.149,0,0,1,18.956,21.767Zm3.474-1.935H21.154a2.333,2.333,0,0,0-4.4,0h-.807V10.373h3.242c2,0,3.242,1.5,3.242,3.915v5.543Z" transform="translate(0 -6.77)" fill="#50a7b0" stroke="#50a7b0" stroke-width="0.4"/>
+    </g>
+    <rect id="Retângulo_43" data-name="Retângulo 43" width="7.808" height="1.45" rx="0.725" transform="translate(442.673 586.135)" fill="#50a7b0"/>
+    <rect id="Retângulo_44" data-name="Retângulo 44" width="7.808" height="1.45" rx="0.725" transform="translate(441 588.365)" fill="#50a7b0"/>
+  </g>
+</svg>

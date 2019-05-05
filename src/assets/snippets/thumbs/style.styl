@@ -2,14 +2,27 @@
     display: none 
 
 .thumbs
+    padding: 10px 0
     &__list 
         display: flex 
+        margin: -5px
 
     &__item 
+        padding: 5px
+
         img 
             width: 80px
             height: 80px 
             object-fit: contain 
+            border-radius: 4px
 
     &__link 
         display: block
+
+@media desktop 
+    .thumbs
+        order: -1 
+        flex: 0 0 120px
+
+        &__list 
+            flex-direction: column

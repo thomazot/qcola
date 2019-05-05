@@ -17,8 +17,39 @@
 {% set button_bg_hover = color_two %}
 {% set button_color_hover = "#fff" %}
 
-{% set calltoaction_bg = settings.button_call-to-action_bg %}
-{% set calltoaction_color = settings.button_call-to-action_color %}
+{% set calltoaction_bg = settings.button_call_to_action_bg %}
+{% set calltoaction_color = settings.button_call_to_action_color %}
+
+/**
+ * Class globals
+ */
+.color-one {
+    color: {{ color_one }};
+}
+.color-two {
+    color: {{ color_two }};
+}
+.bg-color-one {
+    background-color: {{ color_one }};
+}
+}
+.bg-color-two {
+    background-color: {{ color_two }};
+}
+.bd-color-one {
+    border-color: {{ color_one }};
+}
+.bd-color-two {
+    border-color: {{ color_two }};
+}
+
+.call-to-action-bg {
+    background: {{ calltoaction_bg }};
+}
+
+.call-to-action-color {
+    color: {{ calltoaction_color }};
+}
 
 /**
  *  Scrollbar e Selection
@@ -148,11 +179,17 @@ a:hover {
 /**
  * Button
  */
+.botao-commerce, .botao-comprar {
+    background: {{ calltoaction_bg }} !important;
+    color: {{ calltoaction_color }} !important;
+}
 .search__button svg,
 .button__search svg,
 .button__menu svg{
     fill: {{ color_one }};
 }
+
+
 
 /**
  * Desktop maior que 992px
