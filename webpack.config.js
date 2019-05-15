@@ -25,11 +25,15 @@ module.exports = (env, argv) => {
         extensions: ['.js', '.jsx', '.json'],
         alias: {
             Config: path.resolve(__dirname, './src/core/config'),
+            Plugins: path.resolve(__dirname, './src/core/plugins'),
             Core: path.resolve(__dirname, './src/core'),
             Assets: path.resolve(__dirname, './src/assets'),
             Snippets: path.resolve(__dirname, './src/assets/snippets'),
             Modules: path.resolve(__dirname, './src/assets/modules'),
-            Pages: path.resolve(__dirname, './src/assets/pages')
+            Pages: path.resolve(__dirname, './src/assets/pages'),
+            React: path.resolve(__dirname, './src/react'),
+            'React:Actions': path.resolve(__dirname, './src/react/actions'),
+            'React:Modules': path.resolve(__dirname, './src/react/modules')
         }
     };
 
@@ -62,8 +66,9 @@ module.exports = (env, argv) => {
                 loader: "babel-loader",
                 exclude: /node_modules/,
                 query: {
-                    plugins: ["transform-runtime", "transform-object-rest-spread"],
-                    presets: ['env', 'react']
+                    plugins: ["@babel/plugin-transform-runtime", "@babel/plugin-proposal-object-rest-spread", "@babel/plugin-proposal-class-properties", "@babel/plugin-syntax-dynamic-import"],
+                    presets: ['@babel/preset-env', '@babel/preset-react'],
+                    comments: true
                 }
             },
             {
@@ -130,7 +135,12 @@ module.exports = (env, argv) => {
                     }
                 }),
                 new OptimizeCSSAssetsPlugin({})
-            ]
+            ],
+            splitChunks: false
+        }
+    } else {
+        config.optimization = {
+            splitChunks: false
         }
     }
     

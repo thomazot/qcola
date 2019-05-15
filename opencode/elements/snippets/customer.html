@@ -3,7 +3,7 @@
 <div class="customer{{ class }}">
     <div class="customer__container">
         <div class="customer__header">
-            <a class="customer__link customer__link--icon" href="{{ links.central }}" data-tray-tst="meu_cadastro">
+            <a class="customer__link customer__link--icon" href="{{ links.central }}" data-tray-tst="meu_cadastro" title="Meu Cadastro">
                 <i class="customer__icon">
                     {% element 'snippets/icon' { 'name': 'user', 'width': '21', 'height': '28' } %}
                 </i>
@@ -12,8 +12,8 @@
         <div class="customer__main">
             <div>
                 <div class="customer__links">
-                    <a href="{{ links.orders }}" data-tray-tst="meus_pedidos">
-                        {{ Translation('meus_pedidos') }}
+                    <a href="{{ links.orders }}" data-tray-tst="meus_pedidos" title="Minha Conta" >
+                        Minha Conta
                         <i class="customer__icon">
                             {% element 'snippets/icon' { 'name': 'next', 'width': '5', 'height': '10' } %}
                         </i>

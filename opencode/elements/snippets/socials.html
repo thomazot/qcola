@@ -4,35 +4,26 @@
         <ul class="socials__list">
             {% if settings.facebook %}
             <li class="socials__item socials__item--facebook">
-                <a class="socials__link" href="https://www.facebook.com/{{ settings.facebook }}" target="_blank">
-                    <span class="socials__icon"><i class="fab fa-facebook"></i></span>
+                <a title="Facebook" class="socials__link" href="https://www.facebook.com/{{ settings.facebook }}" target="_blank">
+                    <span class="socials__icon">{% element "snippets/icon" { name: 'icon-facebook', width: '20', height: '20' } %}</span>
                     <span class="socials__label">Facebook</span>
                 </a>
             </li>
             {% endif %}
         
-            {% if settings.twitter %}
-            <li class="socials__item socials__item--twitter">
-                <a class="socials__link" href="https://www.twitter.com/{{ settings.twitter }}" target="_blank">
-                    <span class="socials__icon"><i class="fab fa-twitter"></i></span>
-                    <div class="socials__label">Twitter</div>
-                </a>
-            </li>
-            {% endif %}
-        
-            {% if settings.whatsapp %}
-            <li class="socials__item socials__item--whatsapp">
-                <a class="socials__link" href="https://api.whatsapp.com/send?phone=55{{ settings.whatsapp|replace({'(': '', ')': '', '-': '', ' ': ''}) }}" target="_blank" rel="noopener">
-                    <span class="socials__icon"><i class="fab fa-whatsapp"></i></span>
-                    <div class="socials__label">Whatsapp</div>
+            {% if settings.instagram %}
+            <li class="socials__item socials__item--instagram">
+                <a title="Instagram" class="socials__link" href="https://www.instagram.com/{{ settings.instagram }}" target="_blank">
+                    <span class="socials__icon">{% element "snippets/icon" { name: 'icon-instagram', width: '20', height: '20' } %}</span>
+                    <div class="socials__label">Instagram</div>
                 </a>
             </li>
             {% endif %}
         
             {% if settings.youtube %}
             <li class="socials__item socials__item--youtube">
-                <a class="socials__link" href="https://www.youtube.com/{{ settings.youtube }}" target="_blank">
-                    <span class="socials__icon"><i class="fab fa-youtube"></i></span>
+                <a title="YouTube" class="socials__link" href="https://www.youtube.com/{{ settings.youtube }}" target="_blank">
+                    <span class="socials__icon">{% element "snippets/icon" { name: 'icon-youtube', width: '28', height: '20' } %}</span>
                     <div class="socials__label">YouTube</div>
                 </a>
             </li>
@@ -40,18 +31,18 @@
         
             {% if settings.pinterest %}
             <li class="socials__item socials__item--pinterest">
-                <a class="socials__link" href="https://br.pinterest.com/{{ settings.pinterest }}" target="_blank">
-                    <span class="socials__icon"><i class="fab fa-pinterest"></i></span>
+                <a title="Pinterest" class="socials__link" href="https://br.pinterest.com/{{ settings.pinterest }}" target="_blank">
+                    <span class="socials__icon">{% element "snippets/icon" { name: 'icon-pinterest', width: '20', height: '20' } %}</span>
                     <div class="socials__label">Pinterest</div>
                 </a>
             </li>
             {% endif %}
         
-            {% if settings.instagram %}
-            <li class="socials__item socials__item--instagram">
-                <a class="socials__link" href="https://www.instagram.com/{{ settings.instagram }}" target="_blank">
-                    <span class="socials__icon"><i class="fab fa-instagram"></i></span>
-                    <div class="socials__label">Instagram</div>
+            {% if settings.blogger %}
+            <li class="socials__item socials__item--blogger">
+                <a title="Blogger" class="socials__link" href="//{{ settings.blogger }}" target="_blank">
+                    <span class="socials__icon">{% element "snippets/icon" { name: 'icon-blogger', width: '20', height: '20' } %}</span>
+                    <div class="socials__label">Twitter</div>
                 </a>
             </li>
             {% endif %}

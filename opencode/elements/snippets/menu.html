@@ -19,9 +19,9 @@
             {% if category.name != 'Outlet' %}
                 {% if category.children and nivel < nivelLimit %} {% set hasChild = ' menu__item--has-child' %}{% endif %}
                 <li class="menu__item menu__item--nv{{ nivel }}{{ hasChild }}">
-                    <a href="{{ category.link }}" class="menu__link menu__link--nv{{ nivel }}" data-tray-tst="categoria_lvl_{{ nivel }}">
+                    <a href="{{ category.link }}" class="menu__link menu__link--nv{{ nivel }}" title="{{ category.name }}" data-tray-tst="categoria_lvl_{{ nivel }}">
                         {% if category.images %}
-                        <span class="menu__icon"><img src="{{ category.images[0] }}" alt="{{ category.name }}"></span>
+                        <span class="menu__icon"><img src="{{ category.images[0] }}" alt="{{ category.name }}" title="{{ category.name }}"></span>
                         {% endif  %}
                         <span class="menu__label">{{ category.name }}</span>
                     </a>

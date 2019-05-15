@@ -17,7 +17,6 @@ export default () => {
             }
 
             el.setAttribute('aria-hidden', currentHidden === 'true' ? false : true);
-            currentTarget.setAttribute('aria-expanded', currentHidden === 'true' ? true : false);
         });
         
     });

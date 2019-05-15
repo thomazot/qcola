@@ -31,3 +31,8 @@ import './svg/icon-product-tabs-observacoes.svg';
 import './svg/icon-product-tabs-onde.svg'; 
 import './svg/icon-product-tabs-tecnica.svg'; 
 import './svg/icon-calculator.svg'; 
+import './svg/icon-facebook.svg'; 
+import './svg/icon-blogger.svg'; 
+import './svg/icon-instagram.svg'; 
+import './svg/icon-pinterest.svg'; 
+import './svg/icon-youtube.svg'; 

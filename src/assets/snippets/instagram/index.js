@@ -1,7 +1,29 @@
 import './style.styl';
+import 'slick-carousel';
+import Instafeed from 'instafeed.js';
+
+const elementInstaFeed = document.querySelector('#instafeed');
 
 
-define(['jquery', 'slick-carousel'], ($) => {
+if(elementInstaFeed) {
+    const userFeed = new Instafeed({
+        get: 'user',
+        userId: '3083782076',
+        accessToken: '3083782076.1677ed0.8c508cd2419943809b30bd23819095e8',
+        limit: 10,
+        resolution: 'standard_resolution',
+        template: `
+        <div class="instagram__item">
+            <a href="{{link}}" class="instagram__link"><img src="{{image}}"></a>
+        </div>
+        `,
+        after: () => addCarouselInstagram()
+    });
+
+    userFeed.run();
+}
+function addCarouselInstagram(){
+
     $('.instagram__list').each(function(){
         $(this).slick({
             mobileFirst: true,
@@ -34,4 +56,4 @@ define(['jquery', 'slick-carousel'], ($) => {
             ]   
         });
     });
-});
+}

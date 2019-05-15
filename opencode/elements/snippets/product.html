@@ -1,14 +1,14 @@
-<article class="product">
+<article class="product {% if view == 'page-product' %} product--page-product {% endif %}">
     
     <div class="product__header">
         <figure class="product__figure">
         {% if product.images %}
             <a class="product__link" href="{{ settings.buy_to_cart ? links.cart_add ~ product.id : product.link }}" data-tray-tst="vitrine_produto_link_imagem">
-                <amp-img class="product__image" src="{{ product.images[0].large }}" alt="{{ product.name }}" width="230" height="230" layout="responsive"></amp-img>
+                <img class="product__image" src="{{ product.images[0].large }}" alt="{{ product.name }}" width="230" height="230" layout="responsive">
             </a>
         {% else %}
             <a class="product__link" href="{{ settings.buy_to_cart ? links.cart_add ~ product.id : product.link }}" data-tray-tst="vitrine_produto_link_imagem">
-                <amp-img class="product__image" src="{{ asset('img/no-image.svg') }}" alt="Nenhuma imagem foi cadastrada" width="230" height="230" layout="responsive"></amp-img>
+                <img class="product__image" src="{{ asset('img/no-image.svg') }}" alt="Nenhuma imagem foi cadastrada" width="230" height="230" layout="responsive">
             </a>
         {% endif %}
         </figure>
@@ -24,13 +24,6 @@
     <div class="product__main">
         <h1 class="product__name"><a class="product__link" href="{{ settings.buy_to_cart ? links.cart_add ~ product.id : product.link }}" data-tray-tst="vitrine_produto_link_imagem">{{ product.name }}</a></h1>
 
-        <div class="product__review-small">
-            <!-- Trustvox -->
-            <div class="trustvox-showcase">
-                <div data-trustvox-product-code="{{ product.id }}"></div>
-            </div>
-            <!-- /Trustvox -->
-        </div>
 
         <div data-module="pricing" data-snippet="snippets/product-payment" data-product-id="{{ product.id }}">
             <div class="pricing">
@@ -38,8 +31,13 @@
             </div>
         </div>
     </div>
-
+    {% if view == 'page-product' %}
+    <div class="product__buy">
+        <button type="button" class="product__button-buy">Comprar</button>
+    </div>
+    {% else %}
     <div class="product__actions">
+        
         <div class="product__compare">
             {% set compareCSS = 'compare-hidden' %}
 
@@ -53,7 +51,8 @@
                 {{ Translation("comparar_produto") }}
             </a>
         </div>
+        
     </div>
-    
+    {% endif %}
 </article>
 

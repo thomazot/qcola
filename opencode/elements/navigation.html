@@ -29,7 +29,7 @@
 
             {% if outlet %}
             <div class="navigation__outlet">
-                <a href="{{ category.link }}" class="navigation__outlet-link">
+                <a href="{{ category.link }}" title="{{ outlet.name }}" class="navigation__outlet-link">
                     <span class="navigation__outlet-icon">
                         {% element 'snippets/icon' { 'name': 'outlet', 'width': '25', 'height': '25'} %}
                     </span>

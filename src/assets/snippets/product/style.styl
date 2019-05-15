@@ -37,6 +37,38 @@
     &__payment 
         display: none 
 
+    &__button-buy 
+        position: relative
+        background: #51B177
+        width: 100% 
+        border-radius: 4px
+        font-size: 16px
+        font-weight: regular 
+        text-transform: uppercase 
+        letter-spacing: 2px
+        margin-top: 10px
+    &--page-product 
+        &:before 
+            content: ''
+            position: absolute 
+            right: -15px
+            top: -15px
+            left: -15px
+            bottom: -15px
+
+            background: #fff 
+            box-shadow: 0 0 20px rgba(0,0,0,.1)
+            opacity: 1
+            border-radius: 4px
+
+        .product 
+            &__name 
+                text-align: center 
+
+        .prices__container
+            flex-direction: column
+
+
 @media desktop 
     .product
         position: relative  
@@ -53,6 +85,10 @@
             box-shadow: 0 0 20px rgba(0,0,0,.2)
             opacity: 0
             transition: all .2s ease-in-out
+            
+        &--page-product:before 
+            opacity: 1
+            box-shadow: 0 0 20px rgba(0,0,0,.1)
 
         &__header, &__main, &__action
             position: relative 

@@ -1,9 +1,13 @@
 import Scrolling from './plugins/scrolling';
 import Aria from './plugins/aria';
 import objectFitImages from 'object-fit-images';
+import CustomEvent from './plugins/custom-events';
 
 document.addEventListener("DOMContentLoaded", () => {
     const body = document.querySelector('body');
+
+    // Custom Events
+    CustomEvent();
 
     // Add Scrolling page body
     Scrolling();
@@ -17,11 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Add Class After load
     body.classList.remove('preload');
 
-    // events 
-    $tray(document).ajaxComplete((evet, xhr, settings) => {
-        if(settings.url.indexOf('/product/variant_form/') !== -1) { 
-            $(document).trigger('TRAY:VARIANT_FORM');
-        }
-    })
+    $tray('[data-tray-login]').click((evt) => { evt.preventDefault(); $tray('tray-login').show(); });
 
 }, false);

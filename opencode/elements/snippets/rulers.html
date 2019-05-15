@@ -1,27 +1,38 @@
 <div class="rulers">
     <ul class="rulers__list">
-        <li class="rulers__item rulers__item--card">
+        <li class="rulers__item rulers__item--send">
             <div class="rulers__box">
-                <span class="rulers__icon"><i class="fas fa-credit-card"></i></span>
-                <span class="rulers__title">Tudo em até <strong>3X S/Juros</strong></span>
+                <span class="rulers__icon">
+                    {% element "snippets/icon" { name: 'truck', width: '37', height: '23' } %}
+                </span>
+                <span class="rulers__title">
+                    <strong>Frete Grátis</strong>
+                    <span>Confira as Condições</span>
+                </span>
             </div>
         </li>
         <li class="rulers__item rulers__item--security">
             <div class="rulers__box">
-                <span class="rulers__icon"><i class="fas fa-lock"></i></span>
-                <span class="rulers__title">Compre com <strong>Segurança</strong></span>
+                <span class="rulers__icon">
+                    {% element "snippets/icon" { name: 'card', width: '33', height: '22' } %}
+                </span>
+                <span class="rulers__title">
+                    <strong>Tudo em 6x Sem Juros</strong>
+                    <span>No Cartão de Crédito</span>
+                </span>
             </div>
         </li>
         <li class="rulers__item rulers__item--send">
             <div class="rulers__box">
-                <span class="rulers__icon"><i class="fas fa-truck"></i></span>
-                <span class="rulers__title">Entregamos para <strong>todo Brasil</strong></span>
-            </div>
-        </li>
-        <li class="rulers__item rulers__item--ticket">
-            <div class="rulers__box">
-                <span class="rulers__icon"><i class="fas fa-tags"></i></span>
-                <span class="rulers__title"><strong>Receba 10%</strong><br />De <strong>desconto no boleto</strong></span>
+
+                <span class="rulers__icon">
+                    {% element "snippets/icon" { name: 'security', width: '24', height: '27' } %}
+                </span>
+                <span class="rulers__title">
+                    <strong>Loja 100% Segura</strong>
+                    <span>Compre tranquilo</span>
+                </span>
+
             </div>
         </li>
     </ul>

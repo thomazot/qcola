@@ -133,143 +133,153 @@
     </div>
 </section>
 
-<div class="page-product__descriptions">
-    <!-- INICIO Descrição -->
-                
-    {% for category in categories %}
-        {% if category.name == 'Papel de Parede' %}
-            {% for child in category.children %}
-                {% if child.id == product.category_id %}
-                    <div aria-controls="tab-description" class="product-tabs__tab" aria-expanded="false">
-                        <h3 class="product-tabs__title title title--medium">
-                            {% element 'snippets/icon' { name: 'icon-product-tabs-description' , width: "25", height: "25" } %}
-                            Descrição do Produto
-                        </h3>
-                    </div>
-                    <div data-fixed="false" aria-hidden="true" id="tab-description" class="product-tabs__content">
-                {% endif %}
-            {% endfor %}
-        {% endif %}
-    {% endfor %}
+<div class="page-product__extra">
 
-    <div class="board">{{ product.description ? product.description : product.description_small }}</div>
+    <div class="page-product__inner">
 
-    {% for category in categories %}
-        {% if category.name == 'Papel de Parede' %}
-            {% for child in category.children %}
-                {% if child.id == product.category_id %}
-                    </div>
-                    
-                    <div aria-controls="tab-observacoes" class="product-tabs__tab" aria-expanded="false">
-                        <h3 class="product-tabs__title title title--medium">
-                            {% element 'snippets/icon' { name: 'icon-product-tabs-observacoes' , width: "25", height: "25" } %}
-                            <span>Observações</span>
-                        </h3>
-                    </div>
-                    <div data-fixed="false" aria-hidden="true" id="tab-observacoes" class="product-tabs__content">
-                        <div class="board">
-                            É de extrema importância que o cliente saiba a metragem do local (largura x altura) antes de adquirir o material, o cálculo deve considerar vãos, portas e janelas. <br />
-                            Rolos de diferentes tamanhos pode não dar encaixe na estampa, por esse motivo recomendamos comprar rolos do mesmo tamanho para aplicação na mesma parede.<br />
-                            <strong>As cores do produto real podem apresentar diferença das cores visualizadas em seu monitor.</strong><br />As cores do Papel de Parede podem variar de acordo com o lote de fabricação devido à vários fatores, por esse motivo compre a quantidade correta, pois não será possível produzir lotes diferentes na mesma tonalidade de cores.<br />
-                            <img alt="Observações" src="https://static3.tcdn.com.br/img/editor/up/580806/Tarja_atencao.jpg" class="img_observacoes" />
-                        </div>
-                    </div>
-
-                    <div aria-controls="tab-aplicar" class="product-tabs__tab" aria-expanded="false">
-                        <h3 class="product-tabs__title title title--medium">
-                            {% element 'snippets/icon' { name: 'icon-product-tabs-aplicar' , width: "25", height: "25" } %}
-                            <span>Como Aplicar</span>
-                        </h3>
-                    </div>
-                    <div data-fixed="false" aria-hidden="true" id="tab-aplicar" class="product-tabs__content">
-                        <div class="board">
-                            Antes de aplicar os papeis de parede é necessário fazer a limpeza do local com um pano úmido, o ambiente tem que estar totalmente limpo.<br />
-                            <p class="desc_video"><iframe src="https://www.youtube.com/embed/AU_oaOSYT7U?rel=0" frameborder="0" allowfullscreen></iframe></p>
-                        </div>
-                    </div>
-
-                    <div aria-controls="tab-onde" class="product-tabs__tab" aria-expanded="false">
-                        <h3 class="product-tabs__title title title--medium">
-                            {% element 'snippets/icon' { name: 'icon-product-tabs-onde' , width: "25", height: "25" } %}
-                            <span>Onde Aplicar</span>
-                        </h3>
-                    </div>
-                    <div data-fixed="false" aria-hidden="true" id="tab-onde" class="product-tabs__content">
-                        <div class="board">
-                            Dê mais vida aos ambientes, como quartos, sala, hall, corredor, banheiro, cozinha e etc.<br />
-                            Nosso Papel de Parede pode ser aplicado em qualquer superfície lisa, como: paredes (sempre pintadas), portas, espelhos, vidros, móveis, mármore e etc. Sempre em locais limpos e livres de poeira ou qualquer tipo de sedimento.<br />
-                            Nunca aplicar em locais úmidos, com infiltração, textura, ou imperfeições. Em caso de tinta fresca espere no mínimo 2 semanas após a pintura para aplicação do Papel de Parede.
-                        </div>
-                    </div>
-
-                    <div aria-controls="tab-tecnicas" class="product-tabs__tab" aria-expanded="false">
-                        <h3 class="product-tabs__title title title--medium">
-                            {% element 'snippets/icon' { name: 'icon-product-tabs-tecnica' , width: "25", height: "25" } %}
-                            <span>Informações Técnicas</span>
-                        </h3>
-                    </div>
-                    <div data-fixed="false" aria-hidden="true" id="tab-tecnicas" class="product-tabs__content">
-                        <div class="board">
-                            <strong>Tamanhos:</strong><br />
-                            - 0,60m de largura x 1,50m de altura.<br />
-                            - 0,60m de largura x 2,50m de altura.<br />
-                            - 0,60m de largura x 3,00m de altura.<br /><br />
-                            <strong>Área de Cobertura:</strong><br />
-                            - 0,60 x 1,50 cobre até 0,9m²<br />
-                            - 0,60 x 2,50 cobre até 1.5 m²<br />
-                            - 0,60 x 3,00 cobre até 1.8 m²<br /><br />
-                            <strong>Espessura:</strong><br />
-                            0,10 mm<br /><br />
-                            <strong>Material:</strong><br />
-                            Vinil auto colante fosco<br />
-                            Adesivo <span style="color:#FF0000;"><strong>3M</strong></span><br /><br />
-                            <strong>Textura:</strong><br />Sem textura, liso fosco<br /><br />
-                            <strong>Aplicação:</strong><br />
-                            Adesivo autocolante, não necessita de cola<br /><br />
-                            <strong>Prazo de Produção:</strong><br />
-                            2 à 4 dias úteis
-                        </div>
-                    </div>
-
-                    <div aria-controls="tab-garantia" class="product-tabs__tab" aria-expanded="false">
-                        <h3 class="product-tabs__title title title--medium">
-                            {% element 'snippets/icon' { name: 'icon-product-tabs-garantia' , width: "25", height: "25" } %}
-                            <span>Garantias</span>
-                        </h3>
-                    </div>
-                    <div data-fixed="false" aria-hidden="true" id="tab-garantia" class="product-tabs__content">
-                        <div class="board">
-                            Damos garantia total em caso de defeito de fabricação.<br />
-                            Antes de aplicar os papéis de parede, abra um dos rolos para ver a qualidade de impressão e cor.<br />
-                            Caso compre mais de 1 rolo, abra todos para verificação (conferindo se a tonalidade de cor entre os rolos estão iguais e verificando se as emendas encaixam).<br />
-                            Após a verificação, posicione um rolo na parede e prenda com fita crepe, dê uma distância de 2 metros para ver se está de seu agrado e só comece a aplicar se estiver tudo ok.<br />
-                            Não damos garantia se o produto já estiver todo aplicado na parede e se não foi feito a sobreposição nas emendas, verifique atentamente todos os rolos antes de aplicar.<br />
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-        {% endif %}
-    {% endfor %}
-
-<!-- FIM Descrição -->
-</div>
-
-{% element 'buy-together' %}
-
-
-{% if product.related_products %}
-<div id="prognoos_lsi"></div>
-<section class="products-related">
-    <h3 class="related-title title title--big">{{ Translation('produtos_relacionados') }}</h3>
-    <div class="row">
-        {% for related in product.related_products %}
-            <div class="col-sm-3">
-                {% element 'snippets/product' {"product": related} %}
+        <div class="page-product__descriptions">
+                <!-- INICIO Descrição -->
+                            
+                {% for category in categories %}
+                    {% if category.name == 'Papel de Parede' %}
+                        {% for child in category.children %}
+                            {% if child.id == product.category_id %}
+                                <div aria-controls="tab-description" class="product-tabs__tab" aria-expanded="false">
+                                    <h3 class="product-tabs__title title title--medium">
+                                        {% element 'snippets/icon' { name: 'icon-product-tabs-description' , width: "25", height: "25" } %}
+                                        Descrição do Produto
+                                    </h3>
+                                </div>
+                                <div data-fixed="false" aria-hidden="true" id="tab-description" class="product-tabs__content">
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            
+                <div class="board">{{ product.description ? product.description : product.description_small }}</div>
+            
+                {% for category in categories %}
+                    {% if category.name == 'Papel de Parede' %}
+                        {% for child in category.children %}
+                            {% if child.id == product.category_id %}
+                                </div>
+                                
+                                <div aria-controls="tab-observacoes" class="product-tabs__tab" aria-expanded="false">
+                                    <h3 class="product-tabs__title title title--medium">
+                                        {% element 'snippets/icon' { name: 'icon-product-tabs-observacoes' , width: "25", height: "25" } %}
+                                        <span>Observações</span>
+                                    </h3>
+                                </div>
+                                <div data-fixed="false" aria-hidden="true" id="tab-observacoes" class="product-tabs__content">
+                                    <div class="board">
+                                        É de extrema importância que o cliente saiba a metragem do local (largura x altura) antes de adquirir o material, o cálculo deve considerar vãos, portas e janelas. <br />
+                                        Rolos de diferentes tamanhos pode não dar encaixe na estampa, por esse motivo recomendamos comprar rolos do mesmo tamanho para aplicação na mesma parede.<br />
+                                        <strong>As cores do produto real podem apresentar diferença das cores visualizadas em seu monitor.</strong><br />As cores do Papel de Parede podem variar de acordo com o lote de fabricação devido à vários fatores, por esse motivo compre a quantidade correta, pois não será possível produzir lotes diferentes na mesma tonalidade de cores.<br />
+                                        <img alt="Observações" src="https://static3.tcdn.com.br/img/editor/up/580806/Tarja_atencao.jpg" class="img_observacoes" />
+                                    </div>
+                                </div>
+            
+                                <div aria-controls="tab-aplicar" class="product-tabs__tab" aria-expanded="false">
+                                    <h3 class="product-tabs__title title title--medium">
+                                        {% element 'snippets/icon' { name: 'icon-product-tabs-aplicar' , width: "25", height: "25" } %}
+                                        <span>Como Aplicar</span>
+                                    </h3>
+                                </div>
+                                <div data-fixed="false" aria-hidden="true" id="tab-aplicar" class="product-tabs__content">
+                                    <div class="board">
+                                        Antes de aplicar os papeis de parede é necessário fazer a limpeza do local com um pano úmido, o ambiente tem que estar totalmente limpo.<br />
+                                        <p class="desc_video"><iframe src="https://www.youtube.com/embed/AU_oaOSYT7U?rel=0" frameborder="0" allowfullscreen></iframe></p>
+                                    </div>
+                                </div>
+            
+                                <div aria-controls="tab-onde" class="product-tabs__tab" aria-expanded="false">
+                                    <h3 class="product-tabs__title title title--medium">
+                                        {% element 'snippets/icon' { name: 'icon-product-tabs-onde' , width: "25", height: "25" } %}
+                                        <span>Onde Aplicar</span>
+                                    </h3>
+                                </div>
+                                <div data-fixed="false" aria-hidden="true" id="tab-onde" class="product-tabs__content">
+                                    <div class="board">
+                                        Dê mais vida aos ambientes, como quartos, sala, hall, corredor, banheiro, cozinha e etc.<br />
+                                        Nosso Papel de Parede pode ser aplicado em qualquer superfície lisa, como: paredes (sempre pintadas), portas, espelhos, vidros, móveis, mármore e etc. Sempre em locais limpos e livres de poeira ou qualquer tipo de sedimento.<br />
+                                        Nunca aplicar em locais úmidos, com infiltração, textura, ou imperfeições. Em caso de tinta fresca espere no mínimo 2 semanas após a pintura para aplicação do Papel de Parede.
+                                    </div>
+                                </div>
+            
+                                <div aria-controls="tab-tecnicas" class="product-tabs__tab" aria-expanded="false">
+                                    <h3 class="product-tabs__title title title--medium">
+                                        {% element 'snippets/icon' { name: 'icon-product-tabs-tecnica' , width: "25", height: "25" } %}
+                                        <span>Informações Técnicas</span>
+                                    </h3>
+                                </div>
+                                <div data-fixed="false" aria-hidden="true" id="tab-tecnicas" class="product-tabs__content">
+                                    <div class="board">
+                                        <strong>Tamanhos:</strong><br />
+                                        - 0,60m de largura x 1,50m de altura.<br />
+                                        - 0,60m de largura x 2,50m de altura.<br />
+                                        - 0,60m de largura x 3,00m de altura.<br /><br />
+                                        <strong>Área de Cobertura:</strong><br />
+                                        - 0,60 x 1,50 cobre até 0,9m²<br />
+                                        - 0,60 x 2,50 cobre até 1.5 m²<br />
+                                        - 0,60 x 3,00 cobre até 1.8 m²<br /><br />
+                                        <strong>Espessura:</strong><br />
+                                        0,10 mm<br /><br />
+                                        <strong>Material:</strong><br />
+                                        Vinil auto colante fosco<br />
+                                        Adesivo <span style="color:#FF0000;"><strong>3M</strong></span><br /><br />
+                                        <strong>Textura:</strong><br />Sem textura, liso fosco<br /><br />
+                                        <strong>Aplicação:</strong><br />
+                                        Adesivo autocolante, não necessita de cola<br /><br />
+                                        <strong>Prazo de Produção:</strong><br />
+                                        2 à 4 dias úteis
+                                    </div>
+                                </div>
+            
+                                <div aria-controls="tab-garantia" class="product-tabs__tab" aria-expanded="false">
+                                    <h3 class="product-tabs__title title title--medium">
+                                        {% element 'snippets/icon' { name: 'icon-product-tabs-garantia' , width: "25", height: "25" } %}
+                                        <span>Garantias</span>
+                                    </h3>
+                                </div>
+                                <div data-fixed="false" aria-hidden="true" id="tab-garantia" class="product-tabs__content">
+                                    <div class="board">
+                                        Damos garantia total em caso de defeito de fabricação.<br />
+                                        Antes de aplicar os papéis de parede, abra um dos rolos para ver a qualidade de impressão e cor.<br />
+                                        Caso compre mais de 1 rolo, abra todos para verificação (conferindo se a tonalidade de cor entre os rolos estão iguais e verificando se as emendas encaixam).<br />
+                                        Após a verificação, posicione um rolo na parede e prenda com fita crepe, dê uma distância de 2 metros para ver se está de seu agrado e só comece a aplicar se estiver tudo ok.<br />
+                                        Não damos garantia se o produto já estiver todo aplicado na parede e se não foi feito a sobreposição nas emendas, verifique atentamente todos os rolos antes de aplicar.<br />
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            
+            <!-- FIM Descrição -->
             </div>
-        {% endfor %}
+            
+            {% element 'buy-together' %}
+            
+            
+            {% if product.related_products %}
+            <div id="prognoos_lsi"></div>
+            <section class="products-related">
+                <h3 class="related-title title title--big">{{ Translation('produtos_relacionados') }}</h3>
+                <div class="row">
+                    {% for related in product.related_products %}
+                        <div class="col-sm-3">
+                            {% element 'snippets/product' {"product": related} %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endif %}
     </div>
-</section>
-{% endif %}
+
+    <div class="page-product__right">
+        {% element 'snippets/product' { product: product, view: "page-product" } %}
+    </div>
+</div>
 
 <div id="prognoos_ib"></div>
 {% if settings.history_position == 1 %}
