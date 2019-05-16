@@ -5,6 +5,12 @@
     #}
     
     {% if filters %}
+    <div class="filter__header">
+        <button aria-controls="filter" type="button" class="toolbar__button-filter">
+            {% element 'snippets/icon' { name: 'icon-filter', width: '20', height: '15' } %}
+            <span>Filtrar por:</span>
+        </button>
+    </div>
     <form class="filter__form" name="form-filter" method="get">
         <input type="hidden" name="loja" value="{{ store.id }}">
         {% if search.word %}

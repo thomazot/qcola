@@ -81,7 +81,7 @@ calculatorForm.submit(function(evt){
         const cHeight = parseFloat($('#calculator__height').val().replace(',', '.'));
         const resultHTML = $('#calculator__result');
 
-        const result = Math.ceil((cWidth * cHeight) * .60);
+        const result = Math.ceil((cWidth * cHeight) / .60);
         const HTML = `<div class="suss">Você irá precisar <strong>${result}</strong> <span class="n">rolo(s)</span></div>`;
 
         if( cWidth < 4 ) {

@@ -1,8 +1,8 @@
-{% if banner.title %}
+<!-- {% if banner.title %}
     <div class="banner banner--page-category">
         {{ banner.title }}
     </div>
-{% endif %}
+{% endif %} -->
 
 {% if breadcrumb %}
     {% element 'snippets/breadcrumb' { "class": 'breadcrumb'} %}
@@ -18,13 +18,7 @@
 
         {% if products|length > 0 %}
             <div class="page-catalog__content">
-                <h1 class="page-catalog__title title title--big">{{ category.name }}</h1>
-
-                {% if category.small_description %}
-                <div class="page-catalog__description">
-                    {{ category.small_description }}
-                </div>
-                {% endif %}    
+                <h1 class="page-catalog__title title title--big">{{ category.name }}</h1> 
 
                 <div class="page-catalog__toolbar page-catalog__toolbar--top">
                     {% element 'snippets/toolbar' {
@@ -47,6 +41,12 @@
                         'position': 'bottom'
                     } %}
                 </div>
+                
+                {% if category.small_description %}
+                <div class="page-catalog__description">
+                    {{ category.small_description }}
+                </div>
+                {% endif %}   
             </div>
         {% else %}
             

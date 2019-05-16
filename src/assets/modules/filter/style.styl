@@ -77,4 +77,17 @@
 
                     .icon 
                         fill: #FF5A25
+
+@media mobile 
+    .filter
+        &__header
+            .toolbar__button-filter
+                display: none 
                     
+@media desktop 
+    .filter
+        &__header
+            margin-top: 20px
+            .toolbar__button-filter
+                display: block
+                pointer-events: none

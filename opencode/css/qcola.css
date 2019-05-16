@@ -2600,6 +2600,11 @@ button,
 .product__link:hover {
   text-decoration: none;
 }
+.product__figure {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
 .product__image {
   display: block;
   width: 100%;
@@ -2607,6 +2612,17 @@ button,
   -o-object-fit: contain;
      font-family: "object-fit:contain";
      object-fit: contain;
+}
+.product__image + .product__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-transform: translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0);
 }
 .product__review-small {
   margin-bottom: 15px;
@@ -2689,6 +2705,12 @@ button,
   .product__action {
     position: relative;
     z-index: 2;
+  }
+  .product:hover .product__image + .product__image {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
   }
   .product:hover:before {
     opacity: 1;
@@ -3609,6 +3631,7 @@ button,
 .toolbar__button-filter {
   width: 100%;
   height: 35px;
+  padding: 0;
   border-radius: 4px;
   font-size: 17px;
   font-weight: 700;
@@ -6457,6 +6480,20 @@ button,
 }
 .filter__block--apply .filter__item a .icon {
   fill: #ff5a25;
+}
+@media screen and (max-width: 991px) {
+  .filter__header .toolbar__button-filter {
+    display: none;
+  }
+}
+@media screen and (min-width: 992px) {
+  .filter__header {
+    margin-top: 20px;
+  }
+  .filter__header .toolbar__button-filter {
+    display: block;
+    pointer-events: none;
+  }
 }
 
 @-webkit-keyframes slideOpen {
