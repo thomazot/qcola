@@ -81,13 +81,13 @@ calculatorForm.submit(function(evt){
         const cHeight = parseFloat($('#calculator__height').val().replace(',', '.'));
         const resultHTML = $('#calculator__result');
 
-        const result = Math.ceil((cWidth * cHeight) / .60);
+        const result = Math.ceil((cWidth) / .60);
         const HTML = `<div class="suss">Você irá precisar <strong>${result}</strong> <span class="n">rolo(s)</span></div>`;
 
-        if( cWidth < 4 ) {
+        if( cHeight < 4 ) {
             resultHTML.html(HTML);
         } else {
-            const err = '<div class="err"> Cada rolo mede <strong>0,60m de largura</strong>, para larguras maiores entre em  <a href="/contato">contato</a>.</div>';
+            const err = '<div class="err"> Cada rolo mede <strong>3m de largura</strong>, para larguras maiores entre em  <a href="/contato">contato</a>.</div>';
             resultHTML.html(err);
         }
 

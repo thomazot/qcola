@@ -15,8 +15,11 @@
         position: relative 
         overflow: hidden 
         width: 100%
+        height: 230px
 
     &__image 
+        position: relative 
+        z-index: 10
         display: block 
         width: 100% 
         height: 230px
@@ -26,6 +29,7 @@
             position: absolute
             top: 0
             left: 0 
+            z-index: 20
             visibility: hidden
             opacity: 0
             transition: all .2s ease-in-out
@@ -115,6 +119,6 @@
                     + .product__image 
                         opacity: 1 
                         visibility: visible 
-                        transform: translate3d(0,0,0)
+                        transform: none
             &:before 
                 opacity: 1

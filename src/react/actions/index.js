@@ -11,11 +11,11 @@ export const getStore = () => {
 
 export const getHash = async () => {    
     let hash;
-    if(html)    hash = await html.getAttribute('data-session');
-    if( typeof hash === 'null' || typeof hash === 'undefined' ) {
+    // if(html)    hash = await html.getAttribute('data-session');
+    // if( typeof hash === 'null' || typeof hash === 'undefined' ) {
         const request = await axios.get(`/nocache/app.php?loja=${ store }`).then((result) => result.data);
         hash = request.hash;
-    }
+    // }
 
     return hash;
 }

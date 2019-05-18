@@ -1,11 +1,10 @@
 {% spaceless %}
 <!doctype html>
-<html data-theme="{{ settings.extension_id }}" data-store="{{ store.id }}" class="page-{{ pages.current }}" amp>
+<html lang="pt-br" data-theme="{{ settings.extension_id }}" data-store="{{ store.id }}" class="page-{{ pages.current }}">
 <head>
 
     <!-- tray charset -->
     <meta charset="utf-8">
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,minimum-scale=1">
 
@@ -14,16 +13,6 @@
 
     <!-- tray styles -->
     {{ tray.styles }}
-
-    <style amp-custom>
-        /* any custom style goes here */
-        body {
-            background-color: white;
-        }
-        amp-img {
-            background-color: gray;
-        }
-    </style>
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
@@ -32,7 +21,7 @@
     <link rel="stylesheet" href="{{ asset('css/qcola.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/custom.css', {dynamic: true}) }}" type="text/css">
 
-    <style amp-custom>
+    <style>
         {{ settings.custom_css }}
     </style>
 
@@ -132,10 +121,10 @@
         tray['settings'] = "{{ (asset()|split('?'))[0] }}";
     </script>
 
-    <script src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" data-auto-replace-svg="nest"></script>
-    <script type="text/javascript" src="{{ asset('js/quickview.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/minicart.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/qcola.js') }}"></script>
+    <script async src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" data-auto-replace-svg="nest"></script>
+    <script async type="text/javascript" src="{{ asset('js/quickview.js') }}"></script>
+    <script async type="text/javascript" src="{{ asset('js/minicart.js') }}"></script>
+    <script defer type="text/javascript" src="{{ asset('js/qcola.js') }}"></script>
 
     <script type="application/ld+json">
         {

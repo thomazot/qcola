@@ -1,19 +1,19 @@
-<article class="product {% if view == 'page-product' %} product--page-product {% endif %}">
-    
+<article itemscope itemtype="http://schema.org/Product" class="product {% if view == 'page-product' %} product--page-product {% endif %}">
+    {% element 'schema/product' {'product': product} %}
     <div class="product__header">
         <figure class="product__figure">
         {% if product.images %}
             <a class="product__link" href="{{ settings.buy_to_cart ? links.cart_add ~ product.id : product.link }}" title="{{ product.name }}" data-tray-tst="vitrine_produto_link_imagem">
                 {% if product.images|length > 1 %}
-                <img class="product__image" src="{{ product.images[0].large }}" alt="{{ product.name }}" title="{{ product.name }}" width="230" height="230" layout="responsive">
-                <img class="product__image" src="{{ product.images[1].large }}" alt="{{ product.name }}" title="{{ product.name }}" width="230" height="230" layout="responsive">
+                <img class="product__image lazy" data-original="{{ product.images[0].large }}" src="{{ asset('img/loading-banner.svg') }}" alt="{{ product.name }}" title="{{ product.name }}" width="230" height="230" layout="responsive">
+                <img class="product__image lazy"  data-original="{{ product.images[1].large }}" src="{{ asset('img/loading-banner.svg') }}"  alt="{{ product.name }}" title="{{ product.name }}" width="230" height="230" layout="responsive">
                 {% else %}
-                <img class="product__image" src="{{ product.images[0].large }}" alt="{{ product.name }}" title="{{ product.name }}" width="230" height="230" layout="responsive">
+                <img class="product__image lazy" data-original="{{ product.images[0].large }}" src="{{ asset('img/loading-banner.svg') }}" alt="{{ product.name }}" title="{{ product.name }}" width="230" height="230" layout="responsive">
                 {% endif %}
             </a>
         {% else %}
             <a class="product__link" href="{{ settings.buy_to_cart ? links.cart_add ~ product.id : product.link }}" data-tray-tst="vitrine_produto_link_imagem">
-                <img class="product__image" src="{{ asset('img/no-image.svg') }}" alt="Nenhuma imagem foi cadastrada" width="230" height="230" layout="responsive">
+                <img class="product__image" data-original="{{ product.images[0].large }}" src="{{ asset('img/no-image.svg') }}" alt="Nenhuma imagem foi cadastrada" width="230" height="230" layout="responsive">
             </a>
         {% endif %}
         </figure>

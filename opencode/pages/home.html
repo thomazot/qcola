@@ -1,12 +1,10 @@
 {% if settings.limitProducts %}
     {% set limitProducts = settings.limitProducts %}
 {% else %}
-    {% set limitProducts = 12 %}
+    {% set limitProducts = 8 %}
 {% endif %}
 
 {% set showAvailable = settings.show_available_products ? 'available' %}
-
-
 
 {% set products = Products({
     'filter': showAvailable,
@@ -17,18 +15,6 @@
 {% element 'showcase' {
     "products": products,
     "showcaseTitle": "Outlet",
-    "carousel": "true"
-} %}
-
-{% set products = Products({
-    'filter': showAvailable,
-    'limit': limitProducts,
-    'order': {'price': 'asc'},
-    'categories': [3]
-}) %} 
-{% element 'showcase' {
-    "products": products,
-    "showcaseTitle": "Produtos Mais Amados",
     "carousel": "true"
 } %}
 
