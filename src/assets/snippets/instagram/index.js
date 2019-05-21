@@ -6,10 +6,11 @@ const elementInstaFeed = document.querySelector('#instafeed');
 
 
 if(elementInstaFeed) {
+    const token = elementInstaFeed.getAttribute('data-token') | "3083782076.1677ed0.8c508cd2419943809b30bd23819095e8";
     const userFeed = new Instafeed({
         get: 'user',
         userId: '3083782076',
-        accessToken: '3083782076.1677ed0.8c508cd2419943809b30bd23819095e8',
+        accessToken: token,
         limit: 10,
         resolution: 'standard_resolution',
         template: `
