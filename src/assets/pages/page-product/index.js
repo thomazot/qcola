@@ -97,7 +97,7 @@ calculatorForm.submit(function(evt){
         }
 
         if( cHeight <= 3 ) {
-            resultHTML.html(`<div class="suss">Você irá precisar de ${ result } Rolo(s) ${ HTML }</div>`);
+            resultHTML.html(`<div class="suss">Você irá precisar de ${ result } Rolo(s) ${ HTML } <button="type" class="button-buy">Comprar Rolos</button></div>`);
             $(`.lista_cor_variacao li:nth-child(${ variant })`).trigger('click');
             document.addEventListener('TRAY:VARIANT',() => {
                 $('#quant').val(result);
@@ -126,3 +126,6 @@ $('.calculator__back').click(() => {
     $('#calculator__height').val('');
 });
 
+$('.calculator').on('click', '.button-buy', function(){
+    $('#button-buy').trigger('click');
+});
