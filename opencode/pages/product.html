@@ -1,8 +1,26 @@
+{% set calculator = false  %}
+{% set activeCategory = 1 %}
+{% if product.category_id == activeCategory %}
+{% set calculator = true %}
+{% else %}
+    {% for category in categories %} 
+        {% if category.id == activeCategory %}
+            {% for child in category.children %}
+                {% if child.id == product.category_id %}
+                    {% set calculator = true %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
 {% if banner.title %}
     <div class="banner banner--product">
         {{ banner.title }}
     </div>
 {% endif %}
+
+
 
 {% element 'snippets/breadcrumb' { "class": 'breadcrumb'} %}
 
@@ -58,12 +76,14 @@
             
             {% if product.available != 0 %}
             {{ productHelper.variants() }}
+            {{ product.additional_information }}
             {% endif %}
-
+            {% if calculator %}
             <button aria-controls="light-calculator" type="button" class="button button__calculator">
                 {% element 'snippets/icon' { name: 'icon-calculator', width: '17', height: '22' } %}
                 <span>CALCULAR QUANTIDADE DE ROLOS</span>    
             </button>
+            {% endif %}
 
             <div class="page-product__prices">
                 <div data-module="pricing" data-snippet="snippets/pricing" data-product-id="{{ product.id }}">
@@ -74,7 +94,7 @@
             </div>
 
             {{ productHelper.gifts() }}
-            {{ product.additional_information }}
+            
             <div class="page-product__actions">
             {{ productHelper.form() }}
             </div>

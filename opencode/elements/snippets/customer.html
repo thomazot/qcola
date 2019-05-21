@@ -12,12 +12,10 @@
         <div class="customer__main">
             <div>
                 <div class="customer__links">
-                    <a href="{{ links.orders }}" data-tray-tst="meus_pedidos" title="Minha Conta" >
-                        Minha Conta
-                        <i class="customer__icon">
-                            {% element 'snippets/icon' { 'name': 'next', 'width': '5', 'height': '10' } %}
-                        </i>
-                    </a>
+                    <a href="{{ links.orders }}" data-tray-tst="meus_pedidos" title="Minha Conta" >Minha Conta</a>{% if modifier == 'navigation' and customer.logged == '1' %}, <a href="/loja/logout.php?loja={{ store.id }}">Sair</a>{% endif %}
+                    <i class="customer__icon">
+                        {% element 'snippets/icon' { 'name': 'next', 'width': '5', 'height': '10' } %}
+                    </i>
                 </div>
             </div>
         </div>

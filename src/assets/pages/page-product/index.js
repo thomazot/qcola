@@ -37,6 +37,9 @@ buttonMoreLess();
 $(document).on('TRAY:VARIANT_FORM', function(){
     buttonMoreLess();
 });
+document.addEventListener('TRAY:VARIANT',() => {
+    buttonMoreLess();
+}, false);
 // Mask Input 
 const calculatorForm = $('#calculator');
 const calculatorWidth = document.querySelector('#calculator__width');
@@ -82,13 +85,31 @@ calculatorForm.submit(function(evt){
         const resultHTML = $('#calculator__result');
 
         const result = Math.ceil((cWidth) / .60);
-        const HTML = `<div class="suss">Você irá precisar <strong>${result}</strong> <span class="n">rolo(s)</span></div>`;
+        let HTML = `<strong>0,60 x 1,50 metros</strong>`;
+        let variant = 1;
 
-        if( cHeight < 4 ) {
-            resultHTML.html(HTML);
+        if( cHeight > 1.5 && cHeight <= 2.5 ){
+            HTML = `<strong>0,60 x 2,50 metros</strong>`;
+            variant = 2;
+        } else if(cHeight > 2.5 && cHeight <= 3) {
+            HTML = `<strong>0,60 x 3,00 metros</strong>`;
+            variant = 3;
+        }
+
+        if( cHeight <= 3 ) {
+            resultHTML.html(`<div class="suss">Você irá precisar de ${ result } Rolo(s) ${ HTML }</div>`);
+            $(`.lista_cor_variacao li:nth-child(${ variant })`).trigger('click');
+            document.addEventListener('TRAY:VARIANT',() => {
+                $('#quant').val(result);
+            }, false);
+            
         } else {
             const err = '<div class="err"> Cada rolo mede <strong>3m de largura</strong>, para larguras maiores entre em  <a href="/contato">contato</a>.</div>';
             resultHTML.html(err);
+            $(`.lista_cor_variacao li:nth-child(1)`).trigger('click');
+            document.addEventListener('TRAY:VARIANT',() => {
+                $('#quant').val(1);
+            }, false);
         }
 
         $('.calculator__result').attr('aria-hidden', 'false');

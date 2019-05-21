@@ -1,7 +1,7 @@
+{% set limitProducts = 8 %}
+
 {% if settings.limitProducts %}
-    {% set limitProducts = settings.limitProducts %}
-{% else %}
-    {% set limitProducts = 8 %}
+    {% set limitProducts = settings.limitProducts %}    
 {% endif %}
 
 {% set showAvailable = settings.show_available_products ? 'available' %}
@@ -10,7 +10,7 @@
     'filter': showAvailable,
     'limit': limitProducts,
     'order': {'price': 'asc'},
-    'categories': [309]
+    'categories': [1]
 }) %}   
 {% element 'showcase' {
     "products": products,

@@ -1,10 +1,14 @@
 {% spaceless %}
+{% set currentClass = '' %}
+{% if pages.current in ['catalog'] %}
+{% set currentClass = "page-" ~ pages.current ~ '--' ~ category.id %}
+{% endif %}
 <!doctype html>
-<html lang="pt-br" data-theme="{{ settings.extension_id }}" data-store="{{ store.id }}" class="page-{{ pages.current }}">
+<html lang="pt-br" data-theme="{{ settings.extension_id }}" data-store="{{ store.id }}" class="page-{{ pages.current }} {{ currentClass }}">
 <head>
 
     <!-- tray charset -->
-    <meta charset="utf-8">
+    {{ html.charset() }}
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,minimum-scale=1">
 
