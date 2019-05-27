@@ -6,22 +6,24 @@ const elementInstaFeed = document.querySelector('#instafeed');
 
 
 if(elementInstaFeed) {
-    const token = elementInstaFeed.getAttribute('data-token') | "3083782076.1677ed0.8c508cd2419943809b30bd23819095e8";
-    const userFeed = new Instafeed({
-        get: 'user',
-        userId: '3083782076',
-        accessToken: token,
-        limit: 10,
-        resolution: 'standard_resolution',
-        template: `
-        <div class="instagram__item">
-            <a href="{{link}}" class="instagram__link"><img src="{{image}}"></a>
-        </div>
-        `,
-        after: () => addCarouselInstagram()
-    });
+    const token = elementInstaFeed.getAttribute('data-token');
+    if(token) {
+        const userFeed = new Instafeed({
+            get: 'user',
+            userId: '3083782076',
+            accessToken: token,
+            limit: 10,
+            resolution: 'standard_resolution',
+            template: `
+            <div class="instagram__item">
+                <a href="{{link}}" class="instagram__link"><img src="{{image}}"></a>
+            </div>
+            `,
+            after: () => addCarouselInstagram()
+        });
 
-    userFeed.run();
+        userFeed.run();
+    }
 }
 function addCarouselInstagram(){
 
