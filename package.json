@@ -58,7 +58,7 @@
     "webpack-cli": "^3.3.2"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "babel-plugin-dynamic-import-webpack": "^1.1.0",
     "inputmask": "^4.0.8",
     "instafeed.js": "^1.4.1",
